@@ -6,26 +6,36 @@
 
 .gnb {
   background-color: var(--button-color);
+  width: 100%;
+  height: 70px;
   position: sticky;
   top: 0px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.gnb-container {
+  max-width: 1520px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.gnb-left-box {
+.gnb-logo-box {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-grow: 1;
-  text-decoration: none;
-  margin: 9px 200px;
 }
 
 .gnb-logo-title {
   font-size: 25.63px;
   font-weight: 700;
   color: var(--primary-color);
-  font-family: "ROKAF-Sans";
   line-height: 34.6px;
 }
 
@@ -42,8 +52,6 @@
   line-height: 19px;
   text-align: center;
   color: var(--button-color);
-  text-decoration: none;
-  margin: 9px 200px;
 }
 
 /* banner */
@@ -52,7 +60,8 @@
   background-color: var(--background-color);
   height: 540px;
   width: 100%;
-  display: flex;
+  position: relative;
+  display: flex; /* 도저히 banner-box가 수직정렬이 안되서 사용했습니다.*/
   align-items: center;
   justify-content: center;
 }
@@ -61,6 +70,10 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 2; /* 화면을 줄일시 판다이미지에 가려져서 z값을 사용했습니다. */
 }
 
 .banner-text {
@@ -70,60 +83,61 @@
   color: var(--text-color);
 }
 
-.banner-button-box {
+.banner-button {
   background-color: var(--primary-color);
   border-radius: 40px;
   width: 355px;
   height: 56px;
   padding: 16px 122px 16px 124px;
-}
-
-.banner-button {
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  text-decoration: none;
   color: var(--button-color);
 }
 
 .banner-image {
-  margin-top: 96px;
+  position: absolute;
+  right: 223px;
+  bottom: -3px; /* 바텀 0px이 맞지만 그렇게하면 배경 이미지가 피그마랑 다르게나옵니다;;*/
 }
 
 /* main */
-
-.main-odd,
-.main-even {
+.main-container {
   display: flex;
-  margin: 138px auto;
-  width: 1200px;
+  flex-direction: column;
+  gap: 138px;
+}
+
+.main-box {
+  display: flex;
+  margin: 138px auto 0;
+  max-width: 1200px;
+  width: 100%;
   gap: 64px;
   align-items: center;
 }
 
-.main-even {
+.main-box:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-.main-odd-textbox,
-.main-even-textbox {
+.main-textbox {
   display: flex;
   flex-direction: column;
 }
 
-.main-even-textbox {
+.main-box:nth-child(even) .main-textbox {
   align-items: flex-end;
 }
 
-.main-basis-text1 {
+.main-item {
   color: var(--primary-color);
   font-size: 18px;
   line-height: 25.2px;
   font-weight: 700;
 }
 
-.main-odd-text2,
-.main-even-text2 {
+.main-title {
   color: var(--text-color);
   font-size: 40px;
   line-height: 56px;
@@ -133,8 +147,7 @@
   margin-bottom: 24px;
 }
 
-.main-odd-text3,
-.main-even-text3 {
+.main-description {
   color: var(--text-color);
   font-size: 24px;
   line-height: 28.8px;
@@ -142,14 +155,15 @@
   letter-spacing: 0.08em;
 }
 
-.main-even-text2,
-.main-even-text3 {
+.main-box:nth-child(even) .main-title,
+.main-box:nth-child(even) .main-description {
   text-align: right;
 }
 
 /* bottom banner*/
 
 .banner-bottom {
+  position: relative;
   background-color: var(--background-color);
   height: 540px;
   width: 100%;
@@ -178,7 +192,7 @@ footer {
   color: var(--gray400-color);
   font-size: 16px;
   font-weight: 400;
-  line-height: 19.09px;
+  line-height: 20.39px;
 }
 
 .footer-center-box {
@@ -197,4 +211,327 @@ footer {
 .footer-right-box {
   display: flex;
   gap: 12px;
+}
+
+/* Tablet */
+
+@media (max-width: 1200px) {
+  /* header */
+  .gnb-container {
+    margin: auto 16px;
+  }
+
+  /* banner */
+
+  .banner {
+    height: 771px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .banner-box {
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin: 84px auto;
+    width: 100%;
+  }
+
+  .banner-text {
+    font-size: 32px;
+    line-height: 44.8px;
+    text-align: center;
+  }
+
+  .banner-text br {
+    display: none;
+  }
+
+  .banner-button {
+    border-radius: 40px;
+    width: 355px;
+    height: 56px;
+    padding: 16px 122px 16px 124px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .banner-image {
+    left: auto;
+    right: auto;
+  }
+
+  .banner-image img {
+    height: 447px;
+  }
+  /* main */
+
+  main {
+    padding: 0 24px;
+  }
+
+  .main-container {
+    gap: 13px;
+  }
+
+  .main-box {
+    flex-direction: column;
+    margin: 0 auto 51px;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .main-box > img {
+    width: 100%;
+    height: 100%;
+    background-size: color;
+  }
+
+  .main-box:nth-child(even) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .main-textbox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-box:nth-child(even) .main-textbox {
+    align-items: flex-end;
+  }
+
+  .main-item {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .main-title {
+    font-size: 32px;
+    line-height: 44.8px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+
+  .main-title br {
+    display: none;
+  }
+
+  .main-description {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+
+  .main-box:nth-child(even) .main-title,
+  .main-box:nth-child(even) .main-description {
+    text-align: right;
+  }
+
+  /* bottom banner*/
+
+  .banner-bottom {
+    height: 927px;
+    position: relative;
+    margin-top: 29px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .banner-bottom > img {
+    position: absolute;
+    bottom: 0px;
+    height: 540px;
+  }
+
+  .banner-bottom > .banner-text {
+    margin-top: 201px;
+  }
+
+  .banner-bottom br {
+    display: inline;
+  }
+
+  /* footer */
+
+  .footer-box {
+    flex-wrap: wrap;
+    padding: 32px 32px 0;
+    gap: 13.89px;
+  }
+
+  .footer-left-text {
+    line-height: 20.39px;
+    order: initial;
+    margin-left: 72px;
+  }
+
+  .footer-center-text {
+    line-height: 20.39px;
+  }
+
+  .footer-right-box {
+    margin-right: 72px;
+  }
+}
+
+/* mobile*/
+
+@media (max-width: 768px) {
+  /* header */
+
+  .gnb-container {
+    margin: auto 16px;
+  }
+
+  .gnb-logo-box img {
+    display: none;
+  }
+
+  /* banner */
+
+  .banner {
+    height: 540px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  .banner-box {
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 48px auto;
+    width: 100%;
+  }
+
+  .banner-text {
+    font-size: 32px;
+    line-height: 44.8px;
+    text-align: center;
+  }
+
+  .banner-text br {
+    display: inline;
+  }
+
+  .banner-button {
+    border-radius: 24px;
+    width: 154px;
+    height: 48px;
+    padding: 16px 20px; /*모양 망가져서 일시적으로 수치를 좀다르게함16px 20px*/
+    font-size: 16px;
+    line-height: 19.09px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .banner-image {
+    left: auto;
+    right: auto;
+  }
+
+  .banner-image img {
+    height: 281px;
+  }
+  /* main */
+
+  main {
+    padding: 0 16px;
+  }
+
+  .main-container {
+    gap: 13px;
+  }
+
+  .main-box {
+    margin: 51px auto 0;
+  }
+
+  .main-box > img {
+    width: 100%;
+    height: 100%;
+    background-size: color;
+  }
+
+  .main-box:nth-child(even) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .main-textbox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-box:nth-child(even) .main-textbox {
+    align-items: flex-end;
+  }
+
+  .main-item {
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+
+  .main-title {
+    font-size: 24px;
+    line-height: 33.6px;
+    margin-top: 8px;
+  }
+
+  .main-description {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  .main-box:nth-child(even) .main-title,
+  .main-box:nth-child(even) .main-description {
+    text-align: right;
+  }
+
+  /* bottom banner*/
+
+  .banner-bottom {
+    position: relative;
+    height: 540px;
+    margin-top: 64px;
+  }
+
+  .banner-bottom > img {
+    position: absolute;
+    bottom: 0px;
+    height: 269.95px;
+  }
+
+  .banner-bottom > .banner-text {
+    margin-top: 121px;
+  }
+
+  /* footer */
+
+  .footer-box {
+    flex-wrap: wrap;
+    padding: 32px 32px 0;
+    gap: 0;
+  }
+
+  .footer-left-text {
+    line-height: 18.4px;
+    order: 1;
+    width: 100%;
+    margin-top: 60px;
+    margin-left: 0;
+  }
+
+  .footer-center-text {
+    line-height: 18.4px;
+  }
+
+  .footer-right-box {
+    margin-right: 0px;
+  }
 }
