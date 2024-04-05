@@ -9,6 +9,7 @@
   --sign-color: #1f2937;
   --input-color: #f3f4f6;
   --sign-button-color: #9ca3af;
+  --input-error-color: #f74747;
 }
 
 @font-face {
@@ -34,4 +35,14 @@ body {
 
 .font-heading {
   font-family: "ROKAF-Sans";
+}
+
+.sub-title {
+  color: var(--text-color);
+  font-size: 40px;
+  line-height: 56px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-top: 12px;
+  margin-bottom: 24px;
 }

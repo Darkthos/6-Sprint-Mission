@@ -29,24 +29,17 @@
           <label for="password">비밀번호</label>
           <div class="password-box">
             <input id="password" name="password" placeholder="비밀번호를 입력해주세요" type="password" />
-            <span id="togglePassword" onclick="Visibility('password')"><img src="./image/icon/invisible.svg" /></span>
+            <img id="toggle-password" src="./image/icon/invisible.svg" />
           </div>
         </div>
         <div>
-          <label for="re-password">비밀번호 확인</label>
+          <label for="repassword">비밀번호 확인</label>
           <div class="password-box">
-            <input
-              id="re-password"
-              name="re-password"
-              placeholder="비밀번호를 다시 한 번 입력해주세요"
-              type="password"
-            />
-            <span id="toggleRePassword" onclick="Visibility2('re-password')"
-              ><img src="./image/icon/invisible.svg"
-            /></span>
+            <input id="repassword" name="repassword" placeholder="비밀번호를 다시 한 번 입력해주세요" type="password" />
+            <img id="toggle-repassword" src="./image/icon/invisible.svg" />
           </div>
         </div>
-        <button>회원가입</button>
+        <button class="sign-form__button">회원가입</button>
         <div class="social-login">
           <p class="description">간편 로그인하기</p>
           <div class="button-box">
@@ -60,6 +53,8 @@
         </div>
       </form>
     </main>
-    <script src="./signup.js"></script>
+    <script src="./sign.js"></script>
+    <script src="./password-eye.js"></script>
+    <script src="./sign-button.js"></script>
   </body>
 </html>

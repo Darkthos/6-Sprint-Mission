@@ -17,7 +17,7 @@
 
 .sign-title {
   color: var(--primary-color);
-  font-weight: 700px;
+  font-weight: 700;
   font-size: 66.34px;
   line-height: 89.56px;
   padding: 10.99px 4.23px 2.88px 0;
@@ -47,7 +47,7 @@
   background-color: var(--input-color);
   color: var(--gray400-color);
   border-radius: 12px;
-  border: none;
+  border: 2px;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -62,19 +62,33 @@
   outline: none;
 }
 
+.sign-form input.error-input {
+  border: 2px solid var(--input-error-color);
+}
+
 .password-box {
   position: relative;
 }
 
-#togglePassword,
-#toggleRePassword {
+.error-text {
+  color: var(--input-error-color);
+  font-size: 15px;
+  line-height: 17.9px;
+  font-weight: 600;
+  margin: 8px 0 0 16px;
+}
+
+#toggle-password,
+#toggle-repassword {
   position: absolute;
+  width: 24px;
+  height: 24px;
   right: 24px;
   top: 16px;
   cursor: pointer;
 }
 
-.sign-form > button {
+.sign-form__button {
   background-color: var(--sign-button-color);
   width: 100%;
   margin: 0 auto;
@@ -90,17 +104,17 @@
   cursor: pointer;
 }
 
-.sign-form button.active {
+.sign-form__button.active {
   background-color: var(--primary-color);
 }
 
-.sign-form button.disabled {
+.sign-form__button.passive {
   background-color: var(--sign-button-color);
 }
 
-.sign-form button:hover {
+/* .sign-form__button:hover {
   background-color: var(--primary-color);
-}
+} */
 
 .social-login {
   background-color: #e6f2ff;
