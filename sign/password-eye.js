@@ -11,8 +11,8 @@ const invisibleToggle = (e) => {
 
 // 눈 모양 변경 및 비밀번호재확인 인풋 타입 바꾸는 함수
 const reinvisibleToggle = (e) => {
-  const imageSrc = isPasswordVisible ? "visible" : "invisible"; // 복붙.
-  e.target.src = `../image/icon/${imageSrc}.svg`;
+  const reImageSrc = isConfirmPasswordVisible ? "visible" : "invisible"; // 복붙.
+  e.target.src = `../image/icon/${reImageSrc}.svg`;
   repasswordInput.type = isConfirmPasswordVisible ? "text" : "password";
   isConfirmPasswordVisible = !isConfirmPasswordVisible;
 };
