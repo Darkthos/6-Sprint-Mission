@@ -11,12 +11,29 @@ const signButtonstatus = (e) => {
   ) {
     signButton.classList.add("active");
     signButton.classList.remove("passive");
+    signButton.href.remove();
   } else {
     signButton.classList.add("passive");
     signButton.classList.remove("active");
   }
 };
 
+// 활성화된 로그인 버튼을 누르면 signin에서 item이동 함수
+const moveSigninToItem = (e) => {
+  if (signButton.classList.contains("active") && nickNameInput === null) {
+    e.target.href = "../items.html";
+  }
+};
+
+//활성화된 로그인 버튼을 누르면 signup에서 signin이동 함수
+const moveSignupToSignin = (e) => {
+  if (signButton.classList.contains("active") && nickNameInput !== null) {
+    e.target.href = "./signin.html";
+  }
+};
+
+signButton.addEventListener("click", moveSignupToSignin);
+signButton.addEventListener("click", moveSigninToItem);
 emailInput.addEventListener("keyup", signButtonstatus);
 passwordInput.addEventListener("keyup", signButtonstatus);
 nickNameInput.addEventListener("keyup", signButtonstatus);
