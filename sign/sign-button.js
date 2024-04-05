@@ -6,7 +6,7 @@ const signButtonstatus = (e) => {
     emailInput.value.includes(".") &&
     passwordInput.className !== "error-input" &&
     passwordInput.value.length > 7 &&
-    (nickNameInput === null || nickNameInput.value.length > 0) &&
+    (nickNameInput === null || nickNameInput.value.length > 0) && // signin에서는 닉네임이 없으니 조건평가x
     (repasswordInput === null || repasswordInput.value === passwordInput.value)
   ) {
     signButton.classList.add("active");
@@ -15,20 +15,21 @@ const signButtonstatus = (e) => {
   } else {
     signButton.classList.add("passive");
     signButton.classList.remove("active");
+    signButton.removeAttribute("href");
   }
 };
 
 // 활성화된 로그인 버튼을 누르면 signin에서 item이동 함수
 const moveSigninToItem = (e) => {
   if (signButton.classList.contains("active") && nickNameInput === null) {
-    e.target.href = "../items.html";
+    e.target.setAttribute("href", "../items.html");
   }
 };
 
 //활성화된 로그인 버튼을 누르면 signup에서 signin이동 함수
 const moveSignupToSignin = (e) => {
   if (signButton.classList.contains("active") && nickNameInput !== null) {
-    e.target.href = "./signin.html";
+    e.target.setAttribute("href", "./signin.html");
   }
 };
 
