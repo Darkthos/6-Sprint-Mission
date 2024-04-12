@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "~assets/*": [
+        "src/assets/*"
+      ],
+      "~css/*": [
+        "src/css/*"
+      ],
+      "~font/*": [
+        "src/font/*"
+      ],
+      "~pages/*": [
+        "src/pages/*"
+      ],
+      "~/*": [
+        "src/*"
+      ],
+      "~utils/*": [
+        "src/utils/*"
+      ],
+      "~components/*": [
+        "src/components/*"
+      ],
+      "~api/*": [
+        "src/api/*"
+      ],
+      "~새 폴더/*": [
+        "src/assets/새 폴더/*"
+      ],
+      "~product/*": [
+        "src/assets/product/*"
+      ],
+      "~items/*": [
+        "src/assets/items/*"
+      ]
+    }
+  }
+}
