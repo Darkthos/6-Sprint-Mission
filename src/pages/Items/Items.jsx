@@ -1,19 +1,30 @@
+import { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import Header from "~/components/Items/Header/Header";
-import BottomSection from "~/components/Items/Sections/BottomSection/BottomSection";
-import Pagenation from "~/components/Items/Sections/Footer/Pagenation";
-
-import TopSection from "~/components/Items/Sections/TopSection/TopSection";
+import { axiosInstance } from "~/apis/axiosInstance";
+import BestProductSection from "~/components/Items/BestProductSection";
+import CommonProductSection from "~/components/Items/CommonProductSection";
+import ItemsHeader from "~/components/Items/ItemsHeader";
+import ProductControlPanel from "~/components/Items/ProductControlPanel/ProductControlPanel";
 
 function Items() {
+  // const [productList, setProductList] = useState([]);
+  // const [count, setTotalCount] = useState(0);
+  // useEffect(() => {
+  //   axiosInstance
+  //     .get("/products")
+  //     .then((response) => response.data)
+  //     .then((data) => {
+  //       setProductList(data?.list);
+  //       setTotalCount(data?.totalCount);
+  //       const loadProducts = data.list[0].images;
+  //     });
+  // }, []);
   return (
     <>
-      <Header />
-      <ItemsTag>
-        <TopSection />
-        <BottomSection />
-        <Pagenation />
-      </ItemsTag>
+      <ItemsHeader />
+      <BestProductSection />
+      <ProductControlPanel />
+      <CommonProductSection />
     </>
   );
 }

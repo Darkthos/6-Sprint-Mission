@@ -11,4 +11,5 @@ export const SubTitleText = styled.h3`
   line-height: 28px;
   letter-spacing: 0.02em;
   color: #111827;
+  margin-left: 16px;
 `;

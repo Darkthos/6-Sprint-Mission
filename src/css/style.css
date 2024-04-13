@@ -29,7 +29,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-grow: 1;
 }
 
 .gnb__logo.small {
@@ -55,6 +54,7 @@
   line-height: 19px;
   text-align: center;
   color: var(--button-color);
+  flex-shrink: 0;
 }
 
 .gnb__login-button.small {

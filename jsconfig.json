@@ -24,17 +24,14 @@
       "~components/*": [
         "src/components/*"
       ],
-      "~api/*": [
-        "src/api/*"
+      "~service/*": [
+        "src/service/*"
       ],
-      "~새 폴더/*": [
-        "src/assets/새 폴더/*"
+      "~apis/*": [
+        "src/apis/*"
       ],
-      "~product/*": [
-        "src/assets/product/*"
-      ],
-      "~items/*": [
-        "src/assets/items/*"
+      "~Items/*": [
+        "src/components/Items/*"
       ]
     }
   }

@@ -16,6 +16,7 @@ const ProductContainer = ({ text, img }) => {
     </ProductBox>
   );
 };
+
 export default ProductContainer;
 export const ProductBox = styled.div`
   display: flex;

@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
 
-function Price({ text }) {
-  return <PriceText>{text}</PriceText>;
+function Price({ price }) {
+  const formattedPrice = new Intl.NumberFormat().format(price);
+  return <PriceText>{formattedPrice}</PriceText>;
 }
 
 export default Price;
