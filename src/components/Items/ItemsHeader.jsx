@@ -18,12 +18,23 @@ function ItemsHeader() {
 
 export default ItemsHeader;
 export const ItemsHeaderTag = styled.div`
+  @media screen and (min-width: 1201px) {
+    gap: 32px;
+  }
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
+    gap: 20px;
+  }
   display: flex;
   gap: 16px;
   justify-content: space-between;
   align-items: center;
   height: 70px;
   margin: 0 16px 0;
+  position: sticky;
+  top: 0px;
+  z-index: 3;
+  background-color: white;
+  border-bottom: 1px solid #dfdfdf;
 `;
 export const HeadNavBox = styled.div`
   display: flex;
