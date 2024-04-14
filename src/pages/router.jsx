@@ -5,6 +5,7 @@ import { SignIn } from "./SignIn";
 import { Home } from "./Home";
 import { Items } from "./Items";
 import { ROUTER_LINKS } from "~/utils/constant";
+import { AddItem } from "./AddItem";
 
 export const router = createBrowserRouter([
   {
@@ -23,4 +24,5 @@ export const router = createBrowserRouter([
     path: ROUTER_LINKS.items,
     element: <Items />,
   },
+  { path: ROUTER_LINKS.additem, element: <AddItem /> },
 ]);

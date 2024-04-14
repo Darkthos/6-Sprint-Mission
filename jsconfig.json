@@ -30,8 +30,8 @@
       "~apis/*": [
         "src/apis/*"
       ],
-      "~Items/*": [
-        "src/components/Items/*"
+      "~AddItem/*": [
+        "src/pages/AddItem/*"
       ]
     }
   }

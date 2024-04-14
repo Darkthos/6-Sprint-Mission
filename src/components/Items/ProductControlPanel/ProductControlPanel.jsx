@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Button from "~/components/auth/Button";
 import ProductOrderBy from "./ProductOrderBy";
 import ProductSearch from "./ProductSearch";
+import { ROUTER_LINKS } from "~/utils/constant";
 
 function ProductControlPanel(props) {
   return (
@@ -9,7 +10,7 @@ function ProductControlPanel(props) {
       <SubTitleTag>판매 중인 상품</SubTitleTag>
       <ProductSearch text="검색할 상품을 입력해주세요." />
       <ButtonTag>
-        <Button size="small" text="상품 등록하기" />
+        <Button size="small" text="상품 등록하기" link={ROUTER_LINKS.additem} />
       </ButtonTag>
       <ProductOrderBy text="최신순" />
     </ProductControlPanelTag>
