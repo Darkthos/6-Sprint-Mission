@@ -3,24 +3,40 @@ import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
 import CommonProduct from "./CommonProduct";
 import Pagination from "./Pagination";
+import ProductControlPanel from "./ProductControlPanel/ProductControlPanel";
 
 function CommonProductSection({ productLists }) {
-  function sortByFavoriteCount(products) {
-    return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
-  }
-  sortByFavoriteCount(productLists);
+  const [commonProducts, setCommonProducts] = useState([]);
+  const [sortBy, setSortBy] = useState("id");
+
+  const sortByFavoriteCount = (products) => {
+    return products.sort((a, b) => a[sortBy] - b[sortBy]);
+  };
+
+  const handleFavoriteSortBy = () => {
+    setSortBy("favoriteCount");
+  };
+
+  const handleUpdatedSortBy = () => {
+    setSortBy("updated");
+  };
+
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
   const isIpadMini = useMediaQuery({ query: "(min-width: 744px)" });
 
   const prevPageSize = isPc ? 4 : isIpadMini ? 2 : 1;
   const nextPageSize = isPc ? 14 : isIpadMini ? 8 : 5;
   const perPageSize = isPc ? 5 : isIpadMini ? 3 : 2;
-  const productsToShow = productLists.slice(prevPageSize, nextPageSize);
+  let productsToShow = productLists.slice(prevPageSize, nextPageSize);
+  useEffect(() => {
+    sortByFavoriteCount(productsToShow);
+  }, [sortBy]);
 
   return (
     <>
+      <ProductControlPanel onFavoriteSortBy={handleFavoriteSortBy} onUpdatedSortBy={handleUpdatedSortBy} />
       <GridProductTag>
-        {productsToShow.slice().map((product) => {
+        {productsToShow.map((product) => {
           return (
             <CommonProduct
               key={product.id}
@@ -49,7 +65,6 @@ export const GridProductTag = styled.div`
     grid-row-gap: 40px;
     grid-column-gap: 24px;
     margin: 24px auto 40px;
-    min-width: 1201px;
   }
   @media screen and (min-width: 744px) and (max-width: 1200px) {
     grid-template-columns: repeat(3, 221px);
@@ -60,7 +75,7 @@ export const GridProductTag = styled.div`
   }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 32px; /* 행 간격을 10px로 설정합니다. */
+  grid-row-gap: 32px;
   grid-column-gap: 8px;
   margin: 16px auto 40px;
   width: 100%;

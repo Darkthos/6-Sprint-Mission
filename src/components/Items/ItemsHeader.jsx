@@ -3,14 +3,17 @@ import HeadLogo from "../auth/HeadLogo";
 import HeadNav from "../auth/HeadNav";
 import Button from "../auth/Button";
 import { ROUTER_LINKS } from "~/utils/constant";
+import { useLocation } from "react-router-dom";
 
 function ItemsHeader() {
+  const location = useLocation();
+
   return (
     <ItemsHeaderTag>
       <HeadLogo />
       <HeadNavBox>
         <HeadNav text="자유게시판" />
-        <HeadNav text="중고마켓" />
+        <HeadNav text="중고마켓" isActive={location.pathname === "/items"} />
       </HeadNavBox>
       <Button text="로그인" size="small" link={ROUTER_LINKS.signin} />
     </ItemsHeaderTag>

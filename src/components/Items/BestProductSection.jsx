@@ -46,7 +46,10 @@ export const FlexProductTag = styled.div`
 `;
 export const BestSubTitleTag = styled.div`
   @media screen and (min-width: 1201px) {
+    margin: 24px 0 16px;
   }
   @media screen and (min-width: 744px) and (max-width: 1200px) {
+    margin: 24px 0 16px;
   }
+  margin: 16px 0 16px;
 `;

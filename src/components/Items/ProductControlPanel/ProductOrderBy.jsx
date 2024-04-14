@@ -1,17 +1,32 @@
+import { useEffect, useState } from "react";
 import { styled } from "styled-components";
+import Dropdown from "~/components/auth/Dropdown";
 import orderByIcon from "~assets/icon/sort.png";
 
-function ProductOrderBy({ text }) {
+function ProductOrderBy({ text = "최신순", onFavoriteSortBy, onUpdatedSortBy }) {
+  const [isView, setIsView] = useState(false);
+
+  const handleClickDropbox = () => {
+    isView ? setIsView(false) : setIsView(true);
+  };
+
+  const handleBlurDropbox = () => {
+    setTimeout(() => {
+      setIsView(false);
+    }, 200);
+  };
+
   return (
-    <ProductOrderByTag>
+    <ProductOrderByTag onClick={handleClickDropbox} tabIndex={0} onBlur={handleBlurDropbox}>
       <ProductOrderBySelect>{text}</ProductOrderBySelect>
       <img src={orderByIcon} />
+      <Dropdown view={isView} onFavoriteSortBy={onFavoriteSortBy} onUpdatedSortBy={onUpdatedSortBy} />
     </ProductOrderByTag>
   );
 }
 
 export default ProductOrderBy;
-export const ProductOrderByTag = styled.div`
+export const ProductOrderByTag = styled.a`
   @media screen and (min-width: 1201px) {
     position: relative;
     width: 130px;
@@ -36,8 +51,9 @@ export const ProductOrderByTag = styled.div`
   bottom: 0px;
   right: 0px;
   border: 1px solid #e5e7eb;
+  cursor: pointer;
 `;
-export const ProductOrderBySelect = styled.p`
+export const ProductOrderBySelect = styled.a`
   @media screen and (min-width: 1201px) {
   }
   @media screen and (min-width: 744px) {

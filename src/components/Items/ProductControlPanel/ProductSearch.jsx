@@ -23,7 +23,13 @@ export const ProductSearchbox = styled.div`
   left: 0px;
 `;
 export const ProductSearchTag = styled.input`
-  width: 294px;
+  @media screen and (min-width: 1201px) {
+    width: 332px;
+  }
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
+    width: 242px;
+  }
+  width: 254px;
   height: 42px;
   border-radius: 12px;
   border: none;

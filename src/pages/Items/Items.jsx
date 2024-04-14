@@ -22,15 +22,16 @@ function Items() {
   // }, []);
   const [productLists, setProductLists] = useState([]);
 
-  async function loadBestProduct() {
+  async function loadProduct() {
     let result;
     result = await getProducts();
     const { list } = result;
     setProductLists(list);
+    console.log(list);
   }
 
   useEffect(() => {
-    loadBestProduct();
+    loadProduct();
   }, []);
 
   return (
@@ -38,7 +39,7 @@ function Items() {
       <ItemsHeader />
       <ItemsMain>
         <BestProductSection productLists={productLists} />
-        <ProductControlPanel />
+
         <CommonProductSection productLists={productLists} />
       </ItemsMain>
     </>
@@ -47,8 +48,9 @@ function Items() {
 
 export default Items;
 export const ItemsMain = styled.div`
-  max-width: 1201px;
+  max-width: 1249px;
   width: 100%;
   margin: auto;
   padding: 0 24px 0 24px;
+  position: relative;
 `;

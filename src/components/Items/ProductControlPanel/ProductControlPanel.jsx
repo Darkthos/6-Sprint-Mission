@@ -4,7 +4,7 @@ import ProductOrderBy from "./ProductOrderBy";
 import ProductSearch from "./ProductSearch";
 import { ROUTER_LINKS } from "~/utils/constant";
 
-function ProductControlPanel(props) {
+function ProductControlPanel({ onFavoriteSortBy, onUpdatedSortBy }) {
   return (
     <ProductControlPanelTag>
       <SubTitleTag>판매 중인 상품</SubTitleTag>
@@ -12,7 +12,7 @@ function ProductControlPanel(props) {
       <ButtonTag>
         <Button size="small" text="상품 등록하기" link={ROUTER_LINKS.additem} />
       </ButtonTag>
-      <ProductOrderBy text="최신순" />
+      <ProductOrderBy onFavoriteSortBy={onFavoriteSortBy} onUpdatedSortBy={onUpdatedSortBy} />
     </ProductControlPanelTag>
   );
 }

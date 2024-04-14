@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 import { ROUTER_LINKS } from "~/utils/constant";
 
-function HeadNav({ text, link }) {
-  return <HeadNavTag to={link}>{text}</HeadNavTag>;
+function HeadNav({ text, link, isActive }) {
+  const location = useLocation();
+
+  return (
+    <HeadNavTag to={link} isActive={isActive}>
+      {text}
+    </HeadNavTag>
+  );
 }
 
-export default HeadNav; //a태그에서 link로 바꾸고 프롬에따라 주소 정해주기
+export default HeadNav;
 export const HeadNavTag = styled(Link)`
   @media screen and (min-width: 1201px) {
     width: 109px;
@@ -21,5 +27,5 @@ export const HeadNavTag = styled(Link)`
   line-height: 19.09px;
   text-align: center;
   font-weight: 700;
-  color: #4b5563;
+  color: ${(props) => (props.isActive ? "#3692FF" : "#4B5563")};
 `;
