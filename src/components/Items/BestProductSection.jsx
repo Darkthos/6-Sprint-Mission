@@ -1,31 +1,20 @@
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
-import getProducts from "~/apis/productapi";
 import BestProduct from "./BestProduct";
 import SubTitle from "../auth/Text/SubTitle";
 
-function BestProductSection() {
-  const [bestProduct, setBestProduct] = useState([]);
+function BestProductSection({ productLists }) {
   function sortByFavoriteCount(products) {
     return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
   }
 
-  async function loadBestProduct() {
-    let result;
-    result = await getProducts();
-    const { list } = result;
-    setBestProduct(sortByFavoriteCount(list));
-  }
-
-  useEffect(() => {
-    loadBestProduct();
-  }, []);
+  sortByFavoriteCount(productLists);
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
   const isIpadMini = useMediaQuery({ query: "(min-width: 744px)" });
 
   const perPageSize = isPc ? 4 : isIpadMini ? 2 : 1;
-  const productsToShow = bestProduct.slice(0, perPageSize);
+  const productsToShow = productLists.slice(0, perPageSize);
 
   return (
     <>

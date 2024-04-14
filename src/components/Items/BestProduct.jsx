@@ -7,9 +7,11 @@ function BestProduct({ id, src, text, price, favorite }) {
   return (
     <ProductBox>
       <BestProductImg id={id} src={src} />
-      <Description text={text + " 팝니다"} />
-      <Price price={price} />
-      <Favorite favorite={favorite} />
+      <ProductTextBox>
+        <Description text={text + " 팝니다"} />
+        <Price price={price} />
+        <Favorite favorite={favorite} />
+      </ProductTextBox>
     </ProductBox>
   );
 }
@@ -24,10 +26,10 @@ export const BestProductImg = styled.img`
   @media screen and (min-width: 1201px) {
     max-width: 282px;
   }
-  @media screen and (min-width: 744px) {
-    max-width: 336px;
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
+    min-width: 336px;
   }
-  min-width: 343px;
+  min-width: 282px;
   width: 100%;
   border-radius: 19.46px;
 `;

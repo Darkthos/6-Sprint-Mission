@@ -7,9 +7,11 @@ function CommonProduct({ id, src, text, price, favorite }) {
   return (
     <ProductBox>
       <CommonProductImg id={id} src={src} />
-      <Description text={text + " 팝니다"} />
-      <Price price={price} />
-      <Favorite favorite={favorite} />
+      <ProductTextBox>
+        <Description text={text + " 팝니다"} />
+        <Price price={price} />
+        <Favorite favorite={favorite} />
+      </ProductTextBox>
     </ProductBox>
   );
 }
@@ -22,12 +24,13 @@ export const ProductBox = styled.div`
 `;
 export const CommonProductImg = styled.img`
   @media screen and (min-width: 1201px) {
-    max-width: 282px;
+    max-width: 221px;
   }
   @media screen and (min-width: 744px) {
-    max-width: 336px;
+    max-width: 221px;
   }
-  min-width: 343px;
+  aspect-ratio: 1 / 1;
+  min-width: 168px;
   width: 100%;
   border-radius: 19.46px;
 `;
@@ -35,5 +38,4 @@ export const ProductTextBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 24px;
 `;

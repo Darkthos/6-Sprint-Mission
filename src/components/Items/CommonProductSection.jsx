@@ -1,37 +1,26 @@
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
-import getProducts from "~/apis/productapi";
 import CommonProduct from "./CommonProduct";
 import SubTitle from "../auth/Text/SubTitle";
 
-function CommonProductSection() {
-  const [bestProduct, setCommonProduct] = useState([]);
-  function sortByUpdatedAt(products) {
-    return products.sort((a, b) => b["updatedAt"] - a["updatedAt"]);
+function CommonProductSection({ productLists }) {
+  function sortByFavoriteCount(products) {
+    return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
   }
-
-  async function loadCommonProduct() {
-    let result;
-    result = await getProducts();
-    const { list } = result;
-    setCommonProduct(sortByUpdatedAt(list));
-  }
-  //updatedat 수정하자 이거잘못됫어 Date를 update로 빼고 값작은 순서대로앞으로
-  useEffect(() => {
-    loadCommonProduct();
-  }, []);
+  sortByFavoriteCount(productLists);
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
   const isIpadMini = useMediaQuery({ query: "(min-width: 744px)" });
 
-  const perPageSize = isPc ? 10 : isIpadMini ? 6 : 3;
-  const productsToShow = bestProduct.slice(0, perPageSize);
+  const prevPageSize = isPc ? 4 : isIpadMini ? 2 : 1;
+  const nextPageSize = isPc ? 14 : isIpadMini ? 8 : 5;
+  const perPageSize = isPc ? 5 : isIpadMini ? 3 : 2;
+  const productsToShow = productLists.slice(prevPageSize, nextPageSize);
 
   return (
     <>
-      <SubTitle text="베스트 상품" />
-      <FlexProductTag>
-        {productsToShow.map((product) => {
+      <GridProductTag>
+        {productsToShow.slice().map((product) => {
           return (
             <CommonProduct
               key={product.id}
@@ -43,14 +32,28 @@ function CommonProductSection() {
             />
           );
         })}
-      </FlexProductTag>
+      </GridProductTag>
     </>
   );
 }
 
 export default CommonProductSection;
-export const FlexProductTag = styled.div`
-  display: flex;
-  gap: 24px;
-  margin: 16px 16px 24px 16px;
+export const GridProductTag = styled.div`
+  @media screen and (min-width: 1201px) {
+    grid-template-columns: repeat(5, 221px);
+    grid-template-rows: repeat(2, 301px);
+    grid-row-gap: 40px;
+    grid-column-gap: 24px;
+  }
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 221px);
+    grid-template-rows: repeat(2, 301px);
+    grid-row-gap: 40px;
+    grid-column-gap: 16px;
+  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 32px; /* 행 간격을 10px로 설정합니다. */
+  grid-column-gap: 8px;
+  margin: 24px auto 40px auto;
 `;

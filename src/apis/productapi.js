@@ -7,14 +7,14 @@ import { axiosInstance } from "./axiosInstance";
 
 const getProducts = async () => {
   try {
-    const response = await axiosInstance.get("/products?page=1&pageSize=18");
+    const response = await axiosInstance.get("/products?page=1&pageSize=18&orderBy=recent");
     const products = response.data;
     console.log(products);
     return products;
   } catch (error) {
-    throw new Error(error.massage);
+    throw new Error(error.message);
   } finally {
-    console.log("complte"); // 이 부분은 요청이 완료되었을 때 항상 실행됩니다.
+    console.log("complete"); // 이 부분은 요청이 완료되었을 때 항상 실행됩니다.
   }
 };
 
