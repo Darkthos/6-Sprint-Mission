@@ -18,7 +18,9 @@ function BestProductSection({ productLists }) {
 
   return (
     <>
-      <SubTitle text="베스트 상품" />
+      <BestSubTitleTag>
+        <SubTitle text="베스트 상품" />
+      </BestSubTitleTag>
       <FlexProductTag>
         {productsToShow.map((product) => {
           return (
@@ -41,5 +43,10 @@ export default BestProductSection;
 export const FlexProductTag = styled.div`
   display: flex;
   gap: 24px;
-  margin: 16px 16px 24px 16px;
+`;
+export const BestSubTitleTag = styled.div`
+  @media screen and (min-width: 1201px) {
+  }
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
+  }
 `;

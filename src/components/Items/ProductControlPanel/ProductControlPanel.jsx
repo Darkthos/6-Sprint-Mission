@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import Button from "~/components/auth/Button";
-import SubTitle from "~/components/auth/Text/SubTitle";
 import ProductOrderBy from "./ProductOrderBy";
 import ProductSearch from "./ProductSearch";
 
@@ -8,11 +7,11 @@ function ProductControlPanel(props) {
   return (
     <ProductControlPanelTag>
       <SubTitleTag>판매 중인 상품</SubTitleTag>
-      <ProductSearch />
+      <ProductSearch text="검색할 상품을 입력해주세요." />
       <ButtonTag>
         <Button size="small" text="상품 등록하기" />
       </ButtonTag>
-      <ProductOrderBy />
+      <ProductOrderBy text="최신순" />
     </ProductControlPanelTag>
   );
 }
@@ -25,15 +24,15 @@ export const ProductControlPanelTag = styled.div`
     height: 42px;
     align-items: center;
   }
-  @media screen and (min-width: 744px) {
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
     display: flex;
     gap: 12px;
     height: 42px;
     align-items: center;
   }
+
   height: 92px;
   position: relative;
-  margin: 0 16px;
 `;
 export const ButtonTag = styled.div`
   @media screen and (min-width: 1201px) {
@@ -46,14 +45,18 @@ export const ButtonTag = styled.div`
   right: 0px;
   position: absolute;
 `;
-export const SubTitleTag = styled.p`
+export const SubTitleTag = styled.h3`
   @media screen and (min-width: 1201px) {
     position: relative;
     flex-grow: 1;
+    top: auto;
+    left: auto;
   }
-  @media screen and (min-width: 744px) {
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
     position: relative;
     flex-grow: 1;
+    top: auto;
+    left: auto;
   }
   top: 7px;
   left: 0px;

@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
-function HeadNav({ text }) {
-  return <HeadNavTag>{text}</HeadNavTag>;
+import { ROUTER_LINKS } from "~/utils/constant";
+
+function HeadNav({ text, link }) {
+  return <HeadNavTag to={link}>{text}</HeadNavTag>;
 }
 
 export default HeadNav; //a태그에서 link로 바꾸고 프롬에따라 주소 정해주기
-export const HeadNavTag = styled.a`
+export const HeadNavTag = styled(Link)`
   @media screen and (min-width: 1201px) {
     width: 109px;
   }

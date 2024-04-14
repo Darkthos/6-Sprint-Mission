@@ -50,4 +50,5 @@ export const ItemsMain = styled.div`
   max-width: 1201px;
   width: 100%;
   margin: auto;
+  padding: 0 24px 0 24px;
 `;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
 import CommonProduct from "./CommonProduct";
-import SubTitle from "../auth/Text/SubTitle";
+import Pagination from "./Pagination";
 
 function CommonProductSection({ productLists }) {
   function sortByFavoriteCount(products) {
@@ -33,6 +33,10 @@ function CommonProductSection({ productLists }) {
           );
         })}
       </GridProductTag>
+      <FlexPagination>
+        <Pagination itemsPageNumber="<" />
+        <Pagination itemsPageNumber=">" />
+      </FlexPagination>
     </>
   );
 }
@@ -44,16 +48,35 @@ export const GridProductTag = styled.div`
     grid-template-rows: repeat(2, 301px);
     grid-row-gap: 40px;
     grid-column-gap: 24px;
+    margin: 24px auto 40px;
+    min-width: 1201px;
   }
   @media screen and (min-width: 744px) and (max-width: 1200px) {
     grid-template-columns: repeat(3, 221px);
     grid-template-rows: repeat(2, 301px);
     grid-row-gap: 40px;
     grid-column-gap: 16px;
+    margin: 24px auto 40px;
   }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 32px; /* 행 간격을 10px로 설정합니다. */
   grid-column-gap: 8px;
-  margin: 24px auto 40px auto;
+  margin: 16px auto 40px;
+  width: 100%;
+  justify-content: center;
+`;
+
+export const FlexPagination = styled.div`
+  @media screen and (min-width: 1201px) {
+    margin-bottom: 113px;
+  }
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
+    margin-bottom: 59px;
+  }
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 82px;
 `;

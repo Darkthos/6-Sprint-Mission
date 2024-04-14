@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import HeadLogo from "../auth/HeadLogo";
 import HeadNav from "../auth/HeadNav";
 import Button from "../auth/Button";
+import { ROUTER_LINKS } from "~/utils/constant";
 
 function ItemsHeader() {
   return (
@@ -11,7 +12,7 @@ function ItemsHeader() {
         <HeadNav text="자유게시판" />
         <HeadNav text="중고마켓" />
       </HeadNavBox>
-      <Button text="로그인" size="small" />
+      <Button text="로그인" size="small" link={ROUTER_LINKS.signin} />
     </ItemsHeaderTag>
   );
 }
