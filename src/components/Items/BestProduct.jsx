@@ -24,13 +24,13 @@ export const ProductBox = styled.div`
 `;
 export const BestProductImg = styled.img`
   @media screen and (min-width: 1201px) {
-    max-width: 282px;
+    width: 282px;
   }
   @media screen and (min-width: 744px) and (max-width: 1200px) {
-    min-width: 336px;
+    width: 336px;
   }
-  min-width: 282px;
-  width: 100%;
+  width: 336px;
+
   border-radius: 19.46px;
 `;
 export const ProductTextBox = styled.div`

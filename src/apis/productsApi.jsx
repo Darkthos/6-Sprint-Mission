@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { axiosInstance } from "./axiosInstance";
 
-export async function GetProductLists({ orderBy = "", cursor = "", limit = 18 }) {
-  const query = `orderBy=${orderBy}&cursor=${cursor}&limit=${limit}`;
-  const response = await fetch(`https://panda-market-api.vercel.app/products?${query}`);
-  if (!response.ok) {
-    throw new Error("데이터를 불러오는데 실패했습니다");
-  }
-  const body = await response.json();
-  return body;
-}
+// const getProducts = async ({ page = "1", pageSize = "18", orderBy = "recent" }) => {
+//   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
+//   try {
+//     const response = await axiosInstance.get(`/products?${query}`);
+//     const products = response.data;
+//     return products;
+//   } catch (error) {
+//     throw new Error("안돼!");
+//   } finally {
+//     console.log("complete");
+//   }
+// };
 
 // export function LoadProductLists() {
 //   const [productList, setProductList] = useState([]);

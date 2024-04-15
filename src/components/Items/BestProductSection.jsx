@@ -41,6 +41,14 @@ function BestProductSection({ productLists }) {
 
 export default BestProductSection;
 export const FlexProductTag = styled.div`
+  @media screen and (min-width: 1201px) {
+    width: 1201px;
+  }
+  @media screen and (min-width: 744px) and (max-width: 1200px) {
+    width: 696px;
+  }
+  width: 343px;
+  margin: auto;
   display: flex;
   gap: 24px;
 `;

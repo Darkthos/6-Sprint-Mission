@@ -4,9 +4,11 @@
 //   return body;
 // }
 import { axiosInstance } from "./axiosInstance";
-const getProducts = async () => {
+
+const getProducts = async (page = 1, pageSize = 18, orderBy = "recent") => {
+  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
   try {
-    const response = await axiosInstance.get("/products?page=1&pageSize=18&orderBy=recent");
+    const response = await axiosInstance.get(`/products?${query}`);
     const products = response.data;
     return products;
   } catch (error) {

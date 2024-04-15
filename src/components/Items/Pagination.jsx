@@ -11,4 +11,5 @@ export const PaginationTag = styled.div`
   border-radius: 40px;
   padding: 12.5px;
   border: 1px solid #e5e7eb;
+  cursor: pointer;
 `;

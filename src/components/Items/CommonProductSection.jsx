@@ -7,19 +7,8 @@ import ProductControlPanel from "./ProductControlPanel/ProductControlPanel";
 
 function CommonProductSection({ productLists }) {
   const [commonProducts, setCommonProducts] = useState([]);
-  const [sortBy, setSortBy] = useState("id");
-
-  const sortByFavoriteCount = (products) => {
-    return products.sort((a, b) => a[sortBy] - b[sortBy]);
-  };
-
-  const handleFavoriteSortBy = () => {
-    setSortBy("favoriteCount");
-  };
-
-  const handleUpdatedSortBy = () => {
-    setSortBy("updated");
-  };
+  const [pageCounts, setPageCounts] = useState();
+  const [orderBy, setOrderBy] = useState([]);
 
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
   const isIpadMini = useMediaQuery({ query: "(min-width: 744px)" });
@@ -27,14 +16,17 @@ function CommonProductSection({ productLists }) {
   const prevPageSize = isPc ? 4 : isIpadMini ? 2 : 1;
   const nextPageSize = isPc ? 14 : isIpadMini ? 8 : 5;
   const perPageSize = isPc ? 5 : isIpadMini ? 3 : 2;
+
   let productsToShow = productLists.slice(prevPageSize, nextPageSize);
+  const pageCount = Math.ceil(14 / productsToShow.length);
+
   useEffect(() => {
-    sortByFavoriteCount(productsToShow);
-  }, [sortBy]);
+    setPageCounts(pageCount);
+  }, [pageCount]);
 
   return (
     <>
-      <ProductControlPanel onFavoriteSortBy={handleFavoriteSortBy} onUpdatedSortBy={handleUpdatedSortBy} />
+      <ProductControlPanel />
       <GridProductTag>
         {productsToShow.map((product) => {
           return (
@@ -51,6 +43,7 @@ function CommonProductSection({ productLists }) {
       </GridProductTag>
       <FlexPagination>
         <Pagination itemsPageNumber="<" />
+        <Pagination itemsPageNumber={pageCounts} />
         <Pagination itemsPageNumber=">" />
       </FlexPagination>
     </>

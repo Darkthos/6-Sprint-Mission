@@ -24,10 +24,10 @@ export const ProductBox = styled.div`
 `;
 export const CommonProductImg = styled.img`
   @media screen and (min-width: 1201px) {
-    max-width: 221px;
+    width: 221px;
   }
   @media screen and (min-width: 744px) {
-    max-width: 221px;
+    width: 221px;
   }
   aspect-ratio: 1 / 1;
   min-width: 168px;
