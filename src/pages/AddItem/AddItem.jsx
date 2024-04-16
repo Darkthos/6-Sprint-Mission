@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddItem() {
+function AddItem(props) {
   return <div>Add!!</div>;
 }
 
