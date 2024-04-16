@@ -1,7 +1,7 @@
 import React from "react";
 
-function AddItem() {
-  return <div>add!</div>;
+function AddItem(props) {
+  return <div>Add!!</div>;
 }
 
 export default AddItem;
