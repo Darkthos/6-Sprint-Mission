@@ -3,36 +3,16 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "~assets/*": [
-        "src/assets/*"
-      ],
-      "~css/*": [
-        "src/css/*"
-      ],
-      "~font/*": [
-        "src/font/*"
-      ],
-      "~pages/*": [
-        "src/pages/*"
-      ],
-      "~/*": [
-        "src/*"
-      ],
-      "~utils/*": [
-        "src/utils/*"
-      ],
-      "~components/*": [
-        "src/components/*"
-      ],
-      "~service/*": [
-        "src/service/*"
-      ],
-      "~apis/*": [
-        "src/apis/*"
-      ],
-      "~AddItem/*": [
-        "src/pages/AddItem/*"
-      ]
+      "~assets/*": ["src/assets/*"],
+      "~css/*": ["src/css/*"],
+      "~font/*": ["src/font/*"],
+      "~pages/*": ["src/pages/*"],
+      "~/*": ["src/*"],
+      "~utils/*": ["src/utils/*"],
+      "~components/*": ["src/components/*"],
+      "~service/*": ["src/service/*"],
+      "~apis/*": ["src/apis/*"],
+      "~AddItem/*": ["src/pages/AddItem/*"]
     }
   }
 }
