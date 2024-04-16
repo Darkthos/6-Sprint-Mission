@@ -7,18 +7,6 @@ import ItemsHeader from "~/components/Items/ItemsHeader";
 import getProducts from "~/apis/productapi";
 
 function Items() {
-  // const [productList, setProductList] = useState([]);
-  // const [count, setTotalCount] = useState(0);
-  // useEffect(() => {
-  //   axiosInstance
-  //     .get("/products")
-  //     .then((response) => response.data)
-  //     .then((data) => {
-  //       setProductList(data?.list);
-  //       setTotalCount(data?.totalCount);
-  //       const loadProducts = data.list[0].images;
-  //     });
-  // }, []);
   const [productLists, setProductLists] = useState([]);
 
   async function loadProduct() {
