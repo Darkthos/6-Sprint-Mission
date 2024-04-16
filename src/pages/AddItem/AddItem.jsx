@@ -1,4 +1,3 @@
-
 import React from "react";
 
 function AddItem(props) {
@@ -6,4 +5,3 @@ function AddItem(props) {
 }
 
 export default AddItem;
-
