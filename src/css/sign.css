@@ -1,0 +1,227 @@
+/* 배너 */
+
+.sign-banner {
+  display: flex;
+  gap: 22.24px;
+  margin: 60px auto 0;
+  width: 100%;
+  max-width: 396px;
+  padding: 12.98px 0 15.14px;
+  justify-content: center;
+}
+
+.sign-banner-img {
+  width: 103.53px;
+  height: 103.88px;
+}
+
+.sign-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 66.34px;
+  line-height: 89.56px;
+  padding: 10.99px 4.23px 2.88px 0;
+}
+
+/* 메인 */
+
+.sign-form {
+  width: 100%;
+  max-width: 640px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sign-form label {
+  color: var(--sign-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.sign-form input {
+  background-color: var(--input-color);
+  color: var(--gray400-color);
+  border-radius: 12px;
+  border: 2px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  width: 100%;
+  height: 56px;
+  padding: 16px;
+  padding-left: 24px;
+}
+
+.sign-form input:focus {
+  border: 2px solid var(--primary-color);
+  outline: none;
+}
+
+.sign-form input.error-input {
+  border: 2px solid var(--input-error-color);
+}
+
+.password-box {
+  position: relative;
+}
+
+.error-text {
+  color: var(--input-error-color);
+  font-size: 15px;
+  line-height: 17.9px;
+  font-weight: 600;
+  margin: 8px 0 0 16px;
+}
+
+#toggle-password,
+#toggle-repassword {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 24px;
+  top: 16px;
+  cursor: pointer;
+}
+
+.sign-form__button {
+  background-color: var(--sign-button-color);
+  width: 100%;
+  margin: 0 auto;
+  height: 56px;
+  border-radius: 40px;
+  border: none;
+  padding: 16px;
+  color: var(--button-color);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sign-form__button.active {
+  background-color: var(--primary-color);
+}
+
+.sign-form__button.passive {
+  background-color: var(--sign-button-color);
+}
+
+/* .sign-form__button:hover {
+  background-color: var(--primary-color);
+} */
+
+.social-login {
+  background-color: #e6f2ff;
+  width: 100%;
+  height: 74px;
+  margin: 0 auto;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-login .description {
+  color: var(--sign-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding-left: 24px;
+  white-space: nowrap;
+}
+
+.social-login .button-box {
+  display: flex;
+  gap: 16px;
+  padding-right: 24px;
+}
+
+.social-login .button-box > a {
+  width: 42px;
+  height: 42px;
+}
+
+.sign-footer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--sign-color);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 17.9px;
+  justify-content: center;
+}
+
+.sign-footer a {
+  color: #3182f6;
+  text-decoration: underline;
+}
+
+/* Tablet*/
+
+@media (max-width: 1200px) {
+  /* 배너 */
+
+  .sign-banner {
+    margin: 48px auto 0;
+  }
+
+  /* 메인 */
+
+  .sign-form label {
+    margin-bottom: 16px;
+  }
+
+  .sign-footer {
+    margin-top: 0;
+  }
+}
+
+/* mobile*/
+
+@media (max-width: 768px) {
+  /* 배너 */
+
+  .sign-banner {
+    gap: 11.12px;
+    margin: 24px auto 0;
+    padding: 6.49px 0 7.57px;
+  }
+
+  .sign-banner-img {
+    width: 51.76px;
+    height: 51.94px;
+  }
+
+  .sign-title {
+    font-size: 33.17px;
+    line-height: 44.78px;
+    padding: 5.5px 2.12px 1.41px 0;
+  }
+
+  /* 메인 */
+
+  .sign-form {
+    gap: 16px;
+    margin: 24px auto;
+  }
+
+  .sign-form label {
+    margin-bottom: 8px;
+  }
+
+  .social-login {
+    margin: 8px auto 0;
+  }
+
+  .sign-footer {
+    margin-top: 8px;
+  }
+}
