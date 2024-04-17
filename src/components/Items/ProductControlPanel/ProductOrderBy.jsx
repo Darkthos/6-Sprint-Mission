@@ -7,7 +7,7 @@ function ProductOrderBy({ text = "최신순", onFavoriteSortBy, onUpdatedSortBy 
   const [isView, setIsView] = useState(false);
 
   const handleClickDropbox = () => {
-    isView ? setIsView(false) : setIsView(true);
+    setIsView(!isView);
   };
 
   const handleBlurDropbox = () => {

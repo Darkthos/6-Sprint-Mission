@@ -11,9 +11,9 @@ function BestProductSection({ productLists }) {
 
   sortByFavoriteCount(productLists);
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
-  const isIpadMini = useMediaQuery({ query: "(min-width: 744px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 744px)" });
 
-  const perPageSize = isPc ? 4 : isIpadMini ? 2 : 1;
+  const perPageSize = isPc ? 4 : isTablet ? 2 : 1;
   const productsToShow = productLists.slice(0, perPageSize);
 
   return (

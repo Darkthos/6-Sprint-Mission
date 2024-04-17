@@ -9,6 +9,8 @@ const getProducts = async (page = 1, pageSize = 18, orderBy = "recent") => {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
   try {
     const response = await axiosInstance.get(`/products?${query}`);
+    const { responseURL } = response.request;
+    console.log(responseURL);
     const products = response.data;
     return products;
   } catch (error) {

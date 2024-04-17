@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
-import { ROUTER_LINKS } from "~/utils/constant";
 
 function HeadNav({ text, link, isActive }) {
   const location = useLocation();

@@ -11,19 +11,22 @@ function CommonProductSection({ productLists }) {
   const [orderBy, setOrderBy] = useState([]);
 
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
-  const isIpadMini = useMediaQuery({ query: "(min-width: 744px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 744px)" });
 
-  const prevPageSize = isPc ? 4 : isIpadMini ? 2 : 1;
-  const nextPageSize = isPc ? 14 : isIpadMini ? 8 : 5;
-  const perPageSize = isPc ? 5 : isIpadMini ? 3 : 2;
+  const pageSizes = {
+    pc: { prev: 4, next: 14, perPage: 10 },
+    tablet: { prev: 2, next: 8, perPage: 6 },
+    mobile: { prev: 1, next: 5, perPage: 4 },
+  };
+  const { prev, next, perPage } = pageSizes[isPc ? "pc" : isTablet ? "tablet" : "mobile"];
 
-  let productsToShow = productLists.slice(prevPageSize, nextPageSize);
-  const pageCount = Math.ceil(14 / productsToShow.length);
+  let productsToShow = productLists.slice(prev, next);
+  const pageCount = Math.ceil(14 / perPage);
 
   useEffect(() => {
     setPageCounts(pageCount);
   }, [pageCount]);
-
+  const pages = Array.from({ length: pageCounts }, (_, index) => index + 1);
   return (
     <>
       <ProductControlPanel />
@@ -43,7 +46,10 @@ function CommonProductSection({ productLists }) {
       </GridProductTag>
       <FlexPagination>
         <Pagination itemsPageNumber="<" />
-        <Pagination itemsPageNumber={pageCounts} />
+        {pages.map((page) => (
+          <Pagination key={page} itemsPageNumber={page} />
+        ))}
+
         <Pagination itemsPageNumber=">" />
       </FlexPagination>
     </>
