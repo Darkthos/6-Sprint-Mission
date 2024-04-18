@@ -1,10 +1,12 @@
+import { useContext, useState } from "react";
 import { styled } from "styled-components";
+import { CommonProductContext } from "~/hook/Context";
 
-function Dropdown({ view, onFavoriteSortBy, onUpdatedSortBy }) {
+function Dropdown({ view, onRecentClick, onFavoriteClick }) {
   return (
     <DropdownBox view={view}>
-      <DropdownTag onClick={onUpdatedSortBy}>최신순</DropdownTag>
-      <DropdownTag lastText onClick={onFavoriteSortBy}>
+      <DropdownTag onClick={onRecentClick}>최신순</DropdownTag>
+      <DropdownTag lastText onClick={onFavoriteClick}>
         좋아요
       </DropdownTag>
     </DropdownBox>

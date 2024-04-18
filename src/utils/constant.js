@@ -3,5 +3,4 @@ export const ROUTER_LINKS = {
   signin: "/signin",
   signup: "/signup",
   items: "/items",
-  additem: "/additem",
 };

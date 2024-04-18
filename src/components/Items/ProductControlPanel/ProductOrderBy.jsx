@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Dropdown from "~/components/auth/Dropdown";
+import { CommonProductContext } from "~/hook/Context";
 import orderByIcon from "~assets/icon/sort.png";
 
-function ProductOrderBy({ text = "최신순", onFavoriteSortBy, onUpdatedSortBy }) {
+function ProductOrderBy() {
   const [isView, setIsView] = useState(false);
 
   const handleClickDropbox = () => {
@@ -16,11 +17,25 @@ function ProductOrderBy({ text = "최신순", onFavoriteSortBy, onUpdatedSortBy 
     }, 200);
   };
 
+  const [text, setText] = useState("최신순");
+
+  const onRecentClick = () => {
+    handleOrderByRecent();
+    setText("최신순");
+  };
+
+  const onFavoriteClick = () => {
+    handleOrderByFavorite();
+    setText("좋아요");
+  };
+
+  const { handleOrderByFavorite, handleOrderByRecent } = useContext(CommonProductContext);
+
   return (
     <ProductOrderByTag onClick={handleClickDropbox} tabIndex={0} onBlur={handleBlurDropbox}>
       <ProductOrderBySelect>{text}</ProductOrderBySelect>
       <img src={orderByIcon} />
-      <Dropdown view={isView} onFavoriteSortBy={onFavoriteSortBy} onUpdatedSortBy={onUpdatedSortBy} />
+      <Dropdown view={isView} onRecentClick={onRecentClick} onFavoriteClick={onFavoriteClick} />
     </ProductOrderByTag>
   );
 }

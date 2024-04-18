@@ -32,6 +32,12 @@
       ],
       "~AddItem/*": [
         "src/pages/AddItem/*"
+      ],
+      "~constant/*": [
+        "src/constant/*"
+      ],
+      "~hook/*": [
+        "src/hook/*"
       ]
     }
   }

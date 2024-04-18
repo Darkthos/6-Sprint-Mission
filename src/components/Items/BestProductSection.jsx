@@ -3,13 +3,25 @@ import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
 import BestProduct from "./BestProduct";
 import SubTitle from "../auth/Text/SubTitle";
+import getProducts from "~/apis/productapi";
 
-function BestProductSection({ productLists }) {
-  function sortByFavoriteCount(products) {
-    return products.sort((a, b) => b["favoriteCount"] - a["favoriteCount"]);
+function BestProductSection() {
+  const [productLists, setProductLists] = useState([]);
+
+  async function loadAndSortProducts() {
+    const { list } = await getProducts();
+    const sortedList = sortByFavoriteCount(list);
+    setProductLists(sortedList);
   }
 
-  sortByFavoriteCount(productLists);
+  function sortByFavoriteCount(products) {
+    return [...products].sort((a, b) => b.favoriteCount - a.favoriteCount);
+  }
+
+  useEffect(() => {
+    loadAndSortProducts();
+  }, []);
+
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
   const isTablet = useMediaQuery({ query: "(min-width: 744px)" });
 
@@ -22,18 +34,16 @@ function BestProductSection({ productLists }) {
         <SubTitle text="베스트 상품" />
       </BestSubTitleTag>
       <FlexProductTag>
-        {productsToShow.map((product) => {
-          return (
-            <BestProduct
-              key={product.id}
-              id={product.id}
-              src={product.images}
-              text={product.name}
-              price={product.price}
-              favorite={product.favoriteCount}
-            />
-          );
-        })}
+        {productsToShow.map((product) => (
+          <BestProduct
+            key={product.id}
+            id={product.id}
+            src={product.images}
+            text={product.name}
+            price={product.price}
+            favorite={product.favoriteCount}
+          />
+        ))}
       </FlexProductTag>
     </>
   );
