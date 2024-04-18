@@ -10,43 +10,50 @@ function ItemsHeader() {
   const location = useLocation();
 
   return (
-    <HeaderTag>
-      <HeadLogo />
-      <HeadNavBox>
-        <HeadNav text="자유게시판" />
-      </HeadNavBox>
-      <HeadNav text="중고마켓" isActive={location.pathname === "/items"} />
-      <Button text="로그인" size="small" link={ROUTER_LINKS.signin} />
-    </HeaderTag>
+    <NavStickTag>
+      <HeaderTag>
+        <HeadLogo />
+        <HeadNavBox>
+          <HeadNav text="자유게시판" />
+          <HeadNav text="중고마켓" isActive={location.pathname === "/items"} />
+        </HeadNavBox>
+        <Button text="로그인" size="small" link={ROUTER_LINKS.signin} />
+      </HeaderTag>
+      <NavBorderLine />
+    </NavStickTag>
   );
 }
 
 export default ItemsHeader;
 export const HeaderTag = styled.div`
-  @media screen and (min-width: 1600px) {
-    gap: 32px;
-    margin: 0 200px 0 200px;
-  }
   ${PC_SIZE} {
-    gap: 32px;
+    padding: 0 184px;
   }
   ${TABLET_SIZE} {
-    gap: 20px;
+    padding: 0 8px;
   }
+  padding: 0 0px;
   display: flex;
   gap: 16px;
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  margin: 0 16px 0;
+
   position: sticky;
   top: 0px;
   z-index: 3;
   background-color: white;
-  border-bottom: 1px solid #dfdfdf;
 `;
 export const HeadNavBox = styled.div`
   display: flex;
   gap: 8px;
   flex-grow: 1;
+`;
+export const NavBorderLine = styled.div`
+  border-bottom: 1px solid #dfdfdf;
+`;
+export const NavStickTag = styled.div`
+  position: sticky;
+  top: 0px;
+  z-index: 3;
 `;
