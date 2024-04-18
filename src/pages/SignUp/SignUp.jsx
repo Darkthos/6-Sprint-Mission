@@ -1,5 +1,5 @@
 import React from "react";
-import Signupform from "~components/auth/Signup/Signupform";
+import Signupform from "~pages/SignUp/Signupform";
 // import { SignInTitle } from "~pages/SignIn/SignIn";
 
 function SignUp() {

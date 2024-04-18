@@ -1,7 +1,8 @@
 import React from "react";
+import AdditemHeader from "./AdditemHeader";
 
 function AddItem(props) {
-  return <div>Add!!</div>;
+  return <AdditemHeader />;
 }
 
 export default AddItem;

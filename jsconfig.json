@@ -24,20 +24,14 @@
       "~components/*": [
         "src/components/*"
       ],
-      "~service/*": [
-        "src/service/*"
-      ],
       "~apis/*": [
         "src/apis/*"
       ],
-      "~AddItem/*": [
-        "src/pages/AddItem/*"
-      ],
-      "~constant/*": [
-        "src/constant/*"
-      ],
       "~hook/*": [
         "src/hook/*"
+      ],
+      "~Text/*": [
+        "src/components/Text/*"
       ]
     }
   }

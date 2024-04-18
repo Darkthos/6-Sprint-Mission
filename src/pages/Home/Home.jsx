@@ -1,8 +1,8 @@
-import Header from "~/components/Home/Header";
-import Banner from "~/components/Home/Banner";
-import MainSection from "~/components/Home/MainSection";
-import Footer from "~/components/Home/Footer";
-import BannerBottom from "~/components/Home/BannerBottom";
+import Header from "~pages/Home/Header";
+import Banner from "~pages/Home/Banner";
+import MainSection from "~pages/Home/MainSection";
+import Footer from "~pages/Home/Footer";
+import BannerBottom from "~pages/Home/BannerBottom";
 
 function Home() {
   return (

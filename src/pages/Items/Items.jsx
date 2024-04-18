@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { axiosInstance } from "~/apis/axiosInstance";
-import BestProductSection from "~/components/Items/BestProductSection";
-import CommonProductSection from "~/components/Items/CommonProductSection";
-import ItemsHeader from "~/components/Items/ItemsHeader";
+import BestProductSection from "~pages/Items/BestProductSection";
+import CommonProductSection from "~pages/Items/CommonProductSection";
+import ItemsHeader from "~pages/Items/ItemsHeader";
 import getProducts from "~/apis/productapi";
 
 function Items() {
