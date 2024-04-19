@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 import ProductControlPanel from "./ProductControlPanel/ProductControlPanel";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
 import getProducts from "~/apis/productapi";
-import { CommonProductContext } from "~/hook/Context.js";
+import { CommonProductContext } from "~/hook/Context/Context.js";
 
 function CommonProductSection() {
   const [pageCounts, setPageCounts] = useState();

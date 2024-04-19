@@ -6,24 +6,6 @@ import FormLabelText from "~/components/Text/FormLabelText";
 import ProductImgAdd from "./AddImgForm/ProductImgAdd";
 
 function AddImgForm() {
-  const [value, setValues] = useState({
-    title: "",
-    rating: 0,
-    content: "",
-    imgFile: null,
-  });
-
-  const handleChange = (name, value) => {
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-  };
-
   return (
     <div>
       <PostButtonContainer />

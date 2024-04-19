@@ -15,7 +15,7 @@ function ItemsHeader() {
         <HeadLogo />
         <HeadNavBox>
           <HeadNav text="자유게시판" />
-          <HeadNav text="중고마켓" isActive={location.pathname === "/items"} />
+          <HeadNav text="중고마켓" isActive={location.pathname === "/items"} link={ROUTER_LINKS.items} />
         </HeadNavBox>
         <Button text="로그인" size="small" link={ROUTER_LINKS.signin} />
       </HeaderTag>
@@ -38,7 +38,6 @@ export const HeaderTag = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 70px;
-
   position: sticky;
   top: 0px;
   z-index: 3;

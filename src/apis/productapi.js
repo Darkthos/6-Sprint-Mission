@@ -3,7 +3,7 @@
 //   const body = await response.json();
 //   return body;
 // }
-//https://panda-market-api.vercel.app/docs/#/
+// https://panda-market-api.vercel.app/docs/#/
 import { axiosInstance } from "./axiosInstance";
 
 const getProducts = async (page = 1, pageSize = 18, orderBy = "recent") => {

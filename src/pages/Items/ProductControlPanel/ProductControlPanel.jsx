@@ -16,7 +16,7 @@ function ProductControlPanel() {
     </ProductControlPanelTag>
   );
 }
-//z z마음이 꺽일꺼가타..
+
 export default ProductControlPanel;
 export const ProductControlPanelTag = styled.div`
   @media screen and (min-width: 1201px) {

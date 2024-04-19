@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { styled } from "styled-components";
+import FormContext from "~/hook/Context/FormContext";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
-import ProductImgAdd from "./ProductImgAdd";
 
 function PostButtonContainer(props) {
+  const { isFormValid } = useContext(FormContext);
   return (
     <PostButtonContainerTag>
       <PostTitleText>상품 등록하기</PostTitleText>
-      <PostButton>등록</PostButton>
+      <PostButton disabled={isFormValid}>등록</PostButton>
     </PostButtonContainerTag>
   );
 }
@@ -41,9 +42,10 @@ export const PostButton = styled.div`
   padding: 12px;
   text-align: center;
   border-radius: 8px;
-  background-color: #9ca3af;
+  background-color: ${(props) => (props.disabled ? "#3692FF" : "#9ca3af;")};
   font-weight: 600;
   font-size: 16px;
   line-height: 19.09px;
   color: #ffffff;
+  cursor: pointer;
 `;

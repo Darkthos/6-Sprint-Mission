@@ -30,8 +30,8 @@
       "~hook/*": [
         "src/hook/*"
       ],
-      "~Text/*": [
-        "src/components/Text/*"
+      "~Context/*": [
+        "src/hook/Context/*"
       ]
     }
   }

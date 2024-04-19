@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
-import HeadLogo from "../../components/HeadLogo";
-import HeadNav from "../../components/HeadNav";
-import Button from "../../components/Button";
+import HeadLogo from "../../../components/HeadLogo";
+import HeadNav from "../../../components/HeadNav";
+import Button from "../../../components/Button";
 import { ROUTER_LINKS } from "~/utils/constant";
 import { useLocation } from "react-router-dom";
 import UserIcon from "~/assets/icon/user.png";
@@ -17,7 +17,11 @@ function AdditemHeader() {
         <HeadLogo />
         <HeadNavBox>
           <HeadNav text="자유게시판" />
-          <HeadNav text="중고마켓" isActive={location.pathname === "/items" || location.pathname === "/additem"} />
+          <HeadNav
+            text="중고마켓"
+            isActive={location.pathname === "/items" || location.pathname === "/additem"}
+            link={ROUTER_LINKS.items}
+          />
         </HeadNavBox>
         <NavUserImg src={UserIcon} />
       </HeaderTag>

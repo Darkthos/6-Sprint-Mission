@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
-import AdditemHeader from "./AdditemHeader";
-import AddImgForm from "./AddImgForm";
-import AddTextForm from "./AddTextForm";
+import AdditemHeader from "./AddItemsComponents/AdditemHeader";
+import AddImgForm from "./AddItemsComponents/AddImgForm";
+import AddTextForm from "./AddItemsComponents/AddTextForm";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
+import FormContext from "~/hook/Context/FormContext";
 
 function AddItem(props) {
+  const [isFormValid, setIsFormValid] = useState(false);
   return (
     <>
-      <AdditemHeader />
-      <AddItemTag>
-        <AddImgForm />
-        <AddTextForm />
-      </AddItemTag>
+      <FormContext.Provider value={{ isFormValid, setIsFormValid }}>
+        <AdditemHeader />
+        <AddItemTag>
+          <AddImgForm />
+          <AddTextForm />
+        </AddItemTag>
+      </FormContext.Provider>
     </>
   );
 }

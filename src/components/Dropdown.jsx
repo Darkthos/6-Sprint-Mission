@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { styled } from "styled-components";
-import { CommonProductContext } from "~/hook/Context";
+import { CommonProductContext } from "~/hook/Context/Context";
 
 function Dropdown({ view, onRecentClick, onFavoriteClick }) {
   return (

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Dropdown from "~/components/Dropdown";
-import { CommonProductContext } from "~/hook/Context";
+import { CommonProductContext } from "~/hook/Context/Context";
 import orderByIcon from "~assets/icon/sort.png";
 
 function ProductOrderBy() {
