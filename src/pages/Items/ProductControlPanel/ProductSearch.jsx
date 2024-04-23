@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
 import searchIcon from "~assets/icon/search.svg";
 
 function ProductSearch({ text }) {
@@ -12,10 +13,10 @@ function ProductSearch({ text }) {
 
 export default ProductSearch;
 export const ProductSearchbox = styled.div`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
     position: relative;
   }
-  @media screen and (min-width: 744px) {
+  ${TABLET_SIZE} {
     position: relative;
   }
   position: absolute;
@@ -23,10 +24,10 @@ export const ProductSearchbox = styled.div`
   left: 0px;
 `;
 export const ProductSearchTag = styled.input`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
     width: 332px;
   }
-  @media screen and (min-width: 744px) and (max-width: 1200px) {
+  ${TABLET_SIZE} {
     width: 242px;
   }
   width: 254px;

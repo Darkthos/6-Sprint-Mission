@@ -25,7 +25,15 @@ function BestProductSection() {
   const isPc = useMediaQuery({ query: "(min-width: 1201px)" });
   const isTablet = useMediaQuery({ query: "(min-width: 744px)" });
 
-  const perPageSize = isPc ? 4 : isTablet ? 2 : 1;
+  const pageSizes = {
+    pc: 4,
+    tablet: 2,
+    mobile: 1,
+  };
+
+  const { pc, tablet, mobile } = pageSizes;
+
+  const perPageSize = isPc ? pc : isTablet ? tablet : mobile;
   const productsToShow = productLists.slice(0, perPageSize);
 
   return (

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Dropdown from "~/components/Dropdown";
 import { CommonProductContext } from "~/hook/Context/Context";
+import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
 import orderByIcon from "~assets/icon/sort.png";
 
 function ProductOrderBy() {
@@ -13,20 +14,27 @@ function ProductOrderBy() {
 
   const handleBlurDropbox = () => {
     setTimeout(() => {
-      setIsView(false);
+      setIsView(!isView);
     }, 200);
   };
 
-  const [text, setText] = useState("최신순");
+  const ORDER_BY = {
+    RECENT: "최신순",
+    FAVORITE: "좋아요",
+  };
+
+  const { RECENT, FAVORITE } = ORDER_BY;
+
+  const [text, setText] = useState(RECENT);
 
   const onRecentClick = () => {
     handleOrderByRecent();
-    setText("최신순");
+    setText(RECENT);
   };
 
   const onFavoriteClick = () => {
     handleOrderByFavorite();
-    setText("좋아요");
+    setText(FAVORITE);
   };
 
   const { handleOrderByFavorite, handleOrderByRecent } = useContext(CommonProductContext);
@@ -35,21 +43,21 @@ function ProductOrderBy() {
     <ProductOrderByTag onClick={handleClickDropbox} tabIndex={0} onBlur={handleBlurDropbox}>
       <ProductOrderBySelect>{text}</ProductOrderBySelect>
       <img src={orderByIcon} />
-      <Dropdown view={isView} onRecentClick={onRecentClick} onFavoriteClick={onFavoriteClick} />
+      <Dropdown view={isView} onRecentClick={onRecentClick} onFavoriteClick={onFavoriteClick} ORDER_BY={ORDER_BY} />
     </ProductOrderByTag>
   );
 }
 
 export default ProductOrderBy;
 export const ProductOrderByTag = styled.a`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
     position: relative;
     width: 130px;
     height: 42px;
     gap: 24px;
     padding-left: 20px;
   }
-  @media screen and (min-width: 744px) and (max-width: 1200px) {
+  ${TABLET_SIZE} {
     position: relative;
     width: 120px;
     height: 42px;
@@ -69,9 +77,10 @@ export const ProductOrderByTag = styled.a`
   cursor: pointer;
 `;
 export const ProductOrderBySelect = styled.a`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
+    display: inline-block;
   }
-  @media screen and (min-width: 744px) {
+  ${TABLET_SIZE} {
     display: inline-block;
   }
   display: none;

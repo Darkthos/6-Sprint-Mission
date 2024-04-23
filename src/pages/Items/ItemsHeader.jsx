@@ -1,7 +1,5 @@
 import { styled } from "styled-components";
-import HeadLogo from "../../components/HeadLogo";
-import HeadNav from "../../components/HeadNav";
-import Button from "../../components/Button";
+import { HeadLogo, HeadNav, Button } from "~/components";
 import { ROUTER_LINKS } from "~/utils/constant";
 import { useLocation } from "react-router-dom";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";

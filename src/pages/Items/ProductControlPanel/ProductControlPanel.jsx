@@ -3,6 +3,7 @@ import Button from "~/components/Button";
 import ProductOrderBy from "./ProductOrderBy";
 import ProductSearch from "./ProductSearch";
 import { ROUTER_LINKS } from "~/utils/constant";
+import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
 
 function ProductControlPanel() {
   return (
@@ -19,13 +20,13 @@ function ProductControlPanel() {
 
 export default ProductControlPanel;
 export const ProductControlPanelTag = styled.div`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
     display: flex;
     gap: 12px;
     height: 42px;
     align-items: center;
   }
-  @media screen and (min-width: 744px) and (max-width: 1200px) {
+  ${TABLET_SIZE} {
     display: flex;
     gap: 12px;
     height: 42px;
@@ -36,10 +37,10 @@ export const ProductControlPanelTag = styled.div`
   position: relative;
 `;
 export const ButtonTag = styled.div`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
     position: relative;
   }
-  @media screen and (min-width: 744px) {
+  ${TABLET_SIZE} {
     position: relative;
   }
   top: 0px;
@@ -47,13 +48,13 @@ export const ButtonTag = styled.div`
   position: absolute;
 `;
 export const SubTitleTag = styled.h3`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
     position: relative;
     flex-grow: 1;
     top: auto;
     left: auto;
   }
-  @media screen and (min-width: 744px) and (max-width: 1200px) {
+  ${TABLET_SIZE} {
     position: relative;
     flex-grow: 1;
     top: auto;

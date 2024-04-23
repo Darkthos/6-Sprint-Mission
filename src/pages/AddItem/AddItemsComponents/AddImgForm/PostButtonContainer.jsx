@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { styled } from "styled-components";
-import FormContext from "~/hook/Context/FormContext";
+import { FormContext } from "~/hook/Context/FormContext";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
 
 function PostButtonContainer(props) {

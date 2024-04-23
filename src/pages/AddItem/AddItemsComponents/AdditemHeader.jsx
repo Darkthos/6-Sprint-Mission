@@ -1,7 +1,5 @@
 import { styled } from "styled-components";
-import HeadLogo from "../../../components/HeadLogo";
-import HeadNav from "../../../components/HeadNav";
-import Button from "../../../components/Button";
+import { HeadLogo, HeadNav } from "~/components";
 import { ROUTER_LINKS } from "~/utils/constant";
 import { useLocation } from "react-router-dom";
 import UserIcon from "~/assets/icon/user.png";

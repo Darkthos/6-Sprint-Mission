@@ -33,13 +33,10 @@ function CommonProductSection() {
 
   const handlePagination = (pageNumber) => {
     if (pageNumber === "<") {
-      // 이전 페이지로 이동
       setCurrentPage(Math.max(1, currentPage - 1));
     } else if (pageNumber === ">") {
-      // 다음 페이지로 이동
       setCurrentPage(Math.min(pageCount, currentPage + 1));
     } else {
-      // 특정 페이지 번호로 이동
       setCurrentPage(Number(pageNumber));
     }
   };
@@ -60,9 +57,6 @@ function CommonProductSection() {
     setPageCounts(pageCount);
   }, [pageCount]);
 
-  // 페이지네이션 버튼 클릭쇼ㅣ 해당 버튼의 숫자만큼의 장을 perPage만큼 불러와야함, 함수는 자식 프롭으로 내려주고
-  // useState로 상태 변화를 일으키고 쿼리ㅣㅇapi에 대입하게 해보자
-  // <> e.target으로 클릭시 currentPage으 ㅣ값을 1감소 1증가 식으로 하고
   return (
     <>
       <CommonProductContext.Provider value={{ handleOrderByFavorite, handleOrderByRecent }}>

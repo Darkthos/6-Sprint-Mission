@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import FormLabelText from "~/components/Text/FormLabelText";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
 import AddTag from "./AddTag/AddTag";
-import FormContext from "~/hook/Context/FormContext";
+import { FormContext } from "~/hook/Context/FormContext";
 
 function AddTextForm() {
   const [tagText, setTagText] = useState();
@@ -42,7 +42,7 @@ function AddTextForm() {
       }
     }
   };
-
+  // const formattedPrice = new Intl.NumberFormat().format(inputText);
   return (
     <>
       <AddTextFormTag>

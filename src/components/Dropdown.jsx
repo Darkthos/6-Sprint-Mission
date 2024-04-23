@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
 import { styled } from "styled-components";
 import { CommonProductContext } from "~/hook/Context/Context";
+import { TABLET_SIZE } from "~/utils/themes";
 
-function Dropdown({ view, onRecentClick, onFavoriteClick }) {
+function Dropdown({ view, onRecentClick, onFavoriteClick, ORDER_BY }) {
+  const { RECENT, FAVORITE } = ORDER_BY;
   return (
     <DropdownBox view={view}>
-      <DropdownTag onClick={onRecentClick}>최신순</DropdownTag>
+      <DropdownTag onClick={onRecentClick}>{RECENT}</DropdownTag>
       <DropdownTag lastText onClick={onFavoriteClick}>
-        좋아요
+        {FAVORITE}
       </DropdownTag>
     </DropdownBox>
   );
@@ -24,6 +26,9 @@ export const DropdownTag = styled.p`
   border-bottom: ${(props) => (props.lastText ? "none" : "1px solid #e5e7eb;")};
 `;
 export const DropdownBox = styled.div`
+  ${TABLET_SIZE} {
+    width: 120px;
+  }
   position: absolute;
   bottom: -90px;
   right: 0;
@@ -33,5 +38,5 @@ export const DropdownBox = styled.div`
   flex-direction: column;
   background-color: white;
   width: 130px;
-  ${(props) => (props.view ? "display: hidden;" : "display: none;")}
+  visibility: ${(props) => (props.view ? "hidden" : "visible")};
 `;

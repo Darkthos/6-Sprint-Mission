@@ -4,19 +4,19 @@ import AdditemHeader from "./AddItemsComponents/AdditemHeader";
 import AddImgForm from "./AddItemsComponents/AddImgForm";
 import AddTextForm from "./AddItemsComponents/AddTextForm";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
-import FormContext from "~/hook/Context/FormContext";
+
+import FormContextProvider from "~/hook/Context/FormContext.jsx";
 
 function AddItem(props) {
-  const [isFormValid, setIsFormValid] = useState(false);
   return (
     <>
-      <FormContext.Provider value={{ isFormValid, setIsFormValid }}>
+      <FormContextProvider>
         <AdditemHeader />
         <AddItemTag>
           <AddImgForm />
           <AddTextForm />
         </AddItemTag>
-      </FormContext.Provider>
+      </FormContextProvider>
     </>
   );
 }

@@ -1,8 +1,6 @@
 import pandaLogoImg from "~assets/icon/panda-log.svg";
-import HeadLogo from "../../components/HeadLogo";
-import Button from "../../components/Button";
 import { HeadNavBox, HeaderTag, NavBorderLine, NavStickTag } from "../Items/ItemsHeader";
-import HeadNav from "../../components/HeadNav";
+import { HeadLogo, HeadNav, Button } from "~/components";
 import { ROUTER_LINKS } from "~/utils/constant";
 
 function Header({ link }) {
