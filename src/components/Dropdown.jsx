@@ -38,5 +38,5 @@ export const DropdownBox = styled.div`
   flex-direction: column;
   background-color: white;
   width: 130px;
-  visibility: ${(props) => (props.view ? "hidden" : "visible")};
+  visibility: ${(props) => (props.view ? "visible" : "hidden")};
 `;

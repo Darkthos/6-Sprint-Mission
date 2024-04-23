@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
-import PostImg from "~/assets/unknownpostimg.png";
-import BigPostImg from "~/assets/unknownbigpostimg.png";
+import PostImg from "~/assets/add_image.png";
+import BigPostImg from "~/assets/big-add_image.png";
 import ActiveXbox from "~/assets/activexbox.svg";
 import { useMediaQuery } from "react-responsive";
 
