@@ -2,10 +2,13 @@ import { styled } from "styled-components";
 import Description from "../../components/Text/Description";
 import Price from "../../components/Text/Price";
 import Favorite from "../../components/Favorite";
+import { Link } from "react-router-dom";
+import { ROUTER_LINKS } from "~/utils/constant";
+import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
 
 function CommonProduct({ id, src, text, price, favorite }) {
   return (
-    <ProductBox>
+    <ProductBox to={`/items/${id}`}>
       <CommonProductImg id={id} src={src} />
       <ProductTextBox>
         <Description text={text + " 팝니다"} />
@@ -15,18 +18,18 @@ function CommonProduct({ id, src, text, price, favorite }) {
     </ProductBox>
   );
 }
-
+//
 export default CommonProduct;
-export const ProductBox = styled.div`
+export const ProductBox = styled(Link)`
   display: flex;
   flex-direction: column;
   gap: 16px;
 `;
 export const CommonProductImg = styled.img`
-  @media screen and (min-width: 1201px) {
+  ${PC_SIZE} {
     width: 221px;
   }
-  @media screen and (min-width: 744px) {
+  ${TABLET_SIZE} {
     width: 221px;
   }
   aspect-ratio: 1 / 1;

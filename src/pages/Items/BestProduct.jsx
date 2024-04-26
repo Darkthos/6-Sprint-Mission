@@ -2,10 +2,11 @@ import { styled } from "styled-components";
 import Description from "../../components/Text/Description";
 import Price from "../../components/Text/Price";
 import Favorite from "../../components/Favorite";
+import { Link } from "react-router-dom";
 
 function BestProduct({ id, src, text, price, favorite }) {
   return (
-    <ProductBox>
+    <ProductBox to={`/items/${id}`}>
       <BestProductImg id={id} src={src} />
       <ProductTextBox>
         <Description text={text + " 팝니다"} />
@@ -17,7 +18,7 @@ function BestProduct({ id, src, text, price, favorite }) {
 }
 
 export default BestProduct;
-export const ProductBox = styled.div`
+export const ProductBox = styled(Link)`
   display: flex;
   flex-direction: column;
   gap: 16px;

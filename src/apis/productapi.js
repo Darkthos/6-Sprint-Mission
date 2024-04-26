@@ -6,7 +6,7 @@
 // https://panda-market-api.vercel.app/docs/#/
 import { axiosInstance } from "./axiosInstance";
 
-const getProducts = async (page = 1, pageSize = 18, orderBy = "recent") => {
+const getProducts = async (page = 1, pageSize = 18, orderBy = "recent", id = 1) => {
   const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
   try {
     const response = await axiosInstance.get(`/products?${query}`);
@@ -17,7 +17,7 @@ const getProducts = async (page = 1, pageSize = 18, orderBy = "recent") => {
   } catch (error) {
     throw new Error(error.message);
   } finally {
-    console.log("complete");
+    console.log("Products complete");
   }
 };
 

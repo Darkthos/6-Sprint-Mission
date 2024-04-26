@@ -32,6 +32,9 @@
       ],
       "~Context/*": [
         "src/hook/Context/*"
+      ],
+      "~ItemDetail/*": [
+        "src/pages/ItemDetail/*"
       ]
     }
   }

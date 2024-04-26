@@ -20,9 +20,11 @@ function CommonProductSection() {
     const { list } = result;
     setProductLists(list);
   }
+
   const handleOrderByRecent = () => {
     setOrderBy("recent");
   };
+
   const handleOrderByFavorite = () => {
     setOrderBy("favorite");
   };

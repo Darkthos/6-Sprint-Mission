@@ -6,6 +6,7 @@ import { Home } from "./Home";
 import { Items } from "./Items";
 import { ROUTER_LINKS } from "~/utils/constant";
 import { AddItem } from "./AddItem";
+import { ItemDetail } from "./ItemDetail";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
   {
     path: ROUTER_LINKS.items,
     element: <Items />,
+  },
+  {
+    path: ROUTER_LINKS.itemsId,
+    element: <ItemDetail />,
   },
   { path: ROUTER_LINKS.additem, element: <AddItem /> },
 ]);
