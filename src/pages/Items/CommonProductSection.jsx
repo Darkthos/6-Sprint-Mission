@@ -16,7 +16,7 @@ function CommonProductSection() {
 
   async function loadProduct() {
     let result;
-    result = await getProducts(currentPage, perPage, orderBy);
+    result = await getProducts(options);
     const { list } = result;
     setProductLists(list);
   }
@@ -58,7 +58,11 @@ function CommonProductSection() {
   useEffect(() => {
     setPageCounts(pageCount);
   }, [pageCount]);
-
+  let options = {
+    page: currentPage,
+    pageSize: perPage,
+    orderBy: orderBy,
+  };
   return (
     <>
       <CommonProductContext.Provider value={{ handleOrderByFavorite, handleOrderByRecent }}>

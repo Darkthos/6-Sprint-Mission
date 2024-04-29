@@ -5,13 +5,25 @@
 // }
 // https://panda-market-api.vercel.app/docs/#/
 import { axiosInstance } from "./axiosInstance";
+// 인자 세개이상이면 객체 만들어서 전달
+// 쿼리 유틸함수 만들어서 키밸류 자동화시킴
+const createQueryParams = (params) => {
+  const searchParams = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined && value !== null) {
+      searchParams.append(key, value);
+    }
+  }
+  return searchParams.toString();
+};
 
-const getProducts = async (page = 1, pageSize = 18, orderBy = "recent", id = 1) => {
-  const query = `page=${page}&pageSize=${pageSize}&orderBy=${orderBy}`;
+const getProducts = async () => {
+  const options = { page: 1, pageSize: 18, orderBy: "recent" };
+
+  const searchParams = createQueryParams(options);
+
   try {
-    const response = await axiosInstance.get(`/products?${query}`);
-    // const { responseURL } = response.request;
-    // console.log(responseURL);
+    const response = await axiosInstance.get(`/products?${searchParams}`);
     const products = response.data;
     return products;
   } catch (error) {

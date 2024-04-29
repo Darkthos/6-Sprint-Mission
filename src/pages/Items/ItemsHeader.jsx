@@ -13,7 +13,7 @@ function ItemsHeader() {
         <HeadLogo />
         <HeadNavBox>
           <HeadNav text="자유게시판" />
-          <HeadNav text="중고마켓" isActive={location.pathname.startsWith("/items/")} link={ROUTER_LINKS.items} />
+          <HeadNav text="중고마켓" isActive={location.pathname.startsWith("/items")} link={ROUTER_LINKS.items} />
         </HeadNavBox>
         <Button text="로그인" size="small" link={ROUTER_LINKS.signin} />
       </HeaderTag>
