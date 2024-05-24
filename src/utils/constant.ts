@@ -1,4 +1,4 @@
-export const ROUTER_LINKS = {
+export const ROUTER_LINKS: { [key: string]: string } = {
   home: "/",
   signin: "/signin",
   signup: "/signup",

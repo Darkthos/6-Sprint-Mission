@@ -13,17 +13,35 @@ function Signupform() {
         <form className="sign-form">
           <div>
             <label htmlFor="email">이메일</label>
-            <input id="email" name="email" placeholder="이메일을 입력해주세요" type="email" />
+            <input
+              id="email"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+              type="email"
+            />
           </div>
           <div>
             <label htmlFor="nick-name">닉네임</label>
-            <input id="nick-name" name="nick-name" placeholder="닉네임을 입력해주세요" />
+            <input
+              id="nick-name"
+              name="nick-name"
+              placeholder="닉네임을 입력해주세요"
+            />
           </div>
           <div>
             <label htmlFor="password">비밀번호</label>
             <div className="password-box">
-              <input id="password" name="password" placeholder="비밀번호를 입력해주세요" type="password" />
-              <img id="toggle-password" src={invisibleImg} alt="비밀번호 보이기" />
+              <input
+                id="password"
+                name="password"
+                placeholder="비밀번호를 입력해주세요"
+                type="password"
+              />
+              <img
+                id="toggle-password"
+                src={invisibleImg}
+                alt="비밀번호 보이기"
+              />
             </div>
           </div>
           <div>
@@ -35,7 +53,11 @@ function Signupform() {
                 placeholder="비밀번호를 다시 한 번 입력해주세요"
                 type="password"
               />
-              <img id="toggle-repassword" src={invisibleImg} alt="비밀번호 보이기" />
+              <img
+                id="toggle-repassword"
+                src={invisibleImg}
+                alt="비밀번호 보이기"
+              />
             </div>
           </div>
           <button className="sign-form__button">회원가입</button>
