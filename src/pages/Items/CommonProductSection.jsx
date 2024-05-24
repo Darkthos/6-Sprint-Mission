@@ -5,8 +5,9 @@ import CommonProduct from "./CommonProduct";
 import Pagination from "./Pagination";
 import ProductControlPanel from "./ProductControlPanel/ProductControlPanel";
 import { PC_SIZE, TABLET_SIZE } from "~/utils/themes";
-import getProducts from "~/apis/productapi";
+
 import { CommonProductContext } from "~/hook/Context/Context.js";
+import getProducts from "~/apis/productapi";
 
 function CommonProductSection() {
   const [pageCounts, setPageCounts] = useState();
@@ -50,7 +51,8 @@ function CommonProductSection() {
     tablet: { prev: 2, next: 8, perPage: 6 },
     mobile: { prev: 1, next: 5, perPage: 4 },
   };
-  const { prev, next, perPage } = pageSizes[isPc ? "pc" : isTablet ? "tablet" : "mobile"];
+  const { prev, next, perPage } =
+    pageSizes[isPc ? "pc" : isTablet ? "tablet" : "mobile"];
   let productsToShow = productLists.slice(0, perPage);
   const pageCount = Math.ceil(14 / perPage);
   const pages = Array.from({ length: pageCounts }, (_, index) => index + 1);
@@ -65,7 +67,9 @@ function CommonProductSection() {
   };
   return (
     <>
-      <CommonProductContext.Provider value={{ handleOrderByFavorite, handleOrderByRecent }}>
+      <CommonProductContext.Provider
+        value={{ handleOrderByFavorite, handleOrderByRecent }}
+      >
         <ProductControlPanel />
         <GridProductTag>
           {productsToShow.map((product) => {

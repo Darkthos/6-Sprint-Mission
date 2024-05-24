@@ -19,8 +19,8 @@
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "css-loader": "^7.1.1",
     "eslint": "^8.57.0",
@@ -28,6 +28,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "style-loader": "^4.0.0",
+    "ts-migrate": "^0.1.35",
+    "typescript": "^5.4.5",
     "vite": "^5.2.0",
     "vite-aliases": "^0.11.6"
   }
