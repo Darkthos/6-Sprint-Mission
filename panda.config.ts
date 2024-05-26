@@ -12,12 +12,11 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {
-      tokens: {
-        colors: {
-          blackPrimary: { value: "#02000E" },
-          blueBasic: { value: "#007BFF" },
-        },
+    tokens: {
+      colors: {
+        blueBasic: { value: "#3692FF" },
+        blueBanner: { value: "#CFE5FF" },
+        textBasic: { value: "#374151" },
       },
     },
   },

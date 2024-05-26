@@ -3,9 +3,9 @@ import { cva } from "../styled-system/css";
 export const buttonRecipe = cva({
   base: {
     color: "white",
-    bg: "blackPrimary",
-    w: "128px",
-    h: "48px",
+    bg: "blueBasic",
+    width: "128px",
+    height: "48px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -14,10 +14,14 @@ export const buttonRecipe = cva({
   variants: {
     visual: {
       banner: {
-        borderRadius: "44px",
-        w: "355px",
-        h: "60px",
+        borderRadius: { base: "24px", md: "46px" },
+        width: { base: "154px", md: "355px" },
+        height: { base: "48px", md: "60px" },
       },
     },
   },
 });
+// className={css({
+//   fontSize: { base: "8px", md: "2xl" },
+//   fontWeight: "bold",
+// })}
