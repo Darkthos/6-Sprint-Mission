@@ -12,7 +12,14 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        colors: {
+          blackPrimary: { value: "#02000E" },
+          blueBasic: { value: "#007BFF" },
+        },
+      },
+    },
   },
 
   // The output directory for your css system
