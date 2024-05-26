@@ -12,11 +12,16 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    tokens: {
-      colors: {
-        blueBasic: { value: "#3692FF" },
-        blueBanner: { value: "#CFE5FF" },
-        textBasic: { value: "#374151" },
+    extend: {
+      tokens: {
+        colors: {
+          blueBasic: { value: "#3692FF" },
+          blueBanner: { value: "#CFE5FF" },
+          textBasic: { value: "#374151" },
+        },
+        fonts: {
+          ROKAF: { value: "ROKAF Sans" },
+        },
       },
     },
   },

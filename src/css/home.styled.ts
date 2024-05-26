@@ -22,8 +22,6 @@ export const bannerTitle = css({
   textAlign: { base: "center", xl: "left" },
   fontWeight: "bold",
   color: "textBasic",
-  mt: { base: "48px", md: "84px" },
-  mb: "18px",
 });
 const evenSectionContainer = {
   flexDirection: { base: "column", xl: "row-reverse" },

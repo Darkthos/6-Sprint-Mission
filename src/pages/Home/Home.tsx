@@ -5,6 +5,8 @@ import homeSectionImage01 from "@assets/images/home-section-01.png";
 import homeSectionImage02 from "@assets/images/home-section-02.png";
 import homeSectionImage03 from "@assets/images/home-section-03.png";
 import { vstack } from "@css/styled-system/patterns";
+import BottomBanner from "./homeComponents/BottomBanner";
+import Footer from "./homeComponents/Footer";
 
 function Home() {
   return (
@@ -40,14 +42,8 @@ function Home() {
           descriptionText={`어떤 물건이든 판매하고 싶은 상품을\n쉽게 등록하세요`}
         />
       </div>
-      {/* <div
-        className={css({
-          fontSize: { base: "8px", md: "2xl" },
-          fontWeight: "bold",
-        })}
-      >
-        Hello 🐼!
-      </div> */}
+      <BottomBanner />
+      <Footer />
     </div>
   );
 }

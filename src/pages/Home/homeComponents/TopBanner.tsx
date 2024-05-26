@@ -17,7 +17,8 @@ function TopBanner() {
     >
       <div
         className={vstack({
-          gap: 0,
+          gap: { base: "18px", md: "22px", xl: "32px" },
+          mt: { base: "48px", md: "84px", xl: "0px" },
         })}
       >
         <p className={bannerTitle}>
@@ -27,7 +28,7 @@ function TopBanner() {
               display: { base: "block", md: "none", xl: "block" },
             })}
           />
-          거래해보세요
+          거래해 보세요
         </p>
         <Link to={ROUTER_LINKS} className={buttonRecipe({ visual: "banner" })}>
           구경하러 가기
