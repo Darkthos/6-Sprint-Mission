@@ -22,7 +22,7 @@ function Header() {
         />
         <p className={headerTitle}>판다마켓</p>
       </Link>
-      <Link to={ROUTER_LINKS} className={buttonRecipe()}>
+      <Link to={ROUTER_LINKS.signin} className={buttonRecipe()}>
         로그인
       </Link>
     </div>
