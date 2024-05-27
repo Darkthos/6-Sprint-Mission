@@ -1,10 +1,15 @@
 import { css } from "@/styled-system/css";
 import { hstack } from "@/styled-system/patterns";
 import pandaLogoIcon from "@assets/icons/panda-logo.svg";
+import { ROUTER_LINKS } from "@utils/constant";
+import { Link } from "react-router-dom";
 
 function HeaderSign() {
   return (
-    <div className={hstack({ justify: "center", gap: "22px" })}>
+    <Link
+      to={ROUTER_LINKS.home}
+      className={hstack({ justify: "center", gap: "22px" })}
+    >
       <img
         src={pandaLogoIcon}
         alt="판다얼굴 로고"
@@ -23,7 +28,7 @@ function HeaderSign() {
       >
         판다마켓
       </h1>
-    </div>
+    </Link>
   );
 }
 

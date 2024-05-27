@@ -21,7 +21,4 @@ export const buttonRecipe = cva({
     },
   },
 });
-// className={css({
-//   fontSize: { base: "8px", md: "2xl" },
-//   fontWeight: "bold",
-// })}
+

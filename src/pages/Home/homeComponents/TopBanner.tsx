@@ -1,7 +1,7 @@
 import { ROUTER_LINKS } from "@utils/constant";
 import { Link } from "react-router-dom";
 import topBannerImage from "@assets/images/top-banner.png";
-import { buttonRecipe } from "@css/common/recipe.styled";
+import { buttonRecipe } from "@css/common/buttonRecipe.styled";
 import { bannerTitle } from "@css/home.styled";
 import { vstack } from "@/styled-system/patterns";
 import { css } from "@/styled-system/css";

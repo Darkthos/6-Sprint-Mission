@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ROUTER_LINKS } from "../utils/constant";
-import { buttonRecipe } from "@css/common/recipe.styled";
+import { buttonRecipe } from "@css/common/buttonRecipe.styled";
 import { headerContainer, headerTitle } from "@css/home.styled";
 import pandaLogoIcon from "@assets/icons/panda-logo.svg";
 import { hstack } from "@/styled-system/patterns";
@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className={headerContainer}>
       <Link
-        to={ROUTER_LINKS}
+        to={ROUTER_LINKS.home}
         className={hstack({
           flexGrow: "1",
         })}
