@@ -7,6 +7,7 @@ export const inputRecipe = cva({
     w: "full",
     h: "56px",
     p: "16px 24px",
+    fontSize: "18px",
   },
   variants: {
     visual: {

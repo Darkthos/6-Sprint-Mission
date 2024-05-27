@@ -18,6 +18,7 @@ export default defineConfig({
           blueBasic: { value: "#3692FF" },
           blueBanner: { value: "#CFE5FF" },
           textBasic: { value: "#374151" },
+          disabledBasic: { value: "#9CA3AF" },
         },
         fonts: {
           ROKAF: { value: "ROKAF Sans" },
