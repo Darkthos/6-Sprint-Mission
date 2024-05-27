@@ -1,8 +1,8 @@
 import { css } from "@/styled-system/css";
 import HeaderSign from "@components/HeaderSign";
 import SocialLogin from "@components/SocialLogin";
-import { buttonRecipe } from "@css/common/buttonRecipe.styled";
-import { inputRecipe } from "@css/common/inputRecipe.styled";
+import { buttonRecipe } from "@css/recipe/buttonRecipe.styled";
+import { inputRecipe } from "@css/recipe/inputRecipe.styled";
 import {
   labelInputContainer,
   labelBasicStyle,

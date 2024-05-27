@@ -1,10 +1,10 @@
 import { ROUTER_LINKS } from "@utils/constant";
 import { Link } from "react-router-dom";
 import topBannerImage from "@assets/images/top-banner.png";
-import { buttonRecipe } from "@css/common/buttonRecipe.styled";
 import { bannerTitle } from "@css/home.styled";
 import { vstack } from "@/styled-system/patterns";
 import { css } from "@/styled-system/css";
+import { buttonRecipe } from "@css/recipe/buttonRecipe.styled";
 
 function TopBanner() {
   return (
@@ -30,7 +30,10 @@ function TopBanner() {
           />
           거래해 보세요
         </p>
-        <Link to={ROUTER_LINKS} className={buttonRecipe({ visual: "banner" })}>
+        <Link
+          to={ROUTER_LINKS.items}
+          className={buttonRecipe({ visual: "banner" })}
+        >
           구경하러 가기
         </Link>
       </div>

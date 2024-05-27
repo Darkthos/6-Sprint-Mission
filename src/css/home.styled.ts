@@ -1,21 +1,4 @@
 import { css } from "@/styled-system/css";
-import { hstack } from "@/styled-system/patterns";
-
-export const headerContainer = hstack({
-  gap: "6",
-  padding: "10px 16px",
-  position: "sticky",
-  bg: "white",
-  top: "0px",
-  px: { base: "16px", md: "24px", xl: "200px" },
-});
-
-export const headerTitle = css({
-  color: "blueBasic",
-  fontSize: "26px",
-  fontWeight: "bold",
-  lineHeight: "34px",
-});
 
 export const bannerTitle = css({
   fontSize: { base: "32px", md: "40px" },

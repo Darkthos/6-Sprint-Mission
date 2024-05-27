@@ -58,6 +58,9 @@
       ],
       "@styled-system/*": [
         "src/styled-system/*"
+      ],
+      "@recipe/*": [
+        "src/css/recipe/*"
       ]
     }
   },
