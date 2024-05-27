@@ -9,6 +9,7 @@ function BottomBanner() {
         bg: "blueBanner",
         flexDirection: { base: "column", xl: "row" },
         gap: { base: "54px", md: "74px", xl: "69px" },
+        justifyContent: "center",
       })}
     >
       <div

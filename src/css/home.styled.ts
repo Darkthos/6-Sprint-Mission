@@ -7,6 +7,7 @@ export const headerContainer = hstack({
   position: "sticky",
   bg: "white",
   top: "0px",
+  px: { base: "16px", md: "24px", xl: "200px" },
 });
 
 export const headerTitle = css({
