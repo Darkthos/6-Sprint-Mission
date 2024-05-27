@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { ROUTER_LINKS } from "../utils/constant";
-import { hstack } from "@css/styled-system/patterns";
 import { buttonRecipe } from "@css/common/recipe.styled";
 import { headerContainer, headerTitle } from "@css/home.styled";
 import pandaLogoIcon from "@assets/icons/panda-logo.svg";
-import { css } from "@css/styled-system/css";
+import { hstack } from "@/styled-system/patterns";
+import { css } from "@/styled-system/css";
 
 function Header() {
   return (

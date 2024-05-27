@@ -4,9 +4,9 @@ import Section from "./homeComponents/Section";
 import homeSectionImage01 from "@assets/images/home-section-01.png";
 import homeSectionImage02 from "@assets/images/home-section-02.png";
 import homeSectionImage03 from "@assets/images/home-section-03.png";
-import { vstack } from "@css/styled-system/patterns";
 import BottomBanner from "./homeComponents/BottomBanner";
 import Footer from "./homeComponents/Footer";
+import { vstack } from "@/styled-system/patterns";
 
 function Home() {
   return (

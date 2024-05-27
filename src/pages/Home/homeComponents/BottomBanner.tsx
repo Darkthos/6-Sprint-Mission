@@ -1,6 +1,6 @@
 import { bannerTitle } from "@css/home.styled";
-import { vstack } from "@css/styled-system/patterns";
 import bottomBannerImage from "@assets/images/bottom-banner.png";
+import { vstack } from "@/styled-system/patterns";
 
 function BottomBanner() {
   return (

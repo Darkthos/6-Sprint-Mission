@@ -2,9 +2,9 @@ import { ROUTER_LINKS } from "@utils/constant";
 import { Link } from "react-router-dom";
 import topBannerImage from "@assets/images/top-banner.png";
 import { buttonRecipe } from "@css/common/recipe.styled";
-import { vstack } from "@css/styled-system/patterns";
-import { css } from "@css/styled-system/css";
 import { bannerTitle } from "@css/home.styled";
+import { vstack } from "@/styled-system/patterns";
+import { css } from "@/styled-system/css";
 
 function TopBanner() {
   return (

@@ -55,6 +55,9 @@
       ],
       "@images/*": [
         "src/assets/images/*"
+      ],
+      "@styled-system/*": [
+        "src/styled-system/*"
       ]
     }
   },

@@ -2,8 +2,8 @@ import facebookIcon from "@assets/icons/facebook_ic.svg";
 import twitterIcon from "@assets/icons/twitter_ic.svg";
 import youtubeIcon from "@assets/icons/youtube_ic.svg";
 import instagramIcon from "@assets/icons/instagram_ic.svg";
-import { hstack } from "@css/styled-system/patterns";
-import { css } from "@css/styled-system/css";
+import { css } from "@/styled-system/css";
+import { hstack } from "@/styled-system/patterns";
 
 function Footer() {
   return (

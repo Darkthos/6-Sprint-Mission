@@ -1,3 +1,4 @@
+import { css } from "@/styled-system/css";
 import {
   DescriptionTextStyle,
   itemTextStyle,
@@ -5,7 +6,6 @@ import {
   sectionInformation,
   titleTextStyle,
 } from "@css/home.styled";
-import { css } from "@css/styled-system/css";
 
 interface SectionProps {
   index: number;
