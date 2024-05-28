@@ -1,15 +1,17 @@
-import { css } from "@/styled-system/css";
 import {
   DescriptionTextStyle,
   itemTextStyle,
   sectionContainer,
   sectionInformation,
   titleTextStyle,
-} from "@css/home.styled";
+} from "@/css/home.styled";
+import { css } from "@/styled-system/css";
+
+import Image, { StaticImageData } from "next/image";
 
 interface SectionProps {
   index: number;
-  imageSrc: string;
+  imageSrc: StaticImageData;
   itemText: string;
   titleText: string;
   descriptionText: string;
@@ -33,9 +35,9 @@ function Section({
 
   return (
     <div className={sectionContainer(index)}>
-      <img
+      <Image
         src={imageSrc}
-        alt={imageSrc}
+        alt="상품"
         className={css({
           w: { base: "344px", md: "696px", xl: "588px" },
           h: { base: "259px", md: "524px", xl: "444px" },

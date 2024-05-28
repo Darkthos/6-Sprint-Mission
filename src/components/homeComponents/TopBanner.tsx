@@ -1,10 +1,10 @@
-import { ROUTER_LINKS } from "@utils/constant";
-import { Link } from "react-router-dom";
-import topBannerImage from "@assets/images/top-banner.png";
-import { bannerTitle } from "@css/home.styled";
+import topBannerImage from "@/assets/images/top-banner.png";
 import { vstack } from "@/styled-system/patterns";
 import { css } from "@/styled-system/css";
-import { buttonRecipe } from "@css/recipe/buttonRecipe.styled";
+import Image from "next/image";
+import { bannerTitle } from "@/css/home.styled";
+import Link from "next/link";
+import { buttonRecipe } from "@/css/recipe/buttonRecipe.styled";
 
 function TopBanner() {
   return (
@@ -30,14 +30,11 @@ function TopBanner() {
           />
           거래해 보세요
         </p>
-        <Link
-          to={ROUTER_LINKS.items}
-          className={buttonRecipe({ visual: "banner" })}
-        >
+        <Link href="./items" className={buttonRecipe({ visual: "banner" })}>
           구경하러 가기
         </Link>
       </div>
-      <img
+      <Image
         src={topBannerImage}
         alt="판다 상단배너"
         className={css({

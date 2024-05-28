@@ -1,9 +1,10 @@
-import facebookIcon from "@assets/icons/facebook_ic.svg";
-import twitterIcon from "@assets/icons/twitter_ic.svg";
-import youtubeIcon from "@assets/icons/youtube_ic.svg";
-import instagramIcon from "@assets/icons/instagram_ic.svg";
+import facebookIcon from "@/assets/icons/facebook_ic.svg";
+import twitterIcon from "@/assets/icons/twitter_ic.svg";
+import youtubeIcon from "@/assets/icons/youtube_ic.svg";
+import instagramIcon from "@/assets/icons/instagram_ic.svg";
 import { css } from "@/styled-system/css";
 import { hstack } from "@/styled-system/patterns";
+import Image from "next/image";
 
 function Footer() {
   return (
@@ -36,10 +37,10 @@ function Footer() {
             gap: "12px",
           })}
         >
-          <img src={facebookIcon} alt="페이스북" />
-          <img src={twitterIcon} alt="트위터" />
-          <img src={youtubeIcon} alt="유튜브" />
-          <img src={instagramIcon} alt="인스타그램" />
+          <Image src={facebookIcon} alt="페이스북" />
+          <Image src={twitterIcon} alt="트위터" />
+          <Image src={youtubeIcon} alt="유튜브" />
+          <Image src={instagramIcon} alt="인스타그램" />
         </div>
       </div>
     </div>

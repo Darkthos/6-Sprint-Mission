@@ -1,23 +1,24 @@
-import { Link, useLocation } from "react-router-dom";
-import { ROUTER_LINKS } from "../utils/constant";
-import pandaLogoIcon from "@assets/icons/panda-logo.svg";
+import pandaLogoIcon from "@/assets/icons/panda-logo.svg";
 import { hstack } from "@/styled-system/patterns";
 import { css } from "@/styled-system/css";
-import { buttonRecipe } from "@css/recipe/buttonRecipe.styled";
 import {
   headerContainer,
   headerTitle,
   navContainer,
   navTextIsActive,
-} from "@css/common/header.styled";
+} from "@/css/common/header.styled";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import { buttonRecipe } from "@/css/recipe/buttonRecipe.styled";
 
 function Header() {
-  const location = useLocation();
+  const router = useRouter();
 
   return (
     <div className={headerContainer}>
-      <Link to={ROUTER_LINKS.home} className={hstack()}>
-        <img
+      <Link href="./" className={hstack()}>
+        <Image
           src={pandaLogoIcon}
           alt="판다얼굴 로고"
           className={css({ display: { base: "none", md: "block" } })}
@@ -26,19 +27,19 @@ function Header() {
       </Link>
       <div className={navContainer}>
         <Link
-          to={ROUTER_LINKS.home}
-          className={navTextIsActive(location.pathname === ROUTER_LINKS.home)}
+          href="./boards"
+          className={navTextIsActive(router.pathname === "/boards")}
         >
           자유게시판
         </Link>
         <Link
-          to={ROUTER_LINKS.items}
-          className={navTextIsActive(location.pathname === ROUTER_LINKS.items)}
+          href="./items"
+          className={navTextIsActive(router.pathname === "/items")}
         >
           중고마켓
         </Link>
       </div>
-      <Link to={ROUTER_LINKS.signin} className={buttonRecipe()}>
+      <Link href="./signin" className={buttonRecipe()}>
         로그인
       </Link>
     </div>

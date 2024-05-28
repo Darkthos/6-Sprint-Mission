@@ -1,17 +1,16 @@
-import { css } from "@/styled-system/css";
-import HeaderSign from "@components/HeaderSign";
-import SocialLogin from "@components/SocialLogin";
-import { buttonRecipe } from "@css/recipe/buttonRecipe.styled";
-import { inputRecipe } from "@css/recipe/inputRecipe.styled";
+import HeaderSign from "@/components/HeaderSign";
+import SocialLogin from "@/components/SocialLogin";
+import { buttonRecipe } from "@/css/recipe/buttonRecipe.styled";
+import { inputRecipe } from "@/css/recipe/inputRecipe.styled";
 import {
-  labelInputContainer,
-  labelBasicStyle,
   formBasicStyle,
-} from "@css/sign.styled";
-import { ROUTER_LINKS } from "@utils/constant";
-import { Link } from "react-router-dom";
+  labelBasicStyle,
+  labelInputContainer,
+} from "@/css/sign.styled";
+import { css } from "@/styled-system/css";
+import Link from "next/link";
 
-function Signup() {
+function signup() {
   return (
     <div className={css({ px: "16px" })}>
       <HeaderSign />
@@ -44,17 +43,14 @@ function Signup() {
             className={inputRecipe()}
           />
         </div>
-        <Link
-          to={ROUTER_LINKS.home}
-          className={buttonRecipe({ visual: "sign" })}
-        >
+        <Link href="./index.tsx" className={buttonRecipe({ visual: "sign" })}>
           로그인
         </Link>
         <SocialLogin />
         <p className={css({ fontWeight: "bold" })}>
           이미 회원이신가요?{" "}
           <Link
-            to={ROUTER_LINKS.signin}
+            href="./signin.tsx"
             className={css({ color: "blueBasic", textDecoration: "underline" })}
           >
             로그인
@@ -65,4 +61,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default signup;

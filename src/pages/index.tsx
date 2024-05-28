@@ -1,14 +1,14 @@
 import Header from "@/components/Header";
-import TopBanner from "./homeComponents/TopBanner";
-import Section from "./homeComponents/Section";
-import homeSectionImage01 from "@assets/images/home-section-01.png";
-import homeSectionImage02 from "@assets/images/home-section-02.png";
-import homeSectionImage03 from "@assets/images/home-section-03.png";
-import BottomBanner from "./homeComponents/BottomBanner";
-import Footer from "./homeComponents/Footer";
+import homeSectionImage01 from "@/assets/images/home-section-01.png";
+import homeSectionImage02 from "@/assets/images/home-section-02.png";
+import homeSectionImage03 from "@/assets/images/home-section-03.png";
 import { vstack } from "@/styled-system/patterns";
+import TopBanner from "@/components/homeComponents/TopBanner";
+import Section from "@/components/homeComponents/Section";
+import BottomBanner from "@/components/homeComponents/BottomBanner";
+import Footer from "@/components/homeComponents/Footer";
 
-function Home() {
+export default function Home() {
   return (
     <div>
       <Header />
@@ -47,5 +47,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

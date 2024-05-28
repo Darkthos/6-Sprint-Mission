@@ -1,78 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-    /* Bundler mode */
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
+    "jsx": "preserve",
+    "incremental": true,
     "paths": {
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@css/*": [
-        "src/css/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@shared/*": [
-        "src/shared/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ],
-      "@/*": [
-        "src/*"
-      ],
-      "@common/*": [
-        "src/css/common/*"
-      ],
-      "@icons/*": [
-        "src/assets/icons/*"
-      ],
-      "@images/*": [
-        "src/assets/images/*"
-      ],
-      "@styled-system/*": [
-        "src/styled-system/*"
-      ],
-      "@recipe/*": [
-        "src/css/recipe/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "src/**/*",
-    "styled-system",
-    "src/app/main.tsx",
-    "src/app/App.tsx"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

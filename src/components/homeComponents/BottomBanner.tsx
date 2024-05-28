@@ -1,6 +1,7 @@
-import { bannerTitle } from "@css/home.styled";
-import bottomBannerImage from "@assets/images/bottom-banner.png";
+import bottomBannerImage from "@/assets/images/bottom-banner.png";
 import { vstack } from "@/styled-system/patterns";
+import { bannerTitle } from "@/css/home.styled";
+import Image from "next/image";
 
 function BottomBanner() {
   return (
@@ -24,7 +25,7 @@ function BottomBanner() {
           판다마켓 중고 거래
         </p>
       </div>
-      <img src={bottomBannerImage} alt="판다 하단배너" />
+      <Image src={bottomBannerImage} alt="팔다 하단배너" />
     </div>
   );
 }
