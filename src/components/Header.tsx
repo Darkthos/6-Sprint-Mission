@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { buttonRecipe } from "@/css/recipe/buttonRecipe.styled";
+import userPassiveIcon from "@/assets/icons/user_passive_ic.svg";
 
 function Header() {
   const router = useRouter();
@@ -39,9 +40,15 @@ function Header() {
           중고마켓
         </Link>
       </div>
-      <Link href="./signin" className={buttonRecipe()}>
-        로그인
-      </Link>
+      {router.pathname === "/items" ? (
+        <Link href="./signin">
+          <Image src={userPassiveIcon} alt="userPassive" />
+        </Link>
+      ) : (
+        <Link href="./signin" className={buttonRecipe()}>
+          로그인
+        </Link>
+      )}
     </div>
   );
 }
