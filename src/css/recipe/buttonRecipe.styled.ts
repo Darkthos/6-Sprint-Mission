@@ -24,6 +24,10 @@ export const buttonRecipe = cva({
         height: "56px",
         borderRadius: "40px",
       },
+      small: {
+        width: "88px",
+        height: "42px",
+      },
     },
   },
 });

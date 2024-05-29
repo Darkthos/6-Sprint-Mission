@@ -25,7 +25,7 @@ function BottomBanner() {
           판다마켓 중고 거래
         </p>
       </div>
-      <Image src={bottomBannerImage} alt="팔다 하단배너" />
+      <Image src={bottomBannerImage} alt="판다 하단배너" priority />
     </div>
   );
 }

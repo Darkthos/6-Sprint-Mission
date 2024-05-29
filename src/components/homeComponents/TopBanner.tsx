@@ -40,6 +40,7 @@ function TopBanner() {
         className={css({
           mt: { base: "55px", md: "94px" },
         })}
+        priority
       />
     </div>
   );

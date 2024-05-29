@@ -1,5 +1,5 @@
-import HeaderSign from "@/components/HeaderSign";
-import SocialLogin from "@/components/SocialLogin";
+import HeaderSign from "@/components/shared/HeaderSign";
+import SocialLogin from "@/components/shared/SocialLogin";
 import { buttonRecipe } from "@/css/recipe/buttonRecipe.styled";
 import { inputRecipe } from "@/css/recipe/inputRecipe.styled";
 import {

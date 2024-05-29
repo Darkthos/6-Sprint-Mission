@@ -1,5 +1,3 @@
-import { URLSearchParams } from "next/dist/compiled/@edge-runtime/primitives/url";
-
 const createQueryParams = (params: Record<string, string[]>): string => {
   const searchParams = new URLSearchParams();
   const entParams = Object.entries(params);

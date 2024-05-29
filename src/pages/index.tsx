@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import homeSectionImage01 from "@/assets/images/home-section-01.png";
 import homeSectionImage02 from "@/assets/images/home-section-02.png";
 import homeSectionImage03 from "@/assets/images/home-section-03.png";
@@ -7,6 +6,7 @@ import TopBanner from "@/components/homeComponents/TopBanner";
 import Section from "@/components/homeComponents/Section";
 import BottomBanner from "@/components/homeComponents/BottomBanner";
 import Footer from "@/components/homeComponents/Footer";
+import Header from "@/components/shared/Header";
 
 export default function Home() {
   return (

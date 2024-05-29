@@ -16,6 +16,10 @@ export const inputRecipe = cva({
         width: { base: "154px", md: "355px" },
         height: { base: "48px", md: "60px" },
       },
+      search: {
+        p: "9px 44px",
+        h: "full",
+      },
     },
   },
 });

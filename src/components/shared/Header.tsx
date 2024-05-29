@@ -18,7 +18,7 @@ function Header() {
 
   return (
     <div className={headerContainer}>
-      <Link href="./" className={hstack()}>
+      <Link href="/" className={hstack()}>
         <Image
           src={pandaLogoIcon}
           alt="판다얼굴 로고"
@@ -28,24 +28,24 @@ function Header() {
       </Link>
       <div className={navContainer}>
         <Link
-          href="./boards"
+          href="/boards"
           className={navTextIsActive(router.pathname === "/boards")}
         >
           자유게시판
         </Link>
         <Link
-          href="./items"
+          href="/items"
           className={navTextIsActive(router.pathname === "/items")}
         >
           중고마켓
         </Link>
       </div>
-      {router.pathname === "/items" ? (
-        <Link href="./signin">
+      {router.pathname === "/items" || "/boards" ? (
+        <Link href="/signin">
           <Image src={userPassiveIcon} alt="userPassive" />
         </Link>
       ) : (
-        <Link href="./signin" className={buttonRecipe()}>
+        <Link href="/signin" className={buttonRecipe()}>
           로그인
         </Link>
       )}
