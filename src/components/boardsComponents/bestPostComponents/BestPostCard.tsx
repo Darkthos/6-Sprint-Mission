@@ -9,13 +9,16 @@ import {
   articleTextStyle,
   bestPostCardContainer,
 } from "@/css/boards.styled";
+import formatDateString from "@/utils/formatDate";
 // {image && <Image src={image} alt="articleImage" />}
 interface BestPostCardProps {
   article: Article;
 }
 
 function BestPostCard({ article }: BestPostCardProps) {
-  const { createdAt, image, likeCount, title, updatedAt, writer } = article;
+  const { image, likeCount, title, updatedAt, writer } = article;
+  const articleDate = formatDateString(updatedAt);
+
   return (
     <div className={bestPostCardContainer}>
       <Image src={bestArticleImage} alt="bestArticleImage" />
@@ -35,7 +38,7 @@ function BestPostCard({ article }: BestPostCardProps) {
           <Image src={heartIcon} alt="heartIcon" />
           <p>{likeCount}</p>
         </div>
-        <p>2024.04.16</p>
+        <p>{articleDate}</p>
       </div>
     </div>
   );

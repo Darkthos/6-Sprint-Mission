@@ -10,6 +10,7 @@ import {
   articleTextStyle,
   normalPostCardContainer,
 } from "@/css/boards.styled";
+import formatDateString from "@/utils/formatDate";
 
 interface BestPostCardProps {
   article: Article;
@@ -17,6 +18,7 @@ interface BestPostCardProps {
 
 function NormalPostCard({ article }: BestPostCardProps) {
   const { image, likeCount, title, updatedAt, writer } = article;
+  const articleDate = formatDateString(updatedAt);
 
   return (
     <div className={normalPostCardContainer}>
@@ -37,7 +39,7 @@ function NormalPostCard({ article }: BestPostCardProps) {
           className={css({ w: "24px" })}
         />
         <p>{writer.nickname}</p>
-        <p className={css({ flexGrow: 1 })}>2024.04.16</p>
+        <p className={css({ flexGrow: 1 })}>{articleDate}</p>
         <div className={hstack({ gap: "4px" })}>
           <Image src={heartIcon} alt="heartIcon" />
           <p>{likeCount}</p>

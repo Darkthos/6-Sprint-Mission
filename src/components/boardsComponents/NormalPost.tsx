@@ -14,10 +14,10 @@ import { css } from "@/styled-system/css";
 
 function NormalPost() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [searchValue, setSearchValue] = useState("");
-  const [orderBy, setOrderBy] = useState("recent");
-  const [sortByText, setSortByText] = useState("최신순");
-  const [isDropBox, setIsDropBox] = useState(false);
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [orderBy, setOrderBy] = useState<"recent" | "like">("recent");
+  const [sortByText, setSortByText] = useState<string>("최신순");
+  const [isDropBox, setIsDropBox] = useState<boolean>(false);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -52,7 +52,6 @@ function NormalPost() {
           글쓰기
         </Link>
       </div>
-
       <div
         className={hstack({
           justifyContent: "space-between",
