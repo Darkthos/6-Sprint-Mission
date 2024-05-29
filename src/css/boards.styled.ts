@@ -20,7 +20,7 @@ export const bestPostCardContainer = css({
   flexDir: "column",
   minW: { base: "340px", xl: "384px" },
   w: "full",
-  minH: "167px",
+  minH: "169px",
   px: "24px",
   bg: "gray.50",
 });
@@ -43,8 +43,9 @@ export const normalPostCardContainer = css({
 
 export const articleTextStyle = css({
   minHeight: "74px",
-  fontSize: "18px",
+  fontSize: { base: "18px", md: "20px" },
   fontWeight: "600",
+  lineHeight: { base: "21px", md: "24px" },
   flexGrow: "1",
 });
 

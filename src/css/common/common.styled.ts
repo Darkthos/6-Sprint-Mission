@@ -1,4 +1,4 @@
-import { vstack } from "@/styled-system/patterns";
+import { center, vstack } from "@/styled-system/patterns";
 
 export const dropBoxContainer = vstack({
   bg: "white",
@@ -8,8 +8,7 @@ export const dropBoxContainer = vstack({
   width: { base: "120px", xl: "130px" },
 });
 
-export const dropBoxTextStyle = vstack({
+export const dropBoxTextStyle = center({
   height: "42px",
-  justifyContent: "center",
   width: "full",
 });

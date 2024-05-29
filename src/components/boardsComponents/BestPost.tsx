@@ -1,9 +1,8 @@
 import getArticles from "@/apis/article/getArticles";
 import React, { useEffect, useState } from "react";
 import BestPostCard from "./bestPostComponents/BestPostCard";
-import { center, hstack, vstack } from "@/styled-system/patterns";
+import { hstack } from "@/styled-system/patterns";
 import useResponsive from "@/hooks/useResponsive";
-import { css } from "@/styled-system/css";
 import { bestPostContainer } from "@/css/boards.styled";
 
 export interface Article {

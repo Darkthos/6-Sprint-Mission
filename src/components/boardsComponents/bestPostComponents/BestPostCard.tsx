@@ -1,8 +1,7 @@
-import { hstack, vstack } from "@/styled-system/patterns";
+import { hstack } from "@/styled-system/patterns";
 import { Article } from "../BestPost";
 import bestArticleImage from "@/assets/images/best-article.png";
 import Image from "next/image";
-import { css } from "@/styled-system/css";
 import heartIcon from "@/assets/icons/heart_ic.svg";
 import {
   PostCardFooter,

@@ -11,10 +11,8 @@ const getArticles = async (option = {}) => {
   };
   const articlesOption = { ...defaultOption, ...option };
   const articlesParams = createQueryParams(articlesOption);
-
   try {
     const response = await axiosInstance.get(`/articles?${articlesParams}`);
-    console.log(response);
     return response.data;
   } catch (error) {
     throw new Error("response failed");

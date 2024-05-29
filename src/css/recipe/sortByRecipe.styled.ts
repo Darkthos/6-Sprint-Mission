@@ -1,5 +1,4 @@
 import { cva } from "@/styled-system/css";
-import { hstack } from "@/styled-system/patterns";
 
 export const sortByRecipe = cva({
   base: {
