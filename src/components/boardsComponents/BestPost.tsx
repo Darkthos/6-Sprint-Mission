@@ -1,5 +1,5 @@
 import getArticles from "@/apis/article/getArticles";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import BestPostCard from "./bestPostComponents/BestPostCard";
 import { hstack } from "@/styled-system/patterns";
 import useResponsive from "@/hooks/useResponsive";
@@ -20,7 +20,9 @@ function BestPost() {
   const [articles, setArticles] = useState<Article[]>([]);
   const { isPc, isTablet } = useResponsive();
 
-  let pageSize: number = isPc ? 3 : isTablet ? 2 : 1;
+  const pageSize = useMemo(() => {
+    return isPc ? 3 : isTablet ? 2 : 1;
+  }, [isPc, isTablet]);
 
   useEffect(() => {
     const loadArticles = async () => {
@@ -30,13 +32,15 @@ function BestPost() {
     loadArticles();
   }, [pageSize]);
 
+  const renderedArticles = useMemo(() => {
+    return articles.map((article) => {
+      return <BestPostCard key={article.id} article={article} />;
+    });
+  }, [articles]);
+
   return (
     <div className={bestPostContainer}>
-      <div className={hstack({ gap: "16px" })}>
-        {articles.map((article) => {
-          return <BestPostCard key={article.id} article={article} />;
-        })}
-      </div>
+      <div className={hstack({ gap: "16px" })}>{renderedArticles}</div>
     </div>
   );
 }
