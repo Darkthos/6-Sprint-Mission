@@ -12,7 +12,12 @@ import Link from "next/link";
 
 function signup() {
   return (
-    <div className={css({ px: "16px" })}>
+    <div
+      className={css({
+        px: "16px",
+        pt: { base: "24px", md: "48px", xl: "60px" },
+      })}
+    >
       <HeaderSign />
       <div className={formBasicStyle}>
         <div className={labelInputContainer}>

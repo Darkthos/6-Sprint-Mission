@@ -40,7 +40,7 @@ function Header() {
           중고마켓
         </Link>
       </div>
-      {router.pathname === "/items" || "/boards" ? (
+      {router.pathname !== "/" ? (
         <Link href="/signin">
           <Image src={userPassiveIcon} alt="userPassive" />
         </Link>
