@@ -4,15 +4,16 @@ import { MouseEventHandler } from "react";
 
 interface DropBoxProps {
   open?: boolean;
+  toggle?: MouseEventHandler<HTMLDivElement>;
   recent?: MouseEventHandler<HTMLDivElement>;
   like?: MouseEventHandler<HTMLDivElement>;
 }
-
-function DropBox({ open = false, recent, like }: DropBoxProps) {
+console.log(onblur);
+function DropBox({ open = false, toggle, recent, like }: DropBoxProps) {
   return (
     <>
       {open && (
-        <div className={dropBoxContainer}>
+        <div className={dropBoxContainer} onClick={toggle}>
           <p
             className={`${dropBoxTextStyle} ${css({ borderBottom: "1px solid #E5E7EB" })}`}
             onClick={recent}

@@ -6,6 +6,7 @@ export const dropBoxContainer = vstack({
   borderRadius: "12px",
   border: "1px solid #E5E7EB",
   width: { base: "120px", xl: "130px" },
+  cursor: "pointer",
 });
 
 export const dropBoxTextStyle = center({
