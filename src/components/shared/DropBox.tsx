@@ -8,7 +8,7 @@ interface DropBoxProps {
   recent?: MouseEventHandler<HTMLDivElement>;
   like?: MouseEventHandler<HTMLDivElement>;
 }
-console.log(onblur);
+
 function DropBox({ open = false, toggle, recent, like }: DropBoxProps) {
   return (
     <>
