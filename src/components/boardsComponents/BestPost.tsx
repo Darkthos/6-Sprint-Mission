@@ -33,7 +33,7 @@ function BestPost() {
   }, [pageSize]);
 
   const renderedArticles = useMemo(() => {
-    return articles.map((article) => {
+    return articles?.map((article) => {
       return <BestPostCard key={article.id} article={article} />;
     });
   }, [articles]);

@@ -6,7 +6,7 @@ import {
   formBasicStyle,
   labelBasicStyle,
   labelInputContainer,
-} from "@/css/sign.styled";
+} from "@/css/common/sign.styled";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
 
