@@ -8,10 +8,10 @@ import { Article } from "./BestPost";
 import getArticles from "@/apis/article/getArticles";
 import NormalPostCard from "./normalPostComponents/NormalPostCard";
 import { subTitle } from "@/css/common/text.styled";
-import { normalPostContainer } from "@/css/boards.styled";
-import DropBox from "../shared/DropBox";
+import DropBox from "../shared/DropBox/DropBox";
 import { css } from "@/styled-system/css";
 import useToggle from "@/hooks/useToggle";
+import { normalPostContainer } from "./boards.styled";
 
 const sortOptions = {
   recent: "recent",
@@ -19,7 +19,7 @@ const sortOptions = {
 } as const;
 
 type SortKey = keyof typeof sortOptions;
-// 원시값은 타입추론을 알아서해서 제네릭설정 안해도됨.
+// 원시값은 타입추론선에서 컷해서 제네릭설정 안해도됨.
 function NormalPost() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [searchValue, setSearchValue] = useState("");

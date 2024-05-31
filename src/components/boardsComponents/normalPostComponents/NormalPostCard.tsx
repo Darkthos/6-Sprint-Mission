@@ -9,7 +9,7 @@ import {
   articleImageStyle,
   articleTextStyle,
   normalPostCardContainer,
-} from "@/css/boards.styled";
+} from "../boards.styled";
 import formatDateString from "@/utils/formatDate";
 
 interface BestPostCardProps {
@@ -25,10 +25,12 @@ function NormalPostCard({ article }: BestPostCardProps) {
       <div className={hstack({ alignItems: "normal" })}>
         <h2 className={articleTextStyle}>{title}</h2>
         {image && (
-          <img
+          <Image
             src={image}
             alt="normalArticleImage"
             className={articleImageStyle}
+            width={100}
+            height={100}
           />
         )}
       </div>

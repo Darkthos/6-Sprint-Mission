@@ -1,4 +1,4 @@
-import HeaderSign from "@/components/shared/HeaderSign";
+import HeaderSign from "@/components/shared/Header/HeaderSign";
 import SocialLogin from "@/components/shared/SocialLogin";
 import { buttonRecipe } from "@/css/recipe/buttonRecipe.styled";
 import { inputRecipe } from "@/css/recipe/inputRecipe.styled";
@@ -10,7 +10,7 @@ import {
 import { css } from "@/styled-system/css";
 import Link from "next/link";
 
-function signin() {
+function signup() {
   return (
     <div
       className={css({
@@ -28,9 +28,23 @@ function signin() {
           />
         </div>
         <div className={labelInputContainer}>
+          <label className={labelBasicStyle}>닉네임</label>
+          <input
+            placeholder="닉네임을 입력해주세요"
+            className={inputRecipe()}
+          />
+        </div>
+        <div className={labelInputContainer}>
           <label className={labelBasicStyle}>비밀번호</label>
           <input
             placeholder="비밀번호를 입력해주세요"
+            className={inputRecipe()}
+          />
+        </div>
+        <div className={labelInputContainer}>
+          <label className={labelBasicStyle}>비밀번호 확인</label>
+          <input
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
             className={inputRecipe()}
           />
         </div>
@@ -39,12 +53,12 @@ function signin() {
         </Link>
         <SocialLogin />
         <p className={css({ fontWeight: "bold" })}>
-          판다마켓이 처음이신가요?{" "}
+          이미 회원이신가요?{" "}
           <Link
-            href="./signup"
+            href="./signin.tsx"
             className={css({ color: "blueBasic", textDecoration: "underline" })}
           >
-            회원가입
+            로그인
           </Link>
         </p>
       </div>
@@ -52,4 +66,4 @@ function signin() {
   );
 }
 
-export default signin;
+export default signup;

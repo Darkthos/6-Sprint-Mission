@@ -22,6 +22,7 @@ function SearchBar({ onChangeInput, searchValue }: SearchBarProps) {
         className={css({ position: "absolute", top: "9px", left: "16px" })}
       />
       <input
+        type="text"
         placeholder="검색할 상품을 입력해주세요"
         className={inputRecipe({ visual: "search" })}
         onChange={onChangeInput}

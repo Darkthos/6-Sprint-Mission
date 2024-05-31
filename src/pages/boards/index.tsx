@@ -1,7 +1,8 @@
+import getArticles from "@/apis/article/getArticles";
 import BestPost from "@/components/boardsComponents/BestPost";
 import NormalPost from "@/components/boardsComponents/NormalPost";
-import Header from "@/components/shared/Header";
-import { boardsContainer } from "@/css/boards.styled";
+import { boardsContainer } from "@/components/boardsComponents/boards.styled";
+import Header from "@/components/shared/Header/Header";
 import { subTitle } from "@/css/common/text.styled";
 import { vstack } from "@/styled-system/patterns";
 

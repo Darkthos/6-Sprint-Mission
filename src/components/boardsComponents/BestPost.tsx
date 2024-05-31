@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import BestPostCard from "./bestPostComponents/BestPostCard";
 import { hstack } from "@/styled-system/patterns";
 import useResponsive from "@/hooks/useResponsive";
-import { bestPostContainer } from "@/css/boards.styled";
+import { bestPostContainer } from "./boards.styled";
 
 export interface Article {
   content: string;

@@ -1,6 +1,6 @@
-import { dropBoxContainer, dropBoxTextStyle } from "@/css/common/common.styled";
 import { css } from "@/styled-system/css";
 import { MouseEventHandler } from "react";
+import { dropBoxContainer, dropBoxTextStyle } from "./dropBox.styled";
 
 interface DropBoxProps {
   open?: boolean;

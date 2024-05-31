@@ -8,9 +8,9 @@ import {
   articleImageStyle,
   articleTextStyle,
   bestPostCardContainer,
-} from "@/css/boards.styled";
+} from "../boards.styled";
 import formatDateString from "@/utils/formatDate";
-// {image && <Image src={image} alt="articleImage" />}
+
 interface BestPostCardProps {
   article: Article;
 }
@@ -25,10 +25,12 @@ function BestPostCard({ article }: BestPostCardProps) {
       <div className={hstack({ alignItems: "normal" })}>
         <h2 className={articleTextStyle}>{title}</h2>
         {image && (
-          <img
+          <Image
             src={image}
             alt="bestArticleImage"
             className={articleImageStyle}
+            width={100}
+            height={100}
           />
         )}
       </div>

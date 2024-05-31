@@ -6,7 +6,7 @@ import TopBanner from "@/components/homeComponents/TopBanner";
 import Section from "@/components/homeComponents/Section";
 import BottomBanner from "@/components/homeComponents/BottomBanner";
 import Footer from "@/components/homeComponents/Footer";
-import Header from "@/components/shared/Header";
+import Header from "@/components/shared/Header/Header";
 
 export default function Home() {
   return (

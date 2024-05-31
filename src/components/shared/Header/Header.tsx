@@ -6,7 +6,7 @@ import {
   headerTitle,
   navContainer,
   navTextIsActive,
-} from "@/css/common/header.styled";
+} from "./header.styled";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
