@@ -1,4 +1,3 @@
-import getArticles from "@/apis/article/getArticles";
 import BestPost from "@/components/boardsComponents/BestPost";
 import NormalPost from "@/components/boardsComponents/NormalPost";
 import { boardsContainer } from "@/components/boardsComponents/boards.styled";
