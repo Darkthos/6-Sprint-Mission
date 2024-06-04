@@ -38,19 +38,13 @@ function NormalPost() {
   useEffect(() => {
     const loadArticles = async () => {
       const receive = await getArticles({
-        orderBy: [orderBy],
-        keyword: [searchValue],
+        orderBy: `${orderBy}`,
+        keyword: `${searchValue}`,
       });
       setArticles(receive.list);
     };
     loadArticles();
   }, [searchValue, orderBy]);
-
-  const renderedArticles = useMemo(() => {
-    return articles.map((article) => {
-      return <NormalPostCard key={article.id} article={article} />;
-    });
-  }, [articles]);
 
   return (
     <div className={normalPostContainer}>
@@ -83,7 +77,9 @@ function NormalPost() {
           </div>
         </div>
       </div>
-      {renderedArticles}
+      {articles.map((article) => {
+        return <NormalPostCard key={article.id} article={article} />;
+      })}
     </div>
   );
 }

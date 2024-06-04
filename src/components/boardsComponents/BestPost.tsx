@@ -32,15 +32,13 @@ function BestPost() {
     loadArticles();
   }, [pageSize]);
 
-  const renderedArticles = useMemo(() => {
-    return articles?.map((article) => {
-      return <BestPostCard key={article.id} article={article} />;
-    });
-  }, [articles]);
-
   return (
     <div className={bestPostContainer}>
-      <div className={hstack({ gap: "16px" })}>{renderedArticles}</div>
+      <div className={hstack({ gap: "16px" })}>
+        {articles?.map((article) => {
+          return <BestPostCard key={article.id} article={article} />;
+        })}
+      </div>
     </div>
   );
 }
