@@ -4,7 +4,6 @@ import Link from "next/link";
 import SearchBar from "../shared/SearchBar";
 import SortBy from "../shared/SortBy";
 import { useEffect, useMemo, useState } from "react";
-import { Article } from "./BestPost";
 import getArticles from "@/apis/article/getArticles";
 import NormalPostCard from "./normalPostComponents/NormalPostCard";
 import { subTitle } from "@/css/common/text.styled";
@@ -12,6 +11,7 @@ import DropBox from "../shared/DropBox/DropBox";
 import { css } from "@/styled-system/css";
 import useToggle from "@/hooks/useToggle";
 import { normalPostContainer } from "./boards.styled";
+import { Article } from "@/types/articles";
 
 const sortOptions = {
   recent: "recent",
@@ -38,19 +38,13 @@ function NormalPost() {
   useEffect(() => {
     const loadArticles = async () => {
       const receive = await getArticles({
-        orderBy: [orderBy],
-        keyword: [searchValue],
+        orderBy: `${orderBy}`,
+        keyword: `${searchValue}`,
       });
       setArticles(receive.list);
     };
     loadArticles();
   }, [searchValue, orderBy]);
-
-  const renderedArticles = useMemo(() => {
-    return articles.map((article) => {
-      return <NormalPostCard key={article.id} article={article} />;
-    });
-  }, [articles]);
 
   return (
     <div className={normalPostContainer}>
@@ -83,7 +77,9 @@ function NormalPost() {
           </div>
         </div>
       </div>
-      {renderedArticles}
+      {articles.map((article) => {
+        return <NormalPostCard key={article.id} article={article} />;
+      })}
     </div>
   );
 }

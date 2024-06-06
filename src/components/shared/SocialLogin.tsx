@@ -1,9 +1,10 @@
 import googleIcon from "@/assets/icons/google_ic.svg";
 import kakaoIcon from "@/assets/icons/kakao_ic.svg";
-import { socialLoginStyle } from "@/css/sign.styled";
+import { socialLoginStyle } from "@/css/common/sign.styled";
 import { css } from "@/styled-system/css";
 import { hstack } from "@/styled-system/patterns";
 import Image from "next/image";
+
 function SocialLogin() {
   return (
     <div className={socialLoginStyle}>

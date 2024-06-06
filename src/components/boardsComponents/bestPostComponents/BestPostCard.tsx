@@ -1,5 +1,4 @@
 import { hstack } from "@/styled-system/patterns";
-import { Article } from "../BestPost";
 import bestArticleImage from "@/assets/images/best-article.png";
 import Image from "next/image";
 import heartIcon from "@/assets/icons/heart_ic.svg";
@@ -10,6 +9,7 @@ import {
   bestPostCardContainer,
 } from "../boards.styled";
 import formatDateString from "@/utils/formatDate";
+import { Article } from "@/types/articles";
 
 interface BestPostCardProps {
   article: Article;
@@ -21,7 +21,7 @@ function BestPostCard({ article }: BestPostCardProps) {
 
   return (
     <div className={bestPostCardContainer}>
-      <Image src={bestArticleImage} alt="bestArticleImage" />
+      <Image src={bestArticleImage} alt="bestArticleMedal" />
       <div className={hstack({ alignItems: "normal" })}>
         <h2 className={articleTextStyle}>{title}</h2>
         {image && (

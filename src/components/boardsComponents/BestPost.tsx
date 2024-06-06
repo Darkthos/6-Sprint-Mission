@@ -4,17 +4,7 @@ import BestPostCard from "./bestPostComponents/BestPostCard";
 import { hstack } from "@/styled-system/patterns";
 import useResponsive from "@/hooks/useResponsive";
 import { bestPostContainer } from "./boards.styled";
-
-export interface Article {
-  content: string;
-  createdAt: string;
-  id: number;
-  image: string | null;
-  likeCount: number;
-  title: string;
-  updatedAt: string;
-  writer: { id: number; nickname: string };
-}
+import { Article } from "@/types/articles";
 
 function BestPost() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -32,15 +22,13 @@ function BestPost() {
     loadArticles();
   }, [pageSize]);
 
-  const renderedArticles = useMemo(() => {
-    return articles?.map((article) => {
-      return <BestPostCard key={article.id} article={article} />;
-    });
-  }, [articles]);
-
   return (
     <div className={bestPostContainer}>
-      <div className={hstack({ gap: "16px" })}>{renderedArticles}</div>
+      <div className={hstack({ gap: "16px" })}>
+        {articles?.map((article) => {
+          return <BestPostCard key={article.id} article={article} />;
+        })}
+      </div>
     </div>
   );
 }
