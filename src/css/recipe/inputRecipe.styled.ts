@@ -8,6 +8,10 @@ export const inputRecipe = cva({
     h: "56px",
     p: "16px 24px",
     fontSize: "18px",
+    scrollbar: "hidden",
+    "&:focus": {
+      outline: "none",
+    },
   },
   variants: {
     visual: {
@@ -22,10 +26,9 @@ export const inputRecipe = cva({
       },
       large: {
         h: "104px",
-        scrollbar: "hidden",
-        "&:focus": {
-          outline: "none",
-        },
+      },
+      xLarge: {
+        h: "282px",
       },
     },
   },

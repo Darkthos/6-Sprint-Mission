@@ -5,8 +5,10 @@ import { hstack } from "@/styled-system/patterns";
 function FormTitle() {
   return (
     <div className={hstack({ justifyContent: "space-between" })}>
-      <h2 className={subTitle}>게시글</h2>
-      <button className={buttonRecipe({ visual: "small" })}>글쓰기</button>
+      <h2 className={subTitle}>게시글 쓰기</h2>
+      <button className={buttonRecipe({ visual: "smallDisabled" })}>
+        글쓰기
+      </button>
     </div>
   );
 }

@@ -100,7 +100,10 @@ function BoardDetail() {
           })}
         >
           <label className={subTitle}>댓글 달기</label>
-          <textarea className={inputRecipe({ visual: "large" })} />
+          <textarea
+            className={inputRecipe({ visual: "large" })}
+            placeholder="댓글을 입력해주세요."
+          />
           <button
             className={cx(
               buttonRecipe({ visual: "smallDisabled" }),
@@ -111,7 +114,7 @@ function BoardDetail() {
           </button>
         </div>
         {comments && comments.length > 0 ? (
-          <div>
+          <div className={css({ marginBottom: "24px" })}>
             {comments.map((comment) => {
               return <Comment comment={comment} />;
             })}

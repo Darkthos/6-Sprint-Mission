@@ -10,6 +10,7 @@ export const buttonRecipe = cva({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "8px",
+    cursor: "pointer",
   },
   variants: {
     visual: {

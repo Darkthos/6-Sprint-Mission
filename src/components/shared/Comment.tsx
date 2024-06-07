@@ -27,15 +27,22 @@ function Comment({ comment }: { comment: CommentInp }) {
         display: "flex",
         flexDirection: "column",
         position: "relative",
-        h: "81px",
+        minH: "81px",
         borderBottom: "1px solid #DFDFDF",
         gap: "16px",
+        padding: { base: "16px", md: "24px" },
       })}
     >
       <p>{content}</p>
-      <div className={hstack({ marginBottom: "16px" })}>
+      <div className={hstack()}>
         <Image width={32} src={userIcon} alt="유저얼굴" />
-        <div className={vstack({ gap: "4px" })}>
+        <div
+          className={css({
+            display: "flex",
+            flexDirection: "column",
+            gap: "4px",
+          })}
+        >
           <p
             className={css({
               color: "#4b5563",
