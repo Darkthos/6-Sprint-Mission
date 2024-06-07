@@ -1,21 +1,26 @@
 import axiosInstance from "@/apis/axiosInstance";
+import { Headers } from "@/types/headers";
 
-const postImage = async (headers: any, image?: any) => {
-  console.log(image);
-  console.log(headers);
-  console.log("hihi");
+interface PostImageResponse {
+  url: string;
+}
+
+const postImage = async (headers: Headers, image?: any) => {
   try {
     const formData = new FormData();
     if (image) {
       formData.append("image", image);
     }
-    const { data } = await axiosInstance.post<any>("/images/upload", formData, {
-      headers: {
-        ...headers,
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    console.log(data);
+    const { data } = await axiosInstance.post<PostImageResponse>(
+      "/images/upload",
+      formData,
+      {
+        headers: {
+          ...headers,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.error(`Failed to fetch data: ${error}`);

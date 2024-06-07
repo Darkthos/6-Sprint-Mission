@@ -8,15 +8,17 @@ export interface PostArticlesParams {
 
 const postArticles = async (
   option: PostArticlesParams = {
-    image: "",
+    image: null,
     content: "",
     title: "",
   },
   headers: any
 ) => {
-  console.log(headers);
+  const { image, ...restOption } = option;
+  const payload = image ? option : restOption;
+
   try {
-    const { data } = await axiosInstance.post<any>("/articles", option, {
+    const { data } = await axiosInstance.post<any>("/articles", payload, {
       headers,
     });
 

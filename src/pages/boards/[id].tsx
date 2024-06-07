@@ -17,12 +17,33 @@ import Link from "next/link";
 import { inputRecipe } from "@/css/recipe/inputRecipe.styled";
 import noCommentImage from "@/assets/images/no-comment.png";
 import Header from "@/components/shared/Header/Header";
+import postArticlesComment from "@/apis/comment/postArticlesIdComment";
+import { boardIdPageStyle, flexStyle } from "./id.styled";
+import { ParsedUrlQuery } from "querystring";
 
 function BoardDetail() {
   const router = useRouter();
-  const { id } = router.query;
+  const { id }: ParsedUrlQuery = router.query;
   const [postDetail, setPostDetail] = useState<ArticleId>();
   const [comments, setComments] = useState<CommentInp[]>([]);
+  const [commentData, setCommentData] = useState("");
+  const [isChangeComments, setIsChangeComments] = useState(false);
+
+  const onChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setCommentData(value);
+  };
+
+  const handleSubmit = async () => {
+    if (typeof id !== "string") return;
+    const token = localStorage.getItem("accessToken");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    setCommentData("");
+    await postArticlesComment(commentData, id, headers);
+    setIsChangeComments(!isChangeComments);
+  };
 
   useEffect(() => {
     const loadArticlesId = async () => {
@@ -42,7 +63,7 @@ function BoardDetail() {
       console.log(response.list);
     };
     loadComment();
-  }, []);
+  }, [isChangeComments]);
 
   const {
     content = "",
@@ -54,27 +75,11 @@ function BoardDetail() {
   } = postDetail || {};
 
   const postDate = formatDateString(updatedAt);
-
   return (
     <>
       <Header />
-      <div
-        className={css({
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-          p: { base: "24px 16px", md: "24px 24px", xl: "32px" },
-          maxW: "1200px",
-          margin: "auto",
-        })}
-      >
-        <div
-          className={css({
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-          })}
-        >
+      <div className={boardIdPageStyle}>
+        <div className={flexStyle}>
           <h1 className={subTitle}>{title}</h1>
           <div className={hstack()}>
             <Image src={userIcon} alt="유저얼굴" />
@@ -92,21 +97,22 @@ function BoardDetail() {
           </div>
         </div>
         <p className={css({ minH: "80px" })}>{content}</p>
-        <div
-          className={css({
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-          })}
-        >
+        <div className={flexStyle}>
           <label className={subTitle}>댓글 달기</label>
           <textarea
+            name="comment"
+            value={commentData}
+            onChange={onChangeInput}
             className={inputRecipe({ visual: "large" })}
             placeholder="댓글을 입력해주세요."
           />
           <button
+            type="submit"
+            onClick={handleSubmit}
             className={cx(
-              buttonRecipe({ visual: "smallDisabled" }),
+              buttonRecipe(
+                commentData ? { visual: "small" } : { visual: "smallDisabled" }
+              ),
               css({ marginLeft: "auto", cursor: "pointer" })
             )}
           >

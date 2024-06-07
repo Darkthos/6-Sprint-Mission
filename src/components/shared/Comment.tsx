@@ -4,6 +4,8 @@ import addlockIcon from "@/assets/icons/addlock-ic.svg";
 import formatDateString from "@/utils/formatDate";
 import { hstack, vstack } from "@/styled-system/patterns";
 import { css } from "@/styled-system/css";
+import { commentStyle, looKIconStyle } from "./comment.style";
+import { dateText, nameText } from "@/css/common/text.styled";
 
 export interface CommentInp {
   id: number;
@@ -22,17 +24,7 @@ function Comment({ comment }: { comment: CommentInp }) {
   const CommentDate = formatDateString(createdAt);
 
   return (
-    <div
-      className={css({
-        display: "flex",
-        flexDirection: "column",
-        position: "relative",
-        minH: "81px",
-        borderBottom: "1px solid #DFDFDF",
-        gap: "16px",
-        padding: { base: "16px", md: "24px" },
-      })}
-    >
+    <div className={commentStyle}>
       <p>{content}</p>
       <div className={hstack()}>
         <Image width={32} src={userIcon} alt="유저얼굴" />
@@ -43,37 +35,11 @@ function Comment({ comment }: { comment: CommentInp }) {
             gap: "4px",
           })}
         >
-          <p
-            className={css({
-              color: "#4b5563",
-              fontWeight: "400",
-              fontSize: "12px",
-              lineHeight: "14px",
-            })}
-          >
-            {writer.nickname}
-          </p>
-          <p
-            className={css({
-              color: "#9ca3af",
-              fontWeight: "400",
-              fontSize: "12px",
-              lineHeight: "14px",
-            })}
-          >
-            {CommentDate}
-          </p>
+          <p className={nameText}>{writer.nickname}</p>
+          <p className={dateText}>{CommentDate}</p>
         </div>
       </div>
-      <Image
-        src={addlockIcon}
-        alt="더보기..."
-        className={css({
-          position: "absolute",
-          top: "0px",
-          right: "0px",
-        })}
-      />
+      <Image src={addlockIcon} alt="더보기..." className={looKIconStyle} />
     </div>
   );
 }

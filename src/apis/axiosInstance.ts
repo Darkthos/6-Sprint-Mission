@@ -11,5 +11,3 @@ const axiosConfig: AxiosRequestConfig = {
 const axiosInstance = axios.create(axiosConfig);
 
 export default axiosInstance;
-//'accept: application/json' \
-//'Content-Type: multipart/form-data' \

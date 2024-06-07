@@ -7,8 +7,14 @@ import { css } from "@/styled-system/css";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
+interface PostData {
+  content: string;
+  title: string;
+  image: string | null;
+}
+
 function AddBoard() {
-  const [postData, setUserData] = useState({
+  const [postData, setUserData] = useState<PostData>({
     content: "",
     title: "",
     image: null,
@@ -36,21 +42,16 @@ function AddBoard() {
     });
   };
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    console.log(postData);
+  const handleSubmit = async () => {
+    if (!isValid) return;
     const token = localStorage.getItem("accessToken");
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-    try {
-      const response = await postArticles(postData, headers);
-      console.log("Post successful:", response);
-      router.push("/boards");
-    } catch (error) {
-      console.error("Post failed:", error);
-    }
+    await postArticles(postData, headers);
+    router.push("/boards");
   };
+  const isValid: boolean = !!(postData.content && postData.title);
 
   return (
     <div>
@@ -62,7 +63,7 @@ function AddBoard() {
           p: { base: "16px", md: "16px 24px", xl: "24px" },
         })}
       >
-        <FormTitle handleSubmit={handleSubmit} />
+        <FormTitle isValid={isValid} handleSubmit={handleSubmit} />
         <Form
           postData={postData}
           onChangeInput={onChangeInput}

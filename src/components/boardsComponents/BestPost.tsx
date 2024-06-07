@@ -5,10 +5,8 @@ import { hstack } from "@/styled-system/patterns";
 import useResponsive from "@/hooks/useResponsive";
 import { bestPostContainer } from "./boards.styled";
 import { Article } from "@/types/articles";
-import { useRouter } from "next/router";
 
 function BestPost() {
-  const router = useRouter();
   const [articles, setArticles] = useState<Article[]>([]);
   const { isPc, isTablet } = useResponsive();
 
