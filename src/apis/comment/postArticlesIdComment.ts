@@ -1,4 +1,3 @@
-import { ParsedUrlQuery } from "querystring";
 import axiosInstance from "../axiosInstance";
 
 //'https://panda-market-api.vercel.app/articles/187/comments'

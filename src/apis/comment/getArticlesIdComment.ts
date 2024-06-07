@@ -1,6 +1,4 @@
-import createQueryParams from "@/utils/createQueryParams";
 import axiosInstance from "../axiosInstance";
-import { GetArticlesResponse } from "@/types/articles";
 
 interface GetArticlesIdCommentParams {
   limit: string;
