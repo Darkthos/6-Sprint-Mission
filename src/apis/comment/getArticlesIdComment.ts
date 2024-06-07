@@ -2,11 +2,8 @@ import createQueryParams from "@/utils/createQueryParams";
 import axiosInstance from "../axiosInstance";
 import { GetArticlesResponse } from "@/types/articles";
 
-interface GetArticlesParams {
-  page?: number;
-  pageSize?: number | string;
-  orderBy?: "like" | "recent";
-  keyword?: string;
+interface GetArticlesIdCommentParams {
+  limit: string;
 }
 
 /** 
@@ -18,19 +15,11 @@ interface GetArticlesParams {
     keyword: "",  }
  * @ref https://panda-market-api.vercel.app/#/articles
  */
-
-const getArticles = async (
-  option: GetArticlesParams = {
-    page: 1,
-    pageSize: "",
-    orderBy: "like",
-    keyword: "",
-  }
-): Promise<GetArticlesResponse> => {
-  const articlesParams = createQueryParams(option);
+// https://panda-market-api.vercel.app/articles/28/comments?limit=100
+const getArticlesIdComment = async (articleId: any): Promise<any> => {
   try {
-    const { data } = await axiosInstance.get<GetArticlesResponse>(
-      `/articles?${articlesParams}`
+    const { data } = await axiosInstance.get<any>(
+      `/articles/${articleId}/comments?limit=100`
     );
     return data;
   } catch (error) {
@@ -39,4 +28,4 @@ const getArticles = async (
   }
 };
 
-export default getArticles;
+export default getArticlesIdComment;

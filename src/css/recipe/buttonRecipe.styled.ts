@@ -28,6 +28,18 @@ export const buttonRecipe = cva({
         width: "88px",
         height: "42px",
       },
+      smallDisabled: {
+        bg: "disabledBasic",
+        width: "88px",
+        height: "42px",
+      },
+      large: {
+        w: "240px",
+        h: "48px",
+        borderRadius: "40px",
+        gap: "10px",
+        margin: "auto",
+      },
     },
   },
 });

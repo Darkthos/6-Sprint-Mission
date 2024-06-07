@@ -20,6 +20,13 @@ export const inputRecipe = cva({
         p: "9px 44px",
         h: "full",
       },
+      large: {
+        h: "104px",
+        scrollbar: "hidden",
+        "&:focus": {
+          outline: "none",
+        },
+      },
     },
   },
 });

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Article } from "../BestPost";
 import { hstack } from "@/styled-system/patterns";
 import { css } from "@/styled-system/css";
 import userPassiveIcon from "@/assets/icons/user_passive_ic.svg";
@@ -11,17 +10,19 @@ import {
   normalPostCardContainer,
 } from "../boards.styled";
 import formatDateString from "@/utils/formatDate";
+import Link from "next/link";
+import { Article } from "@/types/articles";
 
 interface BestPostCardProps {
   article: Article;
 }
 
 function NormalPostCard({ article }: BestPostCardProps) {
-  const { image, likeCount, title, updatedAt, writer } = article;
+  const { image, likeCount, title, updatedAt, writer, id } = article;
   const articleDate = formatDateString(updatedAt);
 
   return (
-    <div className={normalPostCardContainer}>
+    <Link className={normalPostCardContainer} href={`/boards/${id}`}>
       <div className={hstack({ alignItems: "normal" })}>
         <h2 className={articleTextStyle}>{title}</h2>
         {image && (
@@ -47,7 +48,7 @@ function NormalPostCard({ article }: BestPostCardProps) {
           <p>{likeCount}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

@@ -5,8 +5,10 @@ import { hstack } from "@/styled-system/patterns";
 import useResponsive from "@/hooks/useResponsive";
 import { bestPostContainer } from "./boards.styled";
 import { Article } from "@/types/articles";
+import { useRouter } from "next/router";
 
 function BestPost() {
+  const router = useRouter();
   const [articles, setArticles] = useState<Article[]>([]);
   const { isPc, isTablet } = useResponsive();
 
@@ -24,7 +26,7 @@ function BestPost() {
 
   return (
     <div className={bestPostContainer}>
-      <div className={hstack({ gap: "16px" })}>
+      <div className={hstack({ gap: "16px", cursor: "pointer" })}>
         {articles?.map((article) => {
           return <BestPostCard key={article.id} article={article} />;
         })}

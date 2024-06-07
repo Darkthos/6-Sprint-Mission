@@ -10,17 +10,18 @@ import {
 } from "../boards.styled";
 import formatDateString from "@/utils/formatDate";
 import { Article } from "@/types/articles";
+import Link from "next/link";
 
 interface BestPostCardProps {
   article: Article;
 }
 
 function BestPostCard({ article }: BestPostCardProps) {
-  const { image, likeCount, title, updatedAt, writer } = article;
+  const { image, likeCount, title, updatedAt, writer, id } = article;
   const articleDate = formatDateString(updatedAt);
 
   return (
-    <div className={bestPostCardContainer}>
+    <Link className={bestPostCardContainer} href={`/boards/${id}`}>
       <Image src={bestArticleImage} alt="bestArticleMedal" />
       <div className={hstack({ alignItems: "normal" })}>
         <h2 className={articleTextStyle}>{title}</h2>
@@ -42,7 +43,7 @@ function BestPostCard({ article }: BestPostCardProps) {
         </div>
         <p>{articleDate}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 

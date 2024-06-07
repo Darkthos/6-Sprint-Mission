@@ -3,7 +3,7 @@ import { hstack } from "@/styled-system/patterns";
 import Link from "next/link";
 import SearchBar from "../shared/SearchBar";
 import SortBy from "../shared/SortBy";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import getArticles from "@/apis/article/getArticles";
 import NormalPostCard from "./normalPostComponents/NormalPostCard";
 import { subTitle } from "@/css/common/text.styled";
@@ -50,7 +50,7 @@ function NormalPost() {
     <div className={normalPostContainer}>
       <div className={hstack({ justifyContent: "space-between" })}>
         <h2 className={subTitle}>게시글</h2>
-        <Link href="/" className={buttonRecipe({ visual: "small" })}>
+        <Link href="/addboard" className={buttonRecipe({ visual: "small" })}>
           글쓰기
         </Link>
       </div>
