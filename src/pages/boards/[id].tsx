@@ -18,8 +18,8 @@ import { inputRecipe } from "@/css/recipe/inputRecipe.styled";
 import noCommentImage from "@/assets/images/no-comment.png";
 import Header from "@/components/shared/Header/Header";
 import postArticlesComment from "@/apis/comment/postArticlesIdComment";
-import { boardIdPageStyle, flexStyle } from "./id.styled";
 import { ParsedUrlQuery } from "querystring";
+import { boardIdPageStyle, flexStyle } from "@/css/boardsId.styled";
 
 function BoardDetail() {
   const router = useRouter();
