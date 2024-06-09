@@ -22,7 +22,9 @@ function AddBoard() {
   const router = useRouter();
   const [addImage, setAddImage] = useState<Blob | MediaSource>();
 
-  const onChangeInput = (e: any) => {
+  const onChangeInput = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setUserData({
       ...postData,
