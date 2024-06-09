@@ -8,7 +8,7 @@ const postArticles = async (
     title: "",
     image: null,
   },
-  token: Token
+  token?: string | null
 ) => {
   const { image, ...restOption } = option;
   const payload = image ? option : restOption;

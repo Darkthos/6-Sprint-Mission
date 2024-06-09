@@ -4,6 +4,7 @@ import Form from "@/components/addBoardComponents/Form";
 import FormTitle from "@/components/addBoardComponents/FormTitle";
 import Header from "@/components/shared/Header/Header";
 import { css } from "@/styled-system/css";
+import { AccessTokenTOLocalStorage } from "@/utils/localStorageToken";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -45,7 +46,7 @@ function AddBoard() {
 
   const handleSubmit = async () => {
     if (!isValid) return;
-    const token = localStorage.getItem("accessToken");
+    const token = await AccessTokenTOLocalStorage();
     await postArticles(postData, token);
     router.push("/boards");
   };

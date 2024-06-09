@@ -9,7 +9,7 @@ import {
 } from "@/css/common/sign.styled";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import postSignup from "@/apis/auth/postSignup";
 
 function Signup() {
@@ -20,7 +20,7 @@ function Signup() {
     passwordConfirmation: "",
   });
 
-  const onChangeInput = (e: any) => {
+  const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { name, value } = e.target;
     setUserData({
       ...userData,

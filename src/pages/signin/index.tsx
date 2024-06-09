@@ -10,8 +10,9 @@ import {
 import { css } from "@/styled-system/css";
 import Link from "next/link";
 import postSignin from "@/apis/auth/postSignin";
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import { useRouter } from "next/router";
+import { saveTokenToLocalStorage } from "@/utils/localStorageToken";
 
 function Signin() {
   const [userData, setUserData] = useState({
@@ -20,7 +21,7 @@ function Signin() {
   });
   const router = useRouter();
 
-  const onChangeInput = (e: any) => {
+  const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { name, value } = e.target;
     setUserData({
       ...userData,
@@ -31,14 +32,10 @@ function Signin() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     router.push("/boards");
-    try {
-      const response = await postSignin(userData);
-      console.log("Signin successful:", response);
-      localStorage.setItem("accessToken", response.accessToken);
-    } catch (error) {
-      console.error("Signin failed:", error);
-    }
+    const response = await postSignin(userData);
+    saveTokenToLocalStorage(response);
   };
+
   return (
     <div
       className={css({
@@ -47,12 +44,12 @@ function Signin() {
       })}
     >
       <HeaderSign />
-      <div className={formBasicStyle}>
+      <form className={formBasicStyle}>
         <div className={labelInputContainer}>
           <label className={labelBasicStyle}>이메일</label>
           <input
             name="email"
-            type={userData.email}
+            type="email"
             placeholder="이메일을 입력해주세요"
             className={inputRecipe()}
             onChange={onChangeInput}
@@ -62,7 +59,7 @@ function Signin() {
           <label className={labelBasicStyle}>비밀번호</label>
           <input
             name="password"
-            type={userData.password}
+            type="password"
             placeholder="비밀번호를 입력해주세요"
             className={inputRecipe()}
             onChange={onChangeInput}
@@ -85,7 +82,7 @@ function Signin() {
             회원가입
           </Link>
         </p>
-      </div>
+      </form>
     </div>
   );
 }

@@ -1,10 +1,9 @@
-import { Token } from "@/types/api";
 import axiosInstance from "../axiosInstance";
 
 const postArticlesComment = async (
   content: string,
   id: string,
-  token: Token
+  token?: string | null
 ) => {
   try {
     await axiosInstance.post<any>(
