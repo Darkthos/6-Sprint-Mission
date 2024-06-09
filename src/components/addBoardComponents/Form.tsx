@@ -71,7 +71,11 @@ function Form({ postData, file, onChangeInput, onChangeImage }: FormProps) {
             alt="이미지 등록하기"
             width={240}
             height={240}
-            className={css({ w: { xl: "282px" }, cursor: "pointer" })}
+            className={css({
+              w: { xl: "282px" },
+              cursor: "pointer",
+              borderRadius: "12px",
+            })}
           />
         </label>
       </div>
