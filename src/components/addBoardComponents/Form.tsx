@@ -2,23 +2,35 @@ import { labelBasicStyle } from "@/css/common/sign.styled";
 import { inputRecipe } from "@/css/recipe/inputRecipe.styled";
 import { css, cx } from "@/styled-system/css";
 import { formStyle, labelInput } from "./form.styled";
-import Image from "next/image";
-import { PostArticlesParams } from "@/apis/article/postArticles";
+import Image, { StaticImageData } from "next/image";
 import imageAdd from "@/assets/images/image-add.png";
+import { useEffect, useState } from "react";
+
+export interface PostData {
+  content: string;
+  title: string;
+  image?: null | Blob | MediaSource;
+}
 
 interface FormProps {
-  postData: PostArticlesParams;
+  postData: PostData;
+  file?: Blob | MediaSource;
   onChangeInput: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   onChangeImage: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Form({ postData, onChangeInput, onChangeImage }: FormProps) {
-  const imageUrl =
-    postData.image instanceof Blob
-      ? URL.createObjectURL(postData.image)
-      : imageAdd;
+function Form({ postData, file, onChangeInput, onChangeImage }: FormProps) {
+  const [imageUrl, setImageUrl] = useState<string | StaticImageData>(imageAdd);
+
+  useEffect(() => {
+    if (file) {
+      const objectUrl = URL.createObjectURL(file);
+      setImageUrl(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    }
+  }, [file]);
 
   return (
     <div className={cx(formStyle, css({ marginTop: "24px" }))}>
@@ -57,6 +69,8 @@ function Form({ postData, onChangeInput, onChangeImage }: FormProps) {
           <Image
             src={imageUrl}
             alt="이미지 등록하기"
+            width={240}
+            height={240}
             className={css({ w: { xl: "282px" }, cursor: "pointer" })}
           />
         </label>

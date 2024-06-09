@@ -10,7 +10,7 @@ import React, { useState } from "react";
 interface PostData {
   content: string;
   title: string;
-  image: string | null;
+  image?: null | Blob | MediaSource;
 }
 
 function AddBoard() {
@@ -20,6 +20,7 @@ function AddBoard() {
     image: null,
   });
   const router = useRouter();
+  const [addImage, setAddImage] = useState<Blob | MediaSource>();
 
   const onChangeInput = (e: any) => {
     const { name, value } = e.target;
@@ -31,6 +32,7 @@ function AddBoard() {
 
   const onChangeImage = async (e: any) => {
     const file = e.target.files[0];
+    setAddImage(file);
     const token = localStorage.getItem("accessToken");
     const response = await postImage(token, file);
     setUserData({
@@ -60,6 +62,7 @@ function AddBoard() {
         <FormTitle isValid={isValid} handleSubmit={handleSubmit} />
         <Form
           postData={postData}
+          file={addImage}
           onChangeInput={onChangeInput}
           onChangeImage={onChangeImage}
         />

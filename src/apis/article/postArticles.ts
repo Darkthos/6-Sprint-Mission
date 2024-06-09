@@ -1,17 +1,12 @@
 import { Token } from "@/types/api";
 import axiosInstance from "../axiosInstance";
-
-export interface PostArticlesParams {
-  image?: null | string;
-  content: string;
-  title: string;
-}
+import { PostData } from "@/components/addBoardComponents/Form";
 
 const postArticles = async (
-  option: PostArticlesParams = {
-    image: null,
+  option: PostData = {
     content: "",
     title: "",
+    image: null,
   },
   token: Token
 ) => {

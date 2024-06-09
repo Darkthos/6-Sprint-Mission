@@ -59,7 +59,6 @@ function BoardDetail() {
     const loadComment = async () => {
       const response = await getArticlesIdComment(id);
       setComments(response.list);
-      console.log(response.list);
     };
     if (router.isReady) {
       loadComment();

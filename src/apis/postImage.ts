@@ -2,7 +2,7 @@ import axiosInstance from "@/apis/axiosInstance";
 import { Token } from "@/types/api";
 
 interface PostImageResponse {
-  url: string;
+  url?: null | Blob | MediaSource;
 }
 
 const postImage = async (token: Token, image?: any) => {
