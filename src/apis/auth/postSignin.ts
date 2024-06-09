@@ -1,3 +1,4 @@
+import { Token } from "@/types/api";
 import axiosInstance from "../axiosInstance";
 
 interface PostSigninParams {
@@ -12,7 +13,7 @@ const postSignin = async (
   }
 ) => {
   try {
-    const { data } = await axiosInstance.post<any>("/auth/signIn", {
+    const { data } = await axiosInstance.post<Token>("/auth/signIn", {
       email: option.email,
       password: option.password,
     });

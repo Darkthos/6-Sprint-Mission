@@ -1,16 +1,20 @@
+import { Token } from "@/types/api";
 import axiosInstance from "../axiosInstance";
 
-//'https://panda-market-api.vercel.app/articles/187/comments'
 const postArticlesComment = async (
   content: string,
   id: string,
-  headers: any
+  token: Token
 ) => {
   try {
     await axiosInstance.post<any>(
       `/articles/${id}/comments`,
       { content },
-      { headers }
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
   } catch (error) {
     console.error(`Failed to fetch data: ${error}`);

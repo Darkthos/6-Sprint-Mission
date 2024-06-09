@@ -1,22 +1,15 @@
 import axiosInstance from "../axiosInstance";
 
-interface GetArticlesIdCommentParams {
-  limit: string;
+interface GetArticlesIdCommentResponse {
+  list: [];
+  nextCursor: null | string;
 }
 
-/** 
- * @description 게시글 검색에 쓰는 쿼리 옵션
- * @params option {  
-    page: 1,
-    pageSize: "",
-    orderBy: "like" | "recent",
-    keyword: "",  }
- * @ref https://panda-market-api.vercel.app/#/articles
- */
-// https://panda-market-api.vercel.app/articles/28/comments?limit=100
-const getArticlesIdComment = async (articleId: any): Promise<any> => {
+const getArticlesIdComment = async (
+  articleId: string | string[] | undefined
+): Promise<GetArticlesIdCommentResponse> => {
   try {
-    const { data } = await axiosInstance.get<any>(
+    const { data } = await axiosInstance.get<GetArticlesIdCommentResponse>(
       `/articles/${articleId}/comments?limit=100`
     );
     return data;

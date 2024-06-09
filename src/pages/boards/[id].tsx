@@ -37,11 +37,8 @@ function BoardDetail() {
   const handleSubmit = async () => {
     if (typeof id !== "string") return;
     const token = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
     setCommentData("");
-    await postArticlesComment(commentData, id, headers);
+    await postArticlesComment(commentData, id, token);
     setIsChangeComments(!isChangeComments);
   };
 
@@ -53,8 +50,10 @@ function BoardDetail() {
         console.log(response);
       }
     };
-    loadArticlesId();
-  }, [id]);
+    if (router.isReady) {
+      loadArticlesId();
+    }
+  }, [id, router.isReady]);
 
   useEffect(() => {
     const loadComment = async () => {
@@ -62,8 +61,10 @@ function BoardDetail() {
       setComments(response.list);
       console.log(response.list);
     };
-    loadComment();
-  }, [isChangeComments]);
+    if (router.isReady) {
+      loadComment();
+    }
+  }, [isChangeComments, router.isReady]);
 
   const {
     content = "",
@@ -122,7 +123,7 @@ function BoardDetail() {
         {comments && comments.length > 0 ? (
           <div className={css({ marginBottom: "24px" })}>
             {comments.map((comment) => {
-              return <Comment comment={comment} />;
+              return <Comment comment={comment} key={comment.id} />;
             })}
           </div>
         ) : (

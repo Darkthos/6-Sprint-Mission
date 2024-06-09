@@ -32,10 +32,7 @@ function AddBoard() {
   const onChangeImage = async (e: any) => {
     const file = e.target.files[0];
     const token = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
-    const response = await postImage(headers, file);
+    const response = await postImage(token, file);
     setUserData({
       ...postData,
       image: response.url,
@@ -45,10 +42,7 @@ function AddBoard() {
   const handleSubmit = async () => {
     if (!isValid) return;
     const token = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
-    await postArticles(postData, headers);
+    await postArticles(postData, token);
     router.push("/boards");
   };
   const isValid: boolean = !!(postData.content && postData.title);
