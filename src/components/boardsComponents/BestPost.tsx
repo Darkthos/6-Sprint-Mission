@@ -14,9 +14,11 @@ function BestPost() {
     return isPc ? 3 : isTablet ? 2 : 1;
   }, [isPc, isTablet]);
 
+  const showArticles = articles.slice(0, pageSize);
+
   useEffect(() => {
     const loadArticles = async () => {
-      const receive = await getArticles({ pageSize });
+      const receive = await getArticles({ pageSize: 10000, orderBy: "like" });
       setArticles(receive.list);
     };
     loadArticles();
@@ -25,7 +27,7 @@ function BestPost() {
   return (
     <div className={bestPostContainer}>
       <div className={hstack({ gap: "16px", cursor: "pointer" })}>
-        {articles?.map((article) => {
+        {showArticles?.map((article) => {
           return <BestPostCard key={article.id} article={article} />;
         })}
       </div>
