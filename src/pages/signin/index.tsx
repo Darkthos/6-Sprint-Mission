@@ -9,8 +9,33 @@ import {
 } from "@/css/common/sign.styled";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
+import postSignin from "@/apis/auth/postSignin";
+import { ChangeEventHandler, useState } from "react";
+import { useRouter } from "next/router";
+import { saveTokenToLocalStorage } from "@/utils/localStorageToken";
 
-function signin() {
+function Signin() {
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+  const router = useRouter();
+
+  const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    router.push("/boards");
+    const response = await postSignin(userData);
+    saveTokenToLocalStorage(response);
+  };
+
   return (
     <div
       className={css({
@@ -19,24 +44,34 @@ function signin() {
       })}
     >
       <HeaderSign />
-      <div className={formBasicStyle}>
+      <form className={formBasicStyle}>
         <div className={labelInputContainer}>
           <label className={labelBasicStyle}>이메일</label>
           <input
+            name="email"
+            type="email"
             placeholder="이메일을 입력해주세요"
             className={inputRecipe()}
+            onChange={onChangeInput}
           />
         </div>
         <div className={labelInputContainer}>
           <label className={labelBasicStyle}>비밀번호</label>
           <input
+            name="password"
+            type="password"
             placeholder="비밀번호를 입력해주세요"
             className={inputRecipe()}
+            onChange={onChangeInput}
           />
         </div>
-        <Link href="./index.tsx" className={buttonRecipe({ visual: "sign" })}>
+        <button
+          type="submit"
+          className={buttonRecipe({ visual: "sign" })}
+          onClick={handleSubmit}
+        >
           로그인
-        </Link>
+        </button>
         <SocialLogin />
         <p className={css({ fontWeight: "bold" })}>
           판다마켓이 처음이신가요?{" "}
@@ -47,9 +82,9 @@ function signin() {
             회원가입
           </Link>
         </p>
-      </div>
+      </form>
     </div>
   );
 }
 
-export default signin;
+export default Signin;

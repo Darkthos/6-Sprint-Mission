@@ -10,6 +10,7 @@ export const buttonRecipe = cva({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "8px",
+    cursor: "pointer",
   },
   variants: {
     visual: {
@@ -27,6 +28,18 @@ export const buttonRecipe = cva({
       small: {
         width: "88px",
         height: "42px",
+      },
+      smallDisabled: {
+        bg: "disabledBasic",
+        width: "88px",
+        height: "42px",
+      },
+      large: {
+        w: "240px",
+        h: "48px",
+        borderRadius: "40px",
+        gap: "10px",
+        margin: "auto",
       },
     },
   },
