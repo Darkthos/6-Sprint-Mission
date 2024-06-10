@@ -29,7 +29,7 @@ function Signin() {
     });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.push("/boards");
     const response = await postSignin(userData);

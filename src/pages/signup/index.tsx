@@ -28,7 +28,7 @@ function Signup() {
     });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
       const response = await postSignup(userData);
