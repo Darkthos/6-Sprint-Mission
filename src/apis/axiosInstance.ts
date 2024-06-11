@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
-// git push origin Next.js-김민재-sprint10  실수하지않을려고 push config설정 안했는데 브랜치이름 너무 치기어려워서 넣었습니다.
+import { getToken } from "@/utils/localStorageToken";
+
 const axiosConfig: AxiosRequestConfig = {
   baseURL: "https://panda-market-api.vercel.app/",
   headers: {
@@ -9,5 +10,28 @@ const axiosConfig: AxiosRequestConfig = {
 };
 
 const axiosInstance = axios.create(axiosConfig);
+
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    const accessToken = await getToken();
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+axiosInstance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    alert(`ERROR: ${error.response.data.message}`);
+    return Promise.reject(error);
+  }
+);
 
 export default axiosInstance;
