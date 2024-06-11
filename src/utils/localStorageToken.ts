@@ -11,13 +11,14 @@ export const loadTokenToLocalStorage = (token: Token): void => {
   localStorage.getItem(token.refreshToken);
 };
 
-export const AccessTokenTOLocalStorage = async () => {
+export const AccessTokenToLocalStorage = async () => {
   if (
     !localStorage.getItem("accessToken") &&
     !localStorage.getItem("refreshToken")
-  )
+  ) {
     console.log("로컬스토리지 확인해봐 뭐있나 없으면 로그인 ㄱㄱ");
-  return;
+    return;
+  }
   if (!localStorage.getItem("accessToken")) {
     const refreshToken = localStorage.getItem("refreshToken");
     const token = await PostRefreshToken(refreshToken);

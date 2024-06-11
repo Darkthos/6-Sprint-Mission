@@ -21,7 +21,7 @@ import postArticlesComment from "@/apis/comment/postArticlesIdComment";
 import { ParsedUrlQuery } from "querystring";
 import { boardIdPageStyle, flexStyle } from "@/css/boardsId.styled";
 import PostRefreshToken from "@/apis/auth/PostRefreshToken";
-import { AccessTokenTOLocalStorage } from "@/utils/localStorageToken";
+import { AccessTokenToLocalStorage } from "@/utils/localStorageToken";
 
 function BoardDetail() {
   const router = useRouter();
@@ -38,7 +38,7 @@ function BoardDetail() {
 
   const handleSubmit = async () => {
     if (typeof id !== "string") return;
-    const token = await AccessTokenTOLocalStorage();
+    const token = await AccessTokenToLocalStorage();
     setCommentData("");
     await postArticlesComment(commentData, id, token);
     setIsChangeComments(!isChangeComments);
@@ -134,7 +134,7 @@ function BoardDetail() {
             className={css({ margin: "auto" })}
           />
         )}
-        <Link href="../" className={buttonRecipe({ visual: "large" })}>
+        <Link href="/boards" className={buttonRecipe({ visual: "large" })}>
           목록으로 돌아가기
           <Image src={backIcon} alt="돌아가기" />
         </Link>
