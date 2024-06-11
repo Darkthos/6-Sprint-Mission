@@ -46,7 +46,6 @@ function BoardDetail() {
       if (id) {
         const response = await getArticlesId(id);
         setPostDetail(response);
-        console.log(response);
       }
     };
     if (router.isReady) {

@@ -21,7 +21,12 @@ interface FormProps {
   onChangeImage: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Form({ postData, file, onChangeInput, onChangeImage }: FormProps) {
+function ArticleForm({
+  postData,
+  file,
+  onChangeInput,
+  onChangeImage,
+}: FormProps) {
   const [imageUrl, setImageUrl] = useState<string | StaticImageData>(imageAdd);
 
   useEffect(() => {
@@ -83,4 +88,4 @@ function Form({ postData, file, onChangeInput, onChangeImage }: FormProps) {
   );
 }
 
-export default Form;
+export default ArticleForm;

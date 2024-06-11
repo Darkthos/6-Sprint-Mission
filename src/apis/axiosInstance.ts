@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { getToken } from "@/utils/localStorageToken";
 
 const axiosConfig: AxiosRequestConfig = {
-  baseURL: "https://panda-market-api.vercel.app/",
+  baseURL: `${process.env.BASE_URL}`,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
