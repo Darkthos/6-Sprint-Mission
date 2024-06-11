@@ -20,8 +20,6 @@ import Header from "@/components/shared/Header/Header";
 import postArticlesComment from "@/apis/comment/postArticlesIdComment";
 import { ParsedUrlQuery } from "querystring";
 import { boardIdPageStyle, flexStyle } from "@/css/boardsId.styled";
-import PostRefreshToken from "@/apis/auth/PostRefreshToken";
-import { AccessTokenToLocalStorage } from "@/utils/localStorageToken";
 
 function BoardDetail() {
   const router = useRouter();
@@ -38,9 +36,8 @@ function BoardDetail() {
 
   const handleSubmit = async () => {
     if (typeof id !== "string") return;
-    const token = await AccessTokenToLocalStorage();
     setCommentData("");
-    await postArticlesComment(commentData, id, token);
+    await postArticlesComment(commentData, id);
     setIsChangeComments(!isChangeComments);
   };
 

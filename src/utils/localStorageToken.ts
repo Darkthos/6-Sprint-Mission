@@ -6,25 +6,27 @@ export const saveTokenToLocalStorage = (token: Token): void => {
   localStorage.setItem("refreshToken", token.refreshToken);
 };
 
-export const loadTokenToLocalStorage = (token: Token): void => {
-  localStorage.getItem(token.accessToken);
-  localStorage.getItem(token.refreshToken);
+export const loadTokenFromLocalStorage = (): Token | null => {
+  const accessToken = localStorage.getItem("accessToken")?.replace(/"/gi, "");
+  const refreshToken = localStorage.getItem("refreshToken")?.replace(/"/gi, "");
+  if (accessToken && refreshToken) {
+    return { accessToken, refreshToken } as Token;
+  }
+  return null;
 };
 
-export const AccessTokenToLocalStorage = async () => {
-  if (
-    !localStorage.getItem("accessToken") &&
-    !localStorage.getItem("refreshToken")
-  ) {
-    console.log("로컬스토리지 확인해봐 뭐있나 없으면 로그인 ㄱㄱ");
-    return;
+export const getToken = async (): Promise<string | null> => {
+  const token = loadTokenFromLocalStorage();
+  if (!token) {
+    console.log("로그인해라");
+    return null;
   }
-  if (!localStorage.getItem("accessToken")) {
-    const refreshToken = localStorage.getItem("refreshToken");
-    const token = await PostRefreshToken(refreshToken);
-    return token;
+
+  if (!token.accessToken) {
+    const newToken = await PostRefreshToken(token.refreshToken);
+    saveTokenToLocalStorage(newToken);
+    return newToken.accessToken;
   } else {
-    const token = localStorage.getItem("accessToken");
-    return token;
+    return token.accessToken;
   }
 };
