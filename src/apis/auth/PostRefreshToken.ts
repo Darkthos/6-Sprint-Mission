@@ -1,5 +1,5 @@
-import { Token } from "@/types/api";
 import axiosInstance from "../axiosInstance";
+import { Token } from "@/types/api";
 
 const PostRefreshToken = async (refreshToken?: string): Promise<Token> => {
   try {

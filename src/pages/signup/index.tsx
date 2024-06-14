@@ -9,10 +9,12 @@ import {
 } from "@/css/common/sign.styled";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, useEffect, useState } from "react";
 import postSignup from "@/apis/auth/postSignup";
+import { useRouter } from "next/router";
 
 function Signup() {
+  const router = useRouter();
   const [userData, setUserData] = useState({
     email: "",
     nickname: "",
@@ -32,6 +34,7 @@ function Signup() {
     e.preventDefault();
     try {
       const response = await postSignup(userData);
+      router.push("./signin");
       console.log("Signup successful:", response);
     } catch (error) {
       console.error("Signup failed:", error);
