@@ -9,36 +9,33 @@ import {
 } from "@/css/common/sign.styled";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
-import { ChangeEventHandler, useEffect, useState } from "react";
-import postSignup from "@/apis/auth/postSignup";
-import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { useAuth } from "@/context/AuthProvider";
+
+interface SignupFormData {
+  email: string;
+  nickname: string;
+  password: string;
+  passwordConfirmation: string;
+}
 
 function Signup() {
-  const router = useRouter();
-  const [userData, setUserData] = useState({
-    email: "",
-    nickname: "",
-    password: "",
-    passwordConfirmation: "",
-  });
+  const { createAccount } = useAuth();
 
-  const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const { name, value } = e.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    trigger,
+    watch,
+  } = useForm<SignupFormData>();
+
+  const onSubmit = async (data: SignupFormData) => {
+    await createAccount(data);
   };
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    try {
-      const response = await postSignup(userData);
-      router.push("./signin");
-      console.log("Signup successful:", response);
-    } catch (error) {
-      console.error("Signup failed:", error);
-    }
+  const handleBlur = async (field: keyof SignupFormData) => {
+    await trigger(field);
   };
 
   return (
@@ -49,59 +46,97 @@ function Signup() {
       })}
     >
       <HeaderSign />
-      <form className={formBasicStyle}>
+      <form className={formBasicStyle} onSubmit={handleSubmit(onSubmit)}>
         <div className={labelInputContainer}>
           <label className={labelBasicStyle}>
             이메일
             <input
-              name="email"
-              type={userData.email}
-              placeholder="이메일을 입력해주세요"
+              {...register("email", {
+                required: { value: true, message: "이메일을 입력해주세요" },
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: "이메일 형식이 올바르지 않습니다",
+                },
+              })}
               className={inputRecipe()}
-              onChange={onChangeInput}
+              onBlur={() => handleBlur("email")}
             />
+            {errors.email && (
+              <p className={css({ color: "errorRed" })}>
+                {errors.email.message}
+              </p>
+            )}
           </label>
         </div>
         <div className={labelInputContainer}>
           <label className={labelBasicStyle}>
             닉네임
             <input
-              name="nickname"
-              type={userData.nickname}
-              placeholder="닉네임을 입력해주세요"
+              {...register("nickname", {
+                required: { value: true, message: "닉네임을 입력해주세요" },
+                minLength: {
+                  value: 1,
+                  message: "닉네임을 입력해주세요",
+                },
+              })}
               className={inputRecipe()}
-              onChange={onChangeInput}
+              onBlur={() => handleBlur("nickname")}
             />
+            {errors.nickname && (
+              <p className={css({ color: "errorRed" })}>
+                {errors.nickname.message}
+              </p>
+            )}
           </label>
         </div>
         <div className={labelInputContainer}>
           <label className={labelBasicStyle}>
             비밀번호
             <input
-              name="password"
-              type={userData.password}
-              placeholder="비밀번호를 입력해주세요"
+              {...register("password", {
+                required: { value: true, message: "비밀번호를 입력해주세요" },
+                minLength: {
+                  value: 8,
+                  message: "비밀번호는 최소 8자 이상이어야 합니다",
+                },
+              })}
+              type="password"
               className={inputRecipe()}
-              onChange={onChangeInput}
+              onBlur={() => handleBlur("password")}
             />
+            {errors.password && (
+              <p className={css({ color: "errorRed" })}>
+                {errors.password.message}
+              </p>
+            )}
           </label>
         </div>
         <div className={labelInputContainer}>
           <label className={labelBasicStyle}>
             비밀번호 확인
             <input
-              name="passwordConfirmation"
-              type={userData.passwordConfirmation}
-              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              {...register("passwordConfirmation", {
+                required: {
+                  value: true,
+                  message: "비밀번호 확인을 입력해주세요",
+                },
+                validate: (value) =>
+                  value === watch("password") || "비밀번호가 일치하지 않습니다",
+              })}
+              type="password"
               className={inputRecipe()}
-              onChange={onChangeInput}
+              onBlur={() => handleBlur("passwordConfirmation")}
             />
+            {errors.passwordConfirmation && (
+              <p className={css({ color: "errorRed" })}>
+                {errors.passwordConfirmation.message}
+              </p>
+            )}
           </label>
         </div>
         <button
           type="submit"
-          className={buttonRecipe({ visual: "sign" })}
-          onClick={handleSubmit}
+          className={buttonRecipe({ visual: "sign", active: isValid })}
         >
           회원가입
         </button>
