@@ -50,7 +50,6 @@ function AddBoard() {
 
   const handleSubmit = async () => {
     if (!isValid) return;
-
     await postArticles(postData);
     router.push("/boards");
   };

@@ -2,7 +2,9 @@ import { Token } from "@/types/api";
 
 export const saveTokenToLocalStorage = (token: Token): void => {
   localStorage.setItem("accessToken", token.accessToken);
-  localStorage.setItem("refreshToken", token.refreshToken);
+  if (token.refreshToken) {
+    localStorage.setItem("refreshToken", token.refreshToken);
+  }
 };
 
 export const loadTokenFromLocalStorage = (): Token | null => {

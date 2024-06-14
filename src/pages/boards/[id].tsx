@@ -36,8 +36,8 @@ function BoardDetail() {
 
   const handleSubmit = async () => {
     if (typeof id !== "string") return;
-    setCommentData("");
     await postArticlesComment(commentData, id);
+    setCommentData("");
     setIsChangeComments(!isChangeComments);
   };
 
@@ -61,7 +61,7 @@ function BoardDetail() {
     if (router.isReady) {
       loadComment();
     }
-  }, [isChangeComments, router.isReady]);
+  }, [router.isReady, isChangeComments]);
 
   const {
     content = "",

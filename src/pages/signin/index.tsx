@@ -11,11 +11,7 @@ import { css } from "@/styled-system/css";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthProvider";
 import { useForm } from "react-hook-form";
-
-interface SignInFormData {
-  email: string;
-  password: string;
-}
+import { UserData } from "@/types/auth";
 
 function Signin() {
   const { login } = useAuth();
@@ -25,13 +21,13 @@ function Signin() {
     handleSubmit,
     formState: { errors, isValid },
     trigger,
-  } = useForm<SignInFormData>();
+  } = useForm<UserData>();
 
-  const onSubmit = async (data: SignInFormData) => {
+  const onSubmit = async (data: UserData) => {
     await login(data);
   };
 
-  const handleBlur = async (field: keyof SignInFormData) => {
+  const handleBlur = async (field: keyof UserData) => {
     await trigger(field);
   };
 
@@ -55,6 +51,7 @@ function Signin() {
                   message: "이메일 형식이 올바르지 않습니다",
                 },
               })}
+              placeholder="이메일을 입력해주세요"
               className={inputRecipe()}
               onBlur={() => handleBlur("email")}
             />
@@ -73,10 +70,11 @@ function Signin() {
                 required: { value: true, message: "비밀번호를 입력해주세요" },
                 minLength: {
                   value: 8,
-                  message: "비밀번호는 최소 8자 이상이어야 합니다",
+                  message: "비밀번호를 8자 이상 입력해주세요",
                 },
               })}
               type="password"
+              placeholder="비밀번호를 입력해주세요"
               className={inputRecipe()}
               onBlur={() => handleBlur("password")}
             />

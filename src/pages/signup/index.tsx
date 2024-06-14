@@ -11,13 +11,7 @@ import { css } from "@/styled-system/css";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthProvider";
-
-interface SignupFormData {
-  email: string;
-  nickname: string;
-  password: string;
-  passwordConfirmation: string;
-}
+import { UserAccount } from "@/types/auth";
 
 function Signup() {
   const { createAccount } = useAuth();
@@ -28,13 +22,13 @@ function Signup() {
     formState: { errors, isValid },
     trigger,
     watch,
-  } = useForm<SignupFormData>();
+  } = useForm<UserAccount>();
 
-  const onSubmit = async (data: SignupFormData) => {
+  const onSubmit = async (data: UserAccount) => {
     await createAccount(data);
   };
 
-  const handleBlur = async (field: keyof SignupFormData) => {
+  const handleBlur = async (field: keyof UserAccount) => {
     await trigger(field);
   };
 
@@ -55,9 +49,10 @@ function Signup() {
                 required: { value: true, message: "이메일을 입력해주세요" },
                 pattern: {
                   value: /^\S+@\S+$/i,
-                  message: "이메일 형식이 올바르지 않습니다",
+                  message: "잘못된 이메일 형식입니다",
                 },
               })}
+              placeholder="이메일을 입력해주세요"
               className={inputRecipe()}
               onBlur={() => handleBlur("email")}
             />
@@ -79,6 +74,7 @@ function Signup() {
                   message: "닉네임을 입력해주세요",
                 },
               })}
+              placeholder="닉네임을 입력해주세요"
               className={inputRecipe()}
               onBlur={() => handleBlur("nickname")}
             />
@@ -97,9 +93,10 @@ function Signup() {
                 required: { value: true, message: "비밀번호를 입력해주세요" },
                 minLength: {
                   value: 8,
-                  message: "비밀번호는 최소 8자 이상이어야 합니다",
+                  message: "비밀번호를 8자 이상 입력해주세요",
                 },
               })}
+              placeholder="비밀번호를 입력해주세요"
               type="password"
               className={inputRecipe()}
               onBlur={() => handleBlur("password")}
@@ -124,6 +121,7 @@ function Signup() {
                   value === watch("password") || "비밀번호가 일치하지 않습니다",
               })}
               type="password"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
               className={inputRecipe()}
               onBlur={() => handleBlur("passwordConfirmation")}
             />
