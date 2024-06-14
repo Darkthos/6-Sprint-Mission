@@ -46,46 +46,54 @@ function Signup() {
       })}
     >
       <HeaderSign />
-      <div className={formBasicStyle}>
+      <form className={formBasicStyle}>
         <div className={labelInputContainer}>
-          <label className={labelBasicStyle}>이메일</label>
-          <input
-            name="email"
-            type={userData.email}
-            placeholder="이메일을 입력해주세요"
-            className={inputRecipe()}
-            onChange={onChangeInput}
-          />
+          <label className={labelBasicStyle}>
+            이메일
+            <input
+              name="email"
+              type={userData.email}
+              placeholder="이메일을 입력해주세요"
+              className={inputRecipe()}
+              onChange={onChangeInput}
+            />
+          </label>
         </div>
         <div className={labelInputContainer}>
-          <label className={labelBasicStyle}>닉네임</label>
-          <input
-            name="nickname"
-            type={userData.nickname}
-            placeholder="닉네임을 입력해주세요"
-            className={inputRecipe()}
-            onChange={onChangeInput}
-          />
+          <label className={labelBasicStyle}>
+            닉네임
+            <input
+              name="nickname"
+              type={userData.nickname}
+              placeholder="닉네임을 입력해주세요"
+              className={inputRecipe()}
+              onChange={onChangeInput}
+            />
+          </label>
         </div>
         <div className={labelInputContainer}>
-          <label className={labelBasicStyle}>비밀번호</label>
-          <input
-            name="password"
-            type={userData.password}
-            placeholder="비밀번호를 입력해주세요"
-            className={inputRecipe()}
-            onChange={onChangeInput}
-          />
+          <label className={labelBasicStyle}>
+            비밀번호
+            <input
+              name="password"
+              type={userData.password}
+              placeholder="비밀번호를 입력해주세요"
+              className={inputRecipe()}
+              onChange={onChangeInput}
+            />
+          </label>
         </div>
         <div className={labelInputContainer}>
-          <label className={labelBasicStyle}>비밀번호 확인</label>
-          <input
-            name="passwordConfirmation"
-            type={userData.passwordConfirmation}
-            placeholder="비밀번호를 다시 한 번 입력해주세요"
-            className={inputRecipe()}
-            onChange={onChangeInput}
-          />
+          <label className={labelBasicStyle}>
+            비밀번호 확인
+            <input
+              name="passwordConfirmation"
+              type={userData.passwordConfirmation}
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              className={inputRecipe()}
+              onChange={onChangeInput}
+            />
+          </label>
         </div>
         <button
           type="submit"
@@ -104,7 +112,7 @@ function Signup() {
             로그인
           </Link>
         </p>
-      </div>
+      </form>
     </div>
   );
 }

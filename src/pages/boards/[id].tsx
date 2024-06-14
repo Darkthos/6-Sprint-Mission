@@ -95,7 +95,7 @@ function BoardDetail() {
           </div>
         </div>
         <p className={css({ minH: "80px" })}>{content}</p>
-        <div className={flexStyle}>
+        <form className={flexStyle}>
           <label className={subTitle}>댓글 달기</label>
           <textarea
             name="comment"
@@ -116,7 +116,7 @@ function BoardDetail() {
           >
             등록
           </button>
-        </div>
+        </form>
         {comments && comments.length > 0 ? (
           <div className={css({ marginBottom: "24px" })}>
             {comments.map((comment) => {
