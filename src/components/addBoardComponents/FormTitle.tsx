@@ -13,9 +13,7 @@ function FormTitle({ isValid, handleSubmit }: FormTitleProps) {
     <div className={hstack({ justifyContent: "space-between" })}>
       <h2 className={subTitle}>게시글 쓰기</h2>
       <button
-        className={buttonRecipe(
-          isValid ? { visual: "small" } : { visual: "smallDisabled" }
-        )}
+        className={buttonRecipe({ visual: isValid ? "small" : "large" })}
         onClick={handleSubmit}
       >
         글쓰기

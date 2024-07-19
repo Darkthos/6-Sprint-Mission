@@ -22,7 +22,7 @@ interface GetArticlesParams {
 const getArticles = async (
   option: GetArticlesParams = {
     page: 1,
-    pageSize: "",
+    pageSize: 10,
     orderBy: "like",
     keyword: "",
   }
