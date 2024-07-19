@@ -4,9 +4,9 @@ import SortBy from "../shared/SortBy";
 function ControlBar() {
   return (
     <div>
-      <SearchBar />
+      {/* <SearchBar />
       <button>상품 등록하기</button>
-      <SortBy sortByText="최애순" />
+      <SortBy sortByText="최애순" /> */}
     </div>
   );
 }
