@@ -1,7 +1,7 @@
 import { GetProductsResponse } from "@/types/products.type";
 import ProductCard from "./ProductCard";
 
-function BestProductList({
+function AllProductList({
   products: { list },
 }: {
   products: GetProductsResponse;
@@ -9,9 +9,10 @@ function BestProductList({
   return (
     <div>
       {list.map((item, index) => (
-        <ProductCard item={item} key={item.id} index={index} />
+        <ProductCard item={item} key={item.id} />
       ))}
     </div>
   );
 }
-export default BestProductList;
+
+export default AllProductList;

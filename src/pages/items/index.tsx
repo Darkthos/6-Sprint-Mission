@@ -1,35 +1,61 @@
-import getArticles from "@/apis/article/getArticles";
-import getProducts from "@/apis/product/getProducts";
-import AllProduct from "@/components/itemsComponents/AllProduct";
-import BestProducts from "@/components/itemsComponents/BestProducts";
+import getProducts, { GetProductsParams } from "@/apis/product/getProducts";
+import AllProductList from "@/components/itemsComponents/AllProductList";
+import BestProductList from "@/components/itemsComponents/BestProducts";
 import ControlBar from "@/components/itemsComponents/ControlBar";
 import Header from "@/components/shared/Header/Header";
-import { GetArticlesResponse } from "@/types/articles";
+import { GetProductsResponse } from "@/types/products.type";
 import { useQuery } from "@tanstack/react-query";
 
-export async function getServerSideProps() {
-  const Products = await getProducts();
-  return { props: { Products } };
+export async function getServerSideProps(context: any) {
+  const userAgent = context.req.headers["user-agent"];
+  const isMobile = /mobile/i.test(userAgent);
+  const bestProductsOption: GetProductsParams = {
+    page: 1,
+    pageSize: 3,
+    orderBy: "favorite",
+  };
+  console.log(isMobile);
+  const allProductsOption: GetProductsParams = {
+    page: 1,
+    pageSize: isMobile ? 5 : 10,
+    orderBy: "recent",
+  };
+
+  const bestProducts = await getProducts(bestProductsOption);
+  const allProducts = await getProducts(allProductsOption);
+
+  return { props: { bestProducts, allProducts } };
 }
 
-function Items({ Products }: { Products: GetArticlesResponse }) {
-  const { data } = useQuery({
-    queryKey: ["posts"],
-    queryFn: () => getProducts(), // 리액트 쿼리 수업이나 들어라 ㅋㅋㅋ
-    initialData: Products,
+function Items({
+  bestProducts,
+  allProducts,
+}: {
+  bestProducts: GetProductsResponse;
+  allProducts: GetProductsResponse;
+}) {
+  const { data: bestProductsData } = useQuery({
+    queryKey: ["bestProductsData"],
+    queryFn: () => getProducts({ orderBy: "favorite", pageSize: 3, page: 1 }),
+    initialData: bestProducts,
   });
 
-  console.log(data);
+  const { data: allProductsData } = useQuery({
+    queryKey: ["allProductsData"],
+    queryFn: () => getProducts({ orderBy: "recent", pageSize: 10, page: 1 }),
+    initialData: allProducts,
+  });
+
   return (
     <div>
       <Header />
       <h1>베스트 상품</h1>
-      <BestProducts />
+      <BestProductList products={bestProductsData} />
       <div>
-        <h1>전체 상품</h1>
+        <h1>판매중인 상품</h1>
         <ControlBar />
+        <AllProductList products={allProductsData} />
       </div>
-      <AllProduct />
     </div>
   );
 }
